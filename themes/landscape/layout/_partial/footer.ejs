@@ -1,0 +1,26 @@
+<footer id="footer">
+  <% if (theme.sidebar === 'bottom'){ %>
+    <%- partial('_partial/sidebar') %>
+  <% } %>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	  <a href="https://github.com/yuukidach" title="Github" target="_blank">
+	    <i class="footer-icon fa fa-github-square fa-4x">&ensp;</i>
+	  </a>
+	  <a href="https://www.facebook.com/yuuki.dach" title="Facebook" target="_blank">
+		<i class="footer-icon fa fa-facebook-square fa-4x">&ensp;</i>
+	  </a>
+	  <br/>
+	  <br/>
+	  <p class="footer-words">A long long way to find myself.</p>
+	  <br/>
+      <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶端按钮 -->
+<script src="<%- config.root %>js/jquery-3.1.0.min.js"></script>
+<%- partial('totop') %>
+<script src="<%- config.root %>js/totop.js"></script>

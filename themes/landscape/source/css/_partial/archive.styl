@@ -1,0 +1,91 @@
+.archives-wrap
+  margin: block-margin 0
+
+.archives
+  clearfix()
+
+.archive-year-wrap
+  margin-bottom: 1em
+
+.archive-year
+  @extend $block-caption
+  font-size: 2em
+
+.archives
+  column-gap: 10px
+  @media mq-tablet
+    column-count: 1
+  @media mq-normal
+    column-count: 1
+
+.archive-article
+  avoid-column-break()
+
+.archive-article-inner
+  @extend $block
+  padding: 10px
+  font-size: 1.2em
+  font-family: Verdana,font-mono
+  padding-left: 20px
+  margin-bottom: 15px
+  margin-left: 20%
+  border-left: 20px solid #ad4
+
+.archive-article-title
+  text-decoration: none
+  font-weight: bold
+  color: #adb
+  transition: color 0.2s
+  line-height: line-height
+  &:hover
+    color: color-link
+
+.archive-article-footer
+  margin-top: 1em
+
+.archive-article-date
+  color: color-grey
+  text-decoration: none
+  font-size: 0.85em
+  line-height: 1em
+  margin-bottom: 0.5em
+  display: block
+
+.archive-side
+  float: left
+  padding-left: 6%
+  color: mediumseagreen
+
+#page-nav
+  clearfix()
+  margin: block-margin auto
+  background: #1d1d1d
+  //box-shadow: 1px 2px 3px #ddd
+  border: 1px solid color-border
+  border-radius: 3px
+  text-align: center
+  color: color-grey
+  overflow: hidden
+  a, span
+    padding: 10px 20px
+    line-height: 1
+    height: 2ex
+  a
+    color: color-grey
+    text-decoration: none
+    &:hover
+      background: lightblue
+      color: #fff
+  .prev
+    float: left
+  .next
+    float: right
+  .page-number
+    display: inline-block
+    @media mq-mobile
+      display: none
+  .current
+    color: white //当前页字体颜色
+    font-weight: bold
+  .space
+    color: color-border
