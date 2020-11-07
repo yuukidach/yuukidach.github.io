@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Makefile for Projects with Subdirectories | Dash&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AbstractIn order to manage our project easily, we may tend to make for help. Usually, our projects will contians many subdirectories. So writing a makefile which can always compile our projects succes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Makefile for Projects with Subdirectories">
+<meta property="og:url" content="http://yuukidach.github.io/2019/08/05/makefile-learning/index.html">
+<meta property="og:site_name" content="Dash&#39;s Blog">
+<meta property="og:description" content="AbstractIn order to manage our project easily, we may tend to make for help. Usually, our projects will contians many subdirectories. So writing a makefile which can always compile our projects succes">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-03T07:58:57.977Z">
+<meta property="article:author" content="Dash">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="Makefile">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Dash&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link href="/images/web.ico" rel="icon" type="image/x-ico">
+
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Dash&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+		<a class="nav-icon" href="http://weibo.com/u/5997638963" title="Weibo" target="_blank">&#xf18a;</a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuukidach.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-makefile-learning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/05/makefile-learning/" class="article-date">
+  <time datetime="2019-08-04T16:00:00.000Z" itemprop="datePublished">2019-08-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Makefile/">Makefile</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Makefile for Projects with Subdirectories
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	  
+    <div class="article-entry" itemprop="articleBody">
+	    
+	  <!-- Table of Contents -->
+	  
+   	    <div id="toc" class="toc-article">
+		  <strong class="toc-title">Contents</strong>
+	   	    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-number">2.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Practice"><span class="toc-number">3.</span> <span class="toc-text">Practice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practice-1-Write-All-Targets-Directly"><span class="toc-number">3.1.</span> <span class="toc-text">Practice 1 - Write All Targets Directly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pracetice-2-Use-variables"><span class="toc-number">3.2.</span> <span class="toc-text">Pracetice 2 - Use variables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practice-3-Complete-the-makefile"><span class="toc-number">3.3.</span> <span class="toc-text">Practice 3 - Complete the makefile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+	    </div>
+	  
+
+      <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>In order to manage our project easily, we may tend to <code>make</code> for help. Usually, our projects will contians many subdirectories. So writing a makefile which can always compile our projects successfully when our project add, delete or modify some sub-dirs is quite important.</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Take my private projects <code>kmusb</code> for example.</p>
+<p>It file structure is like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── arg_parser</span><br><span class="line">│   ├── arg_parser.c</span><br><span class="line">│   └── arg_parser.h</span><br><span class="line">├── bin</span><br><span class="line">├── data</span><br><span class="line">├── kmusb.c</span><br><span class="line">├── kmusb.h</span><br><span class="line">├── makefile</span><br><span class="line">├── obj</span><br><span class="line">├── semihost</span><br><span class="line">│   ├── usb_semihost.c</span><br><span class="line">│   └── usb_semihost.h</span><br><span class="line">├── virtual_com.c</span><br><span class="line">└── virtual_com.h</span><br></pre></td></tr></table></figure>
+
+<p>I know the structure is awful. But let’s forget about it first, since our final goal is to write a universal makefile that can compile our project, no matter what file structure they have.</p>
+<p>For the above project:  </p>
+<ul>
+<li><code>main</code> function is contianed in <code>kmsub.c</code></li>
+<li><code>arg_parser/</code>, <code>semihost/</code>are 2 directories that we write our code in them</li>
+<li><code>bin/</code> contains the output file</li>
+<li><code>obj/</code> contains all <code>*.obj</code> files and list them just like <code>*.c</code> files in the project.</li>
+<li><code>data/</code> is a folder that we store the data created when the program is running</li>
+</ul>
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><h3 id="Practice-1-Write-All-Targets-Directly"><a href="#Practice-1-Write-All-Targets-Directly" class="headerlink" title="Practice 1 - Write All Targets Directly"></a>Practice 1 - Write All Targets Directly</h3><p>To write a most simple makefile, we can code like:</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">TARGET = kmusb</span><br><span class="line"></span><br><span class="line">OUTDIR = ./bin</span><br><span class="line">DATADIR = ./data</span><br><span class="line">DIR_INC = ./semihost</span><br><span class="line">DIR_OBJ = ./obj</span><br><span class="line"></span><br><span class="line">CC = gcc</span><br><span class="line"></span><br><span class="line">objects = kmusb.o usb_5411x.o</span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: clean</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>: clean <span class="variable">$(objects)</span></span><br><span class="line">    <span class="variable">$(CC)</span> -o <span class="variable">$(OUTDIR)</span>/<span class="variable">$(TARGET)</span> <span class="variable">$(objects)</span></span><br><span class="line"></span><br><span class="line"><span class="section">kmusb.o: kmusb.c ./semihost/usb_semihost.h ./arg_parser/arg_parser.h</span></span><br><span class="line">    <span class="variable">$(CC)</span> -I./semihost -I./arg_paser -c kmusb.c</span><br><span class="line"></span><br><span class="line"><span class="section">virtual_com.o: virtual_com.c virutual_com.h</span></span><br><span class="line">    <span class="variable">$(CC)</span> -c virtual_com.c</span><br><span class="line"></span><br><span class="line"><span class="section">arg_parser.o: ./arg_parser/arg_parser.c ./arg_parser/arg_parser.h</span></span><br><span class="line">    <span class="variable">$(CC)</span> -c ./arg_parser/arg_parser.c</span><br><span class="line"></span><br><span class="line"><span class="section">usb_semihost.o: ./semihost/usb_semihost.c ./semihost/usb_semihost.h</span></span><br><span class="line">    <span class="variable">$(CC)</span> -c ./semihost/usb_semihost.c</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    rm -rf <span class="variable">$(OUTDIR)</span>/* <span class="variable">$(DATADIR)</span>/* *.o</span><br></pre></td></tr></table></figure>
+
+<p>We write all the targets directly.</p>
+<blockquote>
+<p><code>.PHONY</code>: A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request.  </p>
+<p>There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance. <a href="#references">[1]</a></p>
+</blockquote>
+<h3 id="Pracetice-2-Use-variables"><a href="#Pracetice-2-Use-variables" class="headerlink" title="Pracetice 2 - Use variables"></a>Pracetice 2 - Use variables</h3><p>It’s unconvinient to write all the target directly. If we modify our project later, we need to change a lot in the makefile. Just like the variable <code>CC</code>, we can also define varibles to store the subfolders.</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">TARGET = kmusb</span><br><span class="line"></span><br><span class="line">CC = gcc</span><br><span class="line">CFLAGS = -g</span><br><span class="line"></span><br><span class="line">OUTDIR = ./bin</span><br><span class="line">DATADIR = ./data</span><br><span class="line">SUBDIR = semihost stream arg_parser</span><br><span class="line">DIR_OBJ = ./obj</span><br><span class="line"></span><br><span class="line">INCS = <span class="variable">$(<span class="built_in">wildcard</span> *.h $(<span class="built_in">foreach</span> fd, <span class="variable">$(SUBDIR)</span>, <span class="variable">$(fd)</span>/*.h)</span>)</span><br><span class="line">SRCS = <span class="variable">$(<span class="built_in">wildcard</span> *.c $(<span class="built_in">foreach</span> fd, <span class="variable">$(SUBDIR)</span>, <span class="variable">$(fd)</span>/*.c)</span>)</span><br><span class="line">NODIR_SRC = <span class="variable">$(<span class="built_in">notdir</span> <span class="variable">$(SRCS)</span>)</span></span><br><span class="line">OBJS = <span class="variable">$(<span class="built_in">addprefix</span> <span class="variable">$(DIR_OBJ)</span>/, $(SRCS:c=o)</span>) <span class="comment"># obj/xxx.o obj/folder/xxx .o</span></span><br><span class="line">INC_DIRS = <span class="variable">$(<span class="built_in">addprefix</span> -I, <span class="variable">$(SUBDIR)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: clean echoes</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(TARGET)</span>: <span class="variable">$(OBJS)</span></span><br><span class="line">    <span class="variable">$(CC)</span> -o <span class="variable">$(OUTDIR)</span>/<span class="variable">$@</span> <span class="variable">$(OBJS)</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(DIR_OBJ)</span>/%.o: %.c <span class="variable">$(INCS)</span></span><br><span class="line">    mkdir -p $(@D)</span><br><span class="line">    <span class="variable">$(CC)</span> -o <span class="variable">$@</span> -c <span class="variable">$&lt;</span> <span class="variable">$(CFLAGS)</span> <span class="variable">$(INC_DIRS)</span></span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    rm -rf <span class="variable">$(OUTDIR)</span>/* <span class="variable">$(DATADIR)</span>/* <span class="variable">$(DIR_OBJ)</span>/*</span><br><span class="line"></span><br><span class="line"><span class="section">echoes:</span></span><br><span class="line">    @echo <span class="string">&quot;INC files: <span class="variable">$(INCS)</span>&quot;</span>  </span><br><span class="line">    @echo <span class="string">&quot;SRC files: <span class="variable">$(SRCS)</span>&quot;</span></span><br><span class="line">    @echo <span class="string">&quot;OBJ files: <span class="variable">$(OBJS)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>foreach</code>: It causes one piece of text to be used repeatedly, each time with a different substitution performed on it. It resembles the for command in the shell sh and the foreach command in the C-shell csh.<a href="#references">[2]</a>  </p>
+<ul>
+<li>Systax: <code>$(foreach var,list,text)</code>  </li>
+</ul>
+<p><code>$(@D)</code>: <em>automatic variables.</em> The directory part of the file name of the target, with the trailing slash removed. If the value of <code>$@</code> is <code>dir/foo.o</code> then <code>$(@D)</code> is <code>dir</code>. This value is <code>.</code> if <code>$@</code> does not contain a slash.</p>
+</blockquote>
+<p>Here we add a variable <code>SUBDIR</code> and add our subfolders in it. Then we can use <code>make</code> syntax like <code>wildcard</code>, <code>foreach</code>and so on to get all <code>*.c</code> and <code>*.h</code> file in the project. As for the <code>obj/</code> folder, to better maintain all the <code>*.obj</code>, we will create folders with the same name as the subfolders in the projects under <code>obj/</code>.</p>
+<p>Besides, we add a target <code>echoes</code> to help us debug our makefile.</p>
+<p>Now, our makefile can compile the projects with subfolders easily. Just change the contents in <code>SUBDIR</code>.</p>
+<h3 id="Practice-3-Complete-the-makefile"><a href="#Practice-3-Complete-the-makefile" class="headerlink" title="Practice 3 - Complete the makefile"></a>Practice 3 - Complete the makefile</h3><p>From above actions, we wrote a makefile that can adapt to various of projects. This part just some small modification to make our makefile better to look.</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">TARGET = kmusb</span><br><span class="line"></span><br><span class="line">CC = gcc</span><br><span class="line">CFLAGS = -g</span><br><span class="line"></span><br><span class="line">OUTDIR = ./bin</span><br><span class="line">DATADIR = ./data</span><br><span class="line">SUBDIR = semihost stream arg_parser</span><br><span class="line">DIR_OBJ = ./obj</span><br><span class="line"></span><br><span class="line">INCS = <span class="variable">$(<span class="built_in">wildcard</span> *.h $(<span class="built_in">foreach</span> fd, <span class="variable">$(SUBDIR)</span>, <span class="variable">$(fd)</span>/*.h)</span>)</span><br><span class="line">SRCS = <span class="variable">$(<span class="built_in">wildcard</span> *.c $(<span class="built_in">foreach</span> fd, <span class="variable">$(SUBDIR)</span>, <span class="variable">$(fd)</span>/*.c)</span>)</span><br><span class="line">NODIR_SRC = <span class="variable">$(<span class="built_in">notdir</span> <span class="variable">$(SRCS)</span>)</span></span><br><span class="line">OBJS = <span class="variable">$(<span class="built_in">addprefix</span> <span class="variable">$(DIR_OBJ)</span>/, $(SRCS:c=o)</span>) <span class="comment"># obj/xxx.o obj/folder/xxx .o</span></span><br><span class="line">INC_DIRS = -I./ <span class="variable">$(<span class="built_in">addprefix</span> -I, <span class="variable">$(SUBDIR)</span>)</span></span><br><span class="line">LIBS = -largp</span><br><span class="line">LIB_DIRS = -L/usr/local/Cellar/argp-standalone/1.3/lib</span><br><span class="line"></span><br><span class="line">PHONY := <span class="variable">$(TARGET)</span></span><br><span class="line"><span class="variable">$(TARGET)</span>: <span class="variable">$(OBJS)</span></span><br><span class="line">    <span class="variable">$(CC)</span> -o <span class="variable">$(OUTDIR)</span>/<span class="variable">$@</span> <span class="variable">$(OBJS)</span> <span class="variable">$(LIB_DIRS)</span> <span class="variable">$(LIBS)</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(DIR_OBJ)</span>/%.o: %.c <span class="variable">$(INCS)</span></span><br><span class="line">    mkdir -p $(@D)</span><br><span class="line">    <span class="variable">$(CC)</span> -o <span class="variable">$@</span> <span class="variable">$(CFLAGS)</span> -c <span class="variable">$&lt;</span> <span class="variable">$(INC_DIRS)</span></span><br><span class="line"></span><br><span class="line">PHONY += clean</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    rm -rf <span class="variable">$(OUTDIR)</span>/* <span class="variable">$(DATADIR)</span>/* <span class="variable">$(DIR_OBJ)</span>/*</span><br><span class="line"></span><br><span class="line">PHONY += echoes</span><br><span class="line"><span class="section">echoes:</span></span><br><span class="line">    @echo <span class="string">&quot;INC files: <span class="variable">$(INCS)</span>&quot;</span></span><br><span class="line">    @echo <span class="string">&quot;SRC files: <span class="variable">$(SRCS)</span>&quot;</span></span><br><span class="line">    @echo <span class="string">&quot;OBJ files: <span class="variable">$(OBJS)</span>&quot;</span></span><br><span class="line">    @echo <span class="string">&quot;LIB files: <span class="variable">$(LIBS)</span>&quot;</span></span><br><span class="line">    @echo <span class="string">&quot;INC DIR: <span class="variable">$(INC_DIRS)</span>&quot;</span></span><br><span class="line">    @echo <span class="string">&quot;LIB DIR: <span class="variable">$(LIB_DIRS)</span>&quot;</span></span><br><span class="line"></span><br><span class="line">.PHONY = <span class="variable">$(PHONY)</span></span><br></pre></td></tr></table></figure>
+
+<p>Let’s leave alone the include library I added, since our main goal is to write a makefile to complie projects with subfolders. This makefile is copied from my projects.</p>
+<p>You see, I adjust the way to write <code>.PHONY</code>.</p>
+<p>This is a trick that I got from <a target="_blank" rel="noopener" href="https://github.com/mirror/busybox">busybox</a>. We add contents to the <code>.PHONY</code> wehen we write a new target is easier to maintain the makefile when it grows bigger and bigger.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">Phony Targets</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.gnu.org/software/make/manual/html_node/Foreach-Function.html">The foreach Function</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html">Automatic Variables</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mirror/busybox">busybox GitHub repo</a></li>
+<li><a target="_blank" rel="noopener" href="http://ismail.badawi.io/blog/2017/03/28/automatic-directory-creation-in-make/">Automatic Directory Creation in Make</a></li>
+</ol>
+
+	  
+	</div>
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2019/08/05/makefile-learning/" data-id="ckh1p3cdf000nj3lve5s62git" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2019/08/05/makefile-learning/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a></li></ul>
+
+    </footer>
+	
+    
+	
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/12/Shuffling-Bits/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Shuffling Bits
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/23/LPC55S69-USB-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LPC55S69 USB 高速模式测试（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/" rel="tag">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAG/" rel="tag">DAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-conquer/" rel="tag">Divide and conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PIL/" rel="tag">PIL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Priority-Queue/" rel="tag">Priority Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bz2/" rel="tag">bz2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/" rel="tag">re</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/" rel="tag">urllib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" rel="tag">单调队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 11.67px;">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/BytesIO/" style="font-size: 10px;">BytesIO</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DP/" style="font-size: 18.33px;">DP</a> <a href="/tags/Divide-and-conquer/" style="font-size: 10px;">Divide and conquer</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 13.33px;">Greedy Algorithm</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA*</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Makefile/" style="font-size: 10px;">Makefile</a> <a href="/tags/PIL/" style="font-size: 13.33px;">PIL</a> <a href="/tags/Priority-Queue/" style="font-size: 10px;">Priority Queue</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/re/" style="font-size: 10px;">re</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/urllib/" style="font-size: 13.33px;">urllib</a> <a href="/tags/zipfile/" style="font-size: 10px;">zipfile</a> <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" style="font-size: 10px;">单调队列</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 10px;">迭代</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/03/manjaro_conf/">
+			        My Manjaro i3 Configurations
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			        Use Oracle on Docker for Windows
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/">
+			        第一次辞职
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/06/chitchat/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/">
+			        发烧带来的心态变化
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/">
+			        对于未来的困惑
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/practice/image-to-asciiart/">
+			        Convert Image to ASCII Art
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/12/Shuffling-Bits/">
+			        Shuffling Bits
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/05/makefile-learning/">
+			        Makefile for Projects with Subdirectories
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
+			        LPC55S69 USB 高速模式测试（一）
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
+			        Ucount 完结之后
+		        </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">links</h3>
+  <div class="widget">
+    
+    <li><a href="https://github.com/yuukidach" target="_blank">Dash&#39;s GitHub</a></li>
+    
+    <li><a href="http://blog.csdn.net/the_madao" target="_blank">Dash&#39;s CSDN</a></li>
+    
+    <li><a href="https://bibi-fish.github.io" target="_blank">Dandeliar&#39;s Blog</a></li>
+    
+  </ul>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	  <a href="https://github.com/yuukidach" title="Github" target="_blank">
+	    <i class="footer-icon fa fa-github-square fa-4x">&ensp;</i>
+	  </a>
+	  <a href="https://www.facebook.com/yuuki.dach" title="Facebook" target="_blank">
+		<i class="footer-icon fa fa-facebook-square fa-4x">&ensp;</i>
+	  </a>
+	  <br/>
+	  <br/>
+	  <p class="footer-words">A long long way to find myself.</p>
+	  <br/>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  &copy; 2020 Dash
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶端按钮 -->
+<script src="/js/jquery-3.1.0.min.js"></script>
+<div id="totop" style="position:fixed;bottom:110px;right:50px;cursor:pointer;">
+  <a title="Scroll Up" class="fa fa-caret-square-o-up fa-4x" style="color:grey;"></a>
+  
+<!-- <a title="Scroll Up"><img src="/images/scrollup.png"/></a> -->
+</div>
+<div id="tobottom" style="position:fixed;bottom:50px;right:50px;cursor:pointer;">
+  <a title="Scroll Down" class="fa fa-caret-square-o-down fa-4x" style="color:grey;"></a>
+</div>
+
+<script src="/js/totop.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuuki-dachs-blog';
+  
+  var disqus_url = 'http://yuukidach.github.io/2019/08/05/makefile-learning/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<!-- 百度站点自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Convert Image to ASCII Art | Dash&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="BackgroundImage Processing LibraryTo process a image, the easiest way is using a open source library. Since this project is written for others. They are not familiar with the image processing and it’s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Convert Image to ASCII Art">
+<meta property="og:url" content="http://yuukidach.github.io/2020/02/19/practice/image-to-asciiart/index.html">
+<meta property="og:site_name" content="Dash&#39;s Blog">
+<meta property="og:description" content="BackgroundImage Processing LibraryTo process a image, the easiest way is using a open source library. Since this project is written for others. They are not familiar with the image processing and it’s">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-02-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-03T07:58:57.977Z">
+<meta property="article:author" content="Dash">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Dash&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link href="/images/web.ico" rel="icon" type="image/x-ico">
+
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Dash&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+		<a class="nav-icon" href="http://weibo.com/u/5997638963" title="Weibo" target="_blank">&#xf18a;</a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuukidach.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-practice/image-to-asciiart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/19/practice/image-to-asciiart/" class="article-date">
+  <time datetime="2020-02-18T16:00:00.000Z" itemprop="datePublished">2020-02-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Image-Processing/">Image Processing</a>►<a class="article-category-link" href="/categories/Image-Processing/C-C/">C/C++</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Convert Image to ASCII Art
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	  
+    <div class="article-entry" itemprop="articleBody">
+	    
+	  <!-- Table of Contents -->
+	  
+
+      <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Image-Processing-Library"><a href="#Image-Processing-Library" class="headerlink" title="Image Processing Library"></a>Image Processing Library</h3><p>To process a image, the easiest way is using a open source library.</p>
+<p>Since this project is written for others. They are not familiar with the image processing and it’s to hard for them to install OpenCV in their computer. So, I tried to find a light-weight image processing processing library called <a target="_blank" rel="noopener" href="https://cimg.eu/">CImg</a>.</p>
+<p>To use this repo, we just need to put the header file <code>CImg.h</code> into our own project folder and include it in the program.</p>
+<p><strong>NOTE: The <code>CImg</code> library can only deal with bmp file. In my project we need to deal with a jpg image, so we need to download ImageMagick in our computer to convert the jpg image into bmp image</strong></p>
+<h3 id="Conversion-Principle"><a href="#Conversion-Principle" class="headerlink" title="Conversion Principle"></a>Conversion Principle</h3><p>Because we will use ASCII code to represent the image, and the ASCII code only has one color, we only need to process a gray image. So the conversion steps become very simple:</p>
+<ol>
+<li>If the image is not gray, convert it to gray image</li>
+<li>Crop the image to the desired size (usually smaller than its original size)</li>
+<li>Define a string <code>S</code> which contains different ASCII code.(And its length <code>l</code> is better to be short)</li>
+<li>Convert the pixel value to a number <code>res</code> not bigger than <code>l</code></li>
+<li>Subsitude the pixels with <code>S[res]</code></li>
+</ol>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> cimg_display</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> cimg_display 0              <span class="comment">// no need to show image</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;CImg.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cimg_library;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *ASCII_LIST = <span class="string">&quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&#x27;. &quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">CImg&lt;&gt; <span class="title">rgb2gray</span><span class="params">(CImg&lt;&gt; color_img)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// create a gray image</span></span><br><span class="line">    <span class="function">CImg&lt;&gt; <span class="title">gray_img</span><span class="params">(color_img.width(), color_img.height(), <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for all pixels x,y in image</span></span><br><span class="line">    cimg_forXY(color_img, x, y) &#123;</span><br><span class="line">        <span class="comment">// separation of channels</span></span><br><span class="line">        <span class="keyword">int</span> R = (<span class="keyword">int</span>) color_img(x, y, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> G = (<span class="keyword">int</span>) color_img(x, y, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> B = (<span class="keyword">int</span>) color_img(x, y, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// calculate gray value</span></span><br><span class="line">        <span class="comment">// (x, y) -&gt; val_a,   (x, y) -&gt; a, b, c</span></span><br><span class="line">        <span class="keyword">int</span> gray_val = (<span class="keyword">int</span>) (<span class="number">0.299</span> * R + <span class="number">0.587</span> * G + <span class="number">0.114</span> * B);</span><br><span class="line">        gray_img(x, y, <span class="number">0</span>, <span class="number">0</span>) = gray_val;</span><br><span class="line">    &#125;</span><br><span class="line">    gray_img.normalize(<span class="number">0</span>, <span class="number">255</span>);</span><br><span class="line">    <span class="keyword">return</span> gray_img;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * The input must be gray image. If not, use &#x27;rgb2gray&#x27;</span></span><br><span class="line"><span class="comment"> * to do a shift.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * gray_img: gray image</span></span><br><span class="line"><span class="comment"> * file_name: output file name</span></span><br><span class="line"><span class="comment"> * w: weight</span></span><br><span class="line"><span class="comment"> * h: height</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_gray2ascii</span><span class="params">(CImg&lt;&gt; gray_img, <span class="keyword">const</span> <span class="keyword">char</span>* file_name, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// output to out.txt</span></span><br><span class="line">    <span class="function">ofstream <span class="title">out</span><span class="params">(file_name)</span></span>;</span><br><span class="line"></span><br><span class="line">    gray_img.resize(w, h);</span><br><span class="line"></span><br><span class="line">    cimg_forY(gray_img,y) &#123;</span><br><span class="line">        cimg_forX(gray_img,x) &#123;</span><br><span class="line">            <span class="keyword">int</span> val = gray_img(x, y, <span class="number">0</span>, <span class="number">0</span>) / <span class="keyword">sizeof</span>(ASCII_LIST);</span><br><span class="line">            out &lt;&lt; ASCII_LIST[val];</span><br><span class="line">        &#125;</span><br><span class="line">        out &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    out.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cimg::imagemagick_path(<span class="string">&quot;D:\\\\\&quot;Program Files\&quot;\\ImageMagick-7.0.9-Q16\\magick.exe&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Init images</span></span><br><span class="line">    <span class="function">CImg&lt;&gt; <span class="title">img</span><span class="params">(<span class="string">&quot;test.jpg&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    img = rgb2gray(img);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *file_name = <span class="string">&quot;out.txt&quot;</span>;</span><br><span class="line">    print_gray2ascii(img, file_name, <span class="number">200</span>, <span class="number">80</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  
+	</div>
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2020/02/19/practice/image-to-asciiart/" data-id="ckh1p3cg50063j3lv7wp4gckd" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2020/02/19/practice/image-to-asciiart/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+	
+    
+	
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          对于未来的困惑
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/12/Shuffling-Bits/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Shuffling Bits</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/" rel="tag">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAG/" rel="tag">DAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-conquer/" rel="tag">Divide and conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PIL/" rel="tag">PIL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Priority-Queue/" rel="tag">Priority Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bz2/" rel="tag">bz2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/" rel="tag">re</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/" rel="tag">urllib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" rel="tag">单调队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 11.67px;">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/BytesIO/" style="font-size: 10px;">BytesIO</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DP/" style="font-size: 18.33px;">DP</a> <a href="/tags/Divide-and-conquer/" style="font-size: 10px;">Divide and conquer</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 13.33px;">Greedy Algorithm</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA*</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Makefile/" style="font-size: 10px;">Makefile</a> <a href="/tags/PIL/" style="font-size: 13.33px;">PIL</a> <a href="/tags/Priority-Queue/" style="font-size: 10px;">Priority Queue</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/re/" style="font-size: 10px;">re</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/urllib/" style="font-size: 13.33px;">urllib</a> <a href="/tags/zipfile/" style="font-size: 10px;">zipfile</a> <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" style="font-size: 10px;">单调队列</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 10px;">迭代</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/03/manjaro_conf/">
+			        My Manjaro i3 Configurations
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			        Use Oracle on Docker for Windows
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/">
+			        第一次辞职
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/06/chitchat/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/">
+			        发烧带来的心态变化
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/">
+			        对于未来的困惑
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/practice/image-to-asciiart/">
+			        Convert Image to ASCII Art
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/12/Shuffling-Bits/">
+			        Shuffling Bits
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/05/makefile-learning/">
+			        Makefile for Projects with Subdirectories
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
+			        LPC55S69 USB 高速模式测试（一）
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
+			        Ucount 完结之后
+		        </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">links</h3>
+  <div class="widget">
+    
+    <li><a href="https://github.com/yuukidach" target="_blank">Dash&#39;s GitHub</a></li>
+    
+    <li><a href="http://blog.csdn.net/the_madao" target="_blank">Dash&#39;s CSDN</a></li>
+    
+    <li><a href="https://bibi-fish.github.io" target="_blank">Dandeliar&#39;s Blog</a></li>
+    
+  </ul>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	  <a href="https://github.com/yuukidach" title="Github" target="_blank">
+	    <i class="footer-icon fa fa-github-square fa-4x">&ensp;</i>
+	  </a>
+	  <a href="https://www.facebook.com/yuuki.dach" title="Facebook" target="_blank">
+		<i class="footer-icon fa fa-facebook-square fa-4x">&ensp;</i>
+	  </a>
+	  <br/>
+	  <br/>
+	  <p class="footer-words">A long long way to find myself.</p>
+	  <br/>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  &copy; 2020 Dash
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶端按钮 -->
+<script src="/js/jquery-3.1.0.min.js"></script>
+<div id="totop" style="position:fixed;bottom:110px;right:50px;cursor:pointer;">
+  <a title="Scroll Up" class="fa fa-caret-square-o-up fa-4x" style="color:grey;"></a>
+  
+<!-- <a title="Scroll Up"><img src="/images/scrollup.png"/></a> -->
+</div>
+<div id="tobottom" style="position:fixed;bottom:50px;right:50px;cursor:pointer;">
+  <a title="Scroll Down" class="fa fa-caret-square-o-down fa-4x" style="color:grey;"></a>
+</div>
+
+<script src="/js/totop.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuuki-dachs-blog';
+  
+  var disqus_url = 'http://yuukidach.github.io/2020/02/19/practice/image-to-asciiart/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<!-- 百度站点自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

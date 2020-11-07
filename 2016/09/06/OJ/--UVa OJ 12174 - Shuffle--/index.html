@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa OJ 12174 - Shuffle | Dash&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ProblemYou are listening to your music collection using the shuffle function to keep the music surprising. You assume that the shuffle algorithm of your music player makes a random permutation of the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa OJ 12174 - Shuffle">
+<meta property="og:url" content="http://yuukidach.github.io/2016/09/06/OJ/--UVa%20OJ%2012174%20-%20Shuffle--/index.html">
+<meta property="og:site_name" content="Dash&#39;s Blog">
+<meta property="og:description" content="ProblemYou are listening to your music collection using the shuffle function to keep the music surprising. You assume that the shuffle algorithm of your music player makes a random permutation of the">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-09-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-03T07:58:57.973Z">
+<meta property="article:author" content="Dash">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Dash&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link href="/images/web.ico" rel="icon" type="image/x-ico">
+
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Dash&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+		<a class="nav-icon" href="http://weibo.com/u/5997638963" title="Weibo" target="_blank">&#xf18a;</a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuukidach.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OJ/--UVa OJ 12174 - Shuffle--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/06/OJ/--UVa%20OJ%2012174%20-%20Shuffle--/" class="article-date">
+  <time datetime="2016-09-05T16:00:00.000Z" itemprop="datePublished">2016-09-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa OJ 12174 - Shuffle
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	  
+    <div class="article-entry" itemprop="articleBody">
+	    
+	  <!-- Table of Contents -->
+	  
+   	    <div id="toc" class="toc-article">
+		  <strong class="toc-title">Contents</strong>
+	   	    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-number">6.</span> <span class="toc-text">Solution</span></a></li></ol>
+	    </div>
+	  
+
+      <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>You are listening to your music collection using the shuffle function to keep the music surprising. You assume that the shuffle algorithm of your music player makes a random permutation of the songs in the playlist and plays the songs in that order until all songs have been played. Then it reshuffles and starts playing the list again.<br>&emsp;&emsp;You have a history of the songs that have been played. However, your record of the history of played songs is not complete, as you started recording songs at a certain point in time and a number of songs might already have been played. From this history, you want to know at how many different points in the future the next reshuffle might occur.<br>&emsp;&emsp;A potential future reshuffle position is valid if it divides the recorded history into intervals of length s (the number of songs in the playlist) with the rst and last interval possibly containing less than s songs and no interval contains a specic song more than once.</p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>On the rst line one positive number: the number of testcases, at most 100. After that per testcase:<br>• One line with two integers s and n (1 ≤ s, n ≤ 100000): the number of different songs in the playlist and the number of songs in the recorded playlist history.<br>• One line with n space separated integers, x1, x2, . . . , xn (1 ≤ xi ≤ s): the recorded playlist history.</p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>One line with the number of future positions the next reshuffle can be at. If the history could not be generated by the above mentioned algorithm, output 0.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4 10</span><br><span class="line">3 4 4 1 3 2 1 2 3 4</span><br><span class="line">6 6</span><br><span class="line">6 5 4 3 2 1</span><br><span class="line">3 5</span><br><span class="line">3 3 1 1 1</span><br><span class="line">7 3</span><br><span class="line">5 7 3</span><br></pre></td></tr></table></figure>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">6</span><br><span class="line">0</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>一开始没想太多，直接用枚举的方式，写了一下代码，提交之后虽然AC了，但是耗时2s多，内心还是不舒服的。于是尝试改了一下，也参考了别人的代码。  </p>
+<p>总体说来还是一道滑动窗口的题目，并不是十分复杂，但是处理得当的话，效率能提升很多。这里为了节省时间，通过一次扫描，将每一段可以构成音乐单的数字，用idx这个数组来保存，可以为1，不行则为0.最后再将第一个数字按顺序，先当成第一段的最后一个，再当成第一段的倒数第二个，以此类推，得到结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">int</span> ans, cas, s, n;</span><br><span class="line"><span class="keyword">int</span> x[<span class="number">3</span>*maxn], idx[maxn&lt;&lt;<span class="number">1</span>], cnt[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; cas;</span><br><span class="line">    <span class="keyword">while</span> (cas--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; n;</span><br><span class="line">        <span class="built_in">memset</span>(x, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(n+(s&lt;&lt;<span class="number">1</span>)+<span class="number">1</span>));</span><br><span class="line">        <span class="built_in">memset</span>(cnt, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(s+<span class="number">1</span>));</span><br><span class="line">        <span class="built_in">memset</span>(idx, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>)*(n+s+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) <span class="built_in">cin</span> &gt;&gt; x[i+s];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n + s + <span class="number">1</span>; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span> ((tot == s) || (i &lt; s &amp;&amp; tot == i) || (i &gt; n &amp;&amp; tot == n + s - i)) </span><br><span class="line">                idx[i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (x[i] &amp;&amp; !--cnt[x[i]]) --tot;</span><br><span class="line">            <span class="keyword">if</span> (x[i + s] &amp;&amp; !cnt[x[i + s]]++) ++tot;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s; ++i) &#123;</span><br><span class="line">            <span class="keyword">bool</span> isOK = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; n + s + <span class="number">1</span>; j += s) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!idx[j])&#123;</span><br><span class="line">                    isOK = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isOK) ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ans &gt; n) ans = s;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  
+	</div>
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/06/OJ/--UVa%20OJ%2012174%20-%20Shuffle--/" data-id="ckh1p3cej002pj3lvhinuhg5q" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/06/OJ/--UVa%20OJ%2012174%20-%20Shuffle--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+	
+    
+	
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/10/OJ/--UVa%20OJ%201608%20-%20Non-boring%20sequences--/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          UVa OJ 1608 - Non-boring sequences
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/06/OJ/--UVa%20OJ%201607%20-%20Gates--/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa OJ 1607 - Gates</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/" rel="tag">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAG/" rel="tag">DAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-conquer/" rel="tag">Divide and conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PIL/" rel="tag">PIL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Priority-Queue/" rel="tag">Priority Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bz2/" rel="tag">bz2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/" rel="tag">re</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/" rel="tag">urllib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" rel="tag">单调队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 11.67px;">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/BytesIO/" style="font-size: 10px;">BytesIO</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DP/" style="font-size: 18.33px;">DP</a> <a href="/tags/Divide-and-conquer/" style="font-size: 10px;">Divide and conquer</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 13.33px;">Greedy Algorithm</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA*</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Makefile/" style="font-size: 10px;">Makefile</a> <a href="/tags/PIL/" style="font-size: 13.33px;">PIL</a> <a href="/tags/Priority-Queue/" style="font-size: 10px;">Priority Queue</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/re/" style="font-size: 10px;">re</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/urllib/" style="font-size: 13.33px;">urllib</a> <a href="/tags/zipfile/" style="font-size: 10px;">zipfile</a> <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" style="font-size: 10px;">单调队列</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 10px;">迭代</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/03/manjaro_conf/">
+			        My Manjaro i3 Configurations
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			        Use Oracle on Docker for Windows
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/">
+			        第一次辞职
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/06/chitchat/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/">
+			        发烧带来的心态变化
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/">
+			        对于未来的困惑
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/practice/image-to-asciiart/">
+			        Convert Image to ASCII Art
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/12/Shuffling-Bits/">
+			        Shuffling Bits
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/05/makefile-learning/">
+			        Makefile for Projects with Subdirectories
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
+			        LPC55S69 USB 高速模式测试（一）
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
+			        Ucount 完结之后
+		        </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">links</h3>
+  <div class="widget">
+    
+    <li><a href="https://github.com/yuukidach" target="_blank">Dash&#39;s GitHub</a></li>
+    
+    <li><a href="http://blog.csdn.net/the_madao" target="_blank">Dash&#39;s CSDN</a></li>
+    
+    <li><a href="https://bibi-fish.github.io" target="_blank">Dandeliar&#39;s Blog</a></li>
+    
+  </ul>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	  <a href="https://github.com/yuukidach" title="Github" target="_blank">
+	    <i class="footer-icon fa fa-github-square fa-4x">&ensp;</i>
+	  </a>
+	  <a href="https://www.facebook.com/yuuki.dach" title="Facebook" target="_blank">
+		<i class="footer-icon fa fa-facebook-square fa-4x">&ensp;</i>
+	  </a>
+	  <br/>
+	  <br/>
+	  <p class="footer-words">A long long way to find myself.</p>
+	  <br/>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  &copy; 2020 Dash
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶端按钮 -->
+<script src="/js/jquery-3.1.0.min.js"></script>
+<div id="totop" style="position:fixed;bottom:110px;right:50px;cursor:pointer;">
+  <a title="Scroll Up" class="fa fa-caret-square-o-up fa-4x" style="color:grey;"></a>
+  
+<!-- <a title="Scroll Up"><img src="/images/scrollup.png"/></a> -->
+</div>
+<div id="tobottom" style="position:fixed;bottom:50px;right:50px;cursor:pointer;">
+  <a title="Scroll Down" class="fa fa-caret-square-o-down fa-4x" style="color:grey;"></a>
+</div>
+
+<script src="/js/totop.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuuki-dachs-blog';
+  
+  var disqus_url = 'http://yuukidach.github.io/2016/09/06/OJ/--UVa%20OJ%2012174%20-%20Shuffle--/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<!-- 百度站点自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

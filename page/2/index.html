@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Dash&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Dash&#39;s Blog">
+<meta property="og:url" content="http://yuukidach.github.io/page/2/index.html">
+<meta property="og:site_name" content="Dash&#39;s Blog">
+<meta property="og:locale">
+<meta property="article:author" content="Dash">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Dash&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link href="/images/web.ico" rel="icon" type="image/x-ico">
+
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Dash&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+		<a class="nav-icon" href="http://weibo.com/u/5997638963" title="Weibo" target="_blank">&#xf18a;</a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuukidach.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"> 
+  
+    <article id="post-字幕文件批量重命名（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/12/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%EF%BC%88%E4%BA%8C%EF%BC%89/" class="article-date">
+  <time datetime="2017-02-11T16:00:00.000Z" itemprop="datePublished">2017-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>►<a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/12/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%EF%BC%88%E4%BA%8C%EF%BC%89/">字幕文件批量重命名脚本（二） —— Linux</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2017/02/12/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%EF%BC%88%E4%BA%8C%EF%BC%89/" data-id="ckh1p3cdu0019j3lv69cq3nxh" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2017/02/12/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%EF%BC%88%E4%BA%8C%EF%BC%89/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>还是老样子，先上GitHub：<a target="_blank" rel="noopener" href="https://github.com/yuukidach/Shell_Scripts">Yuuki_Dach’s GitHub</a></p>
+<p>上次自己写了一个字幕批量重命名的脚本，结果发现在处理字幕文件的时候还是存在bug（毕竟是自己一边看番，一边测试+改进，没有特意的去找测试样本）</p>
+<p><img src="http://7xread.com1.z0.glb.clouddn.com/0baf27c3-45af-43fd-8e81-0b92a2858963" alt="男子高中生的日常 - 好..好尴尬"></p>
+<p>首先是关于视频文件的查找，原来的查找方式十分简单，也没有使用正则表达式，只是粗略的查找了一下，这里利用find的功能，使得查找更加精确。</p>
+<p>在处理字幕文件的时候，也有问题。for循环在利用find查找的时候，会把空格视为一个间断。因此，这里利用IFS，把find指令找到的文件名当作一整块来处理就行了。</p>
+<p>另外，字幕文件的后缀名有多种，而且利用正则表达式来匹配的方式也有很多，这里就留到下次再来处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">echo &quot;Before the opration stars, please make sure you have been in the right folder!&quot;</span><br><span class="line">while true; do</span><br><span class="line">    read -p &quot;Do you want to continue? y&#x2F;n  &quot; yn</span><br><span class="line">    case $&#123;yn&#125; in</span><br><span class="line">        [Yy]* ) break;;</span><br><span class="line">        [Nn]* ) exit;;</span><br><span class="line">        * ) echo &quot;Please answer yes or no.&quot;;;</span><br><span class="line">    esac</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo &quot;What is the videos&#39; extension name?&quot;</span><br><span class="line">read video_extension_name</span><br><span class="line"></span><br><span class="line">echo &quot;How many episodes does it have?&quot;</span><br><span class="line">read total_video_episode_num</span><br><span class="line"></span><br><span class="line">echo &quot;These files were renamed successfully:&quot;</span><br><span class="line">for target_episode in &#96;seq -w 1 $&#123;total_video_episode_num&#125;&#96; </span><br><span class="line">do</span><br><span class="line">    target_video&#x3D;&#96;find -regex &quot;.*[^0-9]?$&#123;target_episode&#125;[^0-9]?.*$&#123;video_extension_name&#125;&quot;&#96;</span><br><span class="line">    target_video&#x3D;$&#123;target_video%$&#123;video_extension_name&#125;&#125;</span><br><span class="line">    target_video&#x3D;$&#123;target_video:2&#125;</span><br><span class="line">    echo &quot;$&#123;target_video&#125;&quot;</span><br><span class="line">    find -regex &quot;.*[^0-9\.i]$&#123;target_episode&#125;[^0-9\.P].*ass&quot; | while IFS&#x3D;&quot; &quot; read target_sub</span><br><span class="line">    do</span><br><span class="line">        echo &quot;$&#123;target_sub&#125;&quot;</span><br><span class="line">        rename &quot;s&#x2F;.*[^0-9\.i]$&#123;target_episode&#125;[^0-9\.P].*\.&#x2F;$&#123;target_video&#125;&#x2F;&quot; &quot;$&#123;target_sub&#125;&quot;</span><br><span class="line">    done</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-字幕文件批量重命名" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/05/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" class="article-date">
+  <time datetime="2017-02-04T16:00:00.000Z" itemprop="datePublished">2017-02-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>►<a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" target="_blank" href="http://7xread.com1.z0.glb.clouddn.com/f0633c9b-d826-4129-9c9e-ed7f16d905b2" rel="gallery_ckh1p3cdr0013j3lvejg93i3d noopener">
+        <img src="http://7xread.com1.z0.glb.clouddn.com/f0633c9b-d826-4129-9c9e-ed7f16d905b2" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/05/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/">字幕文件批量重命名脚本 —— Linux</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2017/02/05/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/" data-id="ckh1p3cdr0013j3lvejg93i3d" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2017/02/05/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>现在更新博客的速度大大降低了，主要还是认为把自己做的题目传上来对别人和自己的帮助都不是很大。行，废话少说，我们切入正题吧。</p>
+<p>刚刚闲来无事，想到之前看番的时候，有些另外下载的字幕会和视频名字不匹配，给观看带来不必要的麻烦，所以动手写了一个比较粗糙的字幕文件批量重命名的脚本。</p>
+<p>代码已经上传到<a target="_blank" rel="noopener" href="https://github.com/yuukidach/Shell_Scripts">Yuuki_Dach’s GitHub</a>，后续还会慢慢添加别的脚本。</p>
+<p>其实代码并不复杂，就是先确定文件路径，然后手动输入视频文件后缀名和集数，然后开始运行就行了，这里还是把代码也贴一下，方便大家吧</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Before the opration stars, please make sure you have been in the right folder!&quot;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">read</span> -p <span class="string">&quot;Do you want to continue? y/n&quot;</span> yn</span><br><span class="line">    <span class="keyword">case</span> <span class="variable">$&#123;yn&#125;</span> <span class="keyword">in</span></span><br><span class="line">        [Yy]* ) <span class="built_in">break</span>;;</span><br><span class="line">        [Nn]* ) <span class="built_in">exit</span>;;</span><br><span class="line">        * ) <span class="built_in">echo</span> <span class="string">&quot;Please answer yes or no.&quot;</span>;;</span><br><span class="line">    <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;What is the videos&#x27; extension name?&quot;</span></span><br><span class="line"><span class="built_in">read</span> video_extension_name</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;How many episodes does it have?&quot;</span></span><br><span class="line"><span class="built_in">read</span> total_video_episode_num</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;These files were renamed successfully:&quot;</span></span><br><span class="line"><span class="keyword">for</span> target_episode <span class="keyword">in</span> `seq -w 1 <span class="variable">$&#123;total_video_episode_num&#125;</span>` </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    target_video=(*[^0-9]<span class="variable">$&#123;target_episode&#125;</span>[^0-9]*<span class="variable">$&#123;video_extension_name&#125;</span>)</span><br><span class="line">    target_video=<span class="variable">$&#123;target_video%<span class="variable">$&#123;video_extension_name&#125;</span>&#125;</span></span><br><span class="line">    <span class="keyword">for</span> target_srt <span class="keyword">in</span> `find -regex <span class="string">&quot;.*[^0-9]?<span class="variable">$&#123;target_episode&#125;</span>[^0-9]?.*srt&quot;</span>`</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$&#123;target_srt&#125;</span></span><br><span class="line">        rename <span class="string">&quot;s/.*[^0-9]?<span class="variable">$&#123;target_episode&#125;</span>[^0-9]?.*?\./<span class="variable">$&#123;target_video&#125;</span>/&quot;</span> <span class="variable">$&#123;target_srt&#125;</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-驭远路上" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/%E9%A9%AD%E8%BF%9C%E8%B7%AF%E4%B8%8A/" class="article-date">
+  <time datetime="2017-01-04T16:00:00.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Chitchat/">Chitchat</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/%E9%A9%AD%E8%BF%9C%E8%B7%AF%E4%B8%8A/">驭远路上——STM32比赛作品的记录</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2017/01/05/%E9%A9%AD%E8%BF%9C%E8%B7%AF%E4%B8%8A/" data-id="ckh1p3cdv001cj3lv1a7w41cx" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2017/01/05/%E9%A9%AD%E8%BF%9C%E8%B7%AF%E4%B8%8A/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>从开始准备学校“驭远杯”比赛，到现在比赛结束，自己和自己的队伍以初赛和决赛都是第一名的成绩成功夺冠，不知不觉已经过去一段时间了。这段时间里，没有和往常一样定期的刷OJ，也少了一定的闲暇时光。基本每天都是在白天上课和写作业，晚上准备比赛这样的节奏中度过。物理实验什么的都停了好久，差点选不够了<em>(:зゝ∠)</em></p>
+<p><img src="http://7xread.com1.z0.glb.clouddn.com/de0c3fa5-49e5-44b4-8bf0-e496681384bc" alt="Shirobako"></p>
+<p>虽然忙碌，但是最后的结果还是很不错的，也证明了我们这么多天的辛苦没有白费吧。这里还是简单记录一下自己的参赛过程。</p>
+<p>先附上自己的代码: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/Remote-Control-Car">Controller of Mars exploration</a><br>以及视频链接： <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TuZoL8VEveQ">Youtobe</a>、<a target="_blank" rel="noopener" href="http://www.bilibili.com/video/av7870024/">Bilibili</a></p>
+<p>比赛整体分为三个阶段，第一个阶段是对燃料块（方块）和仪器（圆球）的抓取，至少要抓取一个燃料块，抓取两个会有时间的附加分，这一阶段为手动控制。第二阶段开始为自动控制，要求小车能够对亮起的灯塔进行搜寻并触发相应的开关以关闭灯塔。触碰完四个灯塔后方可进入到下一阶段。第三阶段就是上高台了，小车需要自己调整好角度，成功登上高台，并且把仪器（球）放下。</p>
+<p>整个驭远比赛的赛制则分为初赛、晋级赛和决赛。初赛选取4组队伍直接进入决赛，5-12名则进入晋级赛，并从中再挑选四组。</p>
+<p>我们组在最初确定车身形状时想要让小车能够灵活的转弯，便试用了两轮驱动的圆形底盘。而后，在实际使用中，发现由于电机的不稳定性以及两轮驱动自身的缺陷，车在直线行进时会发生较大漂移。遂采用四轮驱动的方形底盘。</p>
+<p>在团队分工时，由于队伍中有三人都可独立完成任务，直接把项目按照比赛流程划分为三个部分，以时间充裕性直接分配任务。对于重合模块，直接由前一部分提供API，如电机驱动，二三阶段的底盘驱动直接调用一阶段提供的API。</p>
+<p>第1阶段主要问题为，机械臂的安装与控制。我们最初的方案中，机械臂的运动较为复杂，稳定性差。后在调试的过程中，受其他组的启发，将机械由4自由度简化为2自由度，使机械臂的运动更为简单稳定。</p>
+<p>第2阶段中，我们在小车的前后各安装了一个红外复眼，以此实现了在第二场地中的任意位置对开启状态灯塔的定位。以红外复眼为判据，到达合适的位置后，分析红外复眼接受强度的数据，引导小车撞向灯塔。在实际调试过程中，发现踩灯后小车的回位稳定性较差。为解决这一问题，为小车上增加了电子陀螺仪模块，实现了较为准确的姿态控制。但只依靠红外复眼无法找到较为合适的转弯触灯位置，于是又在小车的左右各装了一个红外接收灯（连接到寻迹模块），用于转弯的判定。</p>
+<p>当靠近2区域进出口的灯塔亮起时，小车会因过于靠近进出口而卡住，或回位时无法检测到黑线（黑线长度限制）。便在前后加装灰度传感器，用以避免小车转弯时过于靠近进出口。至此，2阶段完美完成。</p>
+<p>第3阶段相对来说是比较简单的，在使用电子陀螺仪之前，我们在小车的正前方对称安装了3个不同朝向的超声波测距模块，以超声测距为主要依据，最终以非网格路径登上高台。然而，这样做的话，依靠超声测距调整小车时会消耗过多的时间，而且稳定性也欠佳。使用电子陀螺仪后，第3阶段的方案也随之改变。路径由不规则的，变为每次只转90度的网格路径，用陀螺仪来精确控制转角，3个超声测距也精简为1个用于辅助。这样虽然看似路径变长了，基本不需要复杂的调整，更加的稳定简洁。</p>
+<p>比赛过程中也看到了很多新奇的创意，比如直接用空心杯来吸取泡沫，利用胶带直接粘（这个看起来很低端但是确实高效啊！只是物快放置的时候容易GG）等等。同时也见识了一些奇妙的状况，包括灯塔被“巨型”车体怼坏（想想都可怕= =）、成功冲上对方高地之类的。</p>
+<p>嘛，就这么多吧。毕竟还在考期……<br><img src="http://7xread.com1.z0.glb.clouddn.com/82541038-acaf-4056-8257-88e750833b53" alt="Shirobako - 这些你都没掌握吗"></p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-再话Ubuntu以太网配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/15/%E5%86%8D%E8%AF%9DUbuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2016-10-14T16:00:00.000Z" itemprop="datePublished">2016-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>►<a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/15/%E5%86%8D%E8%AF%9DUbuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/">Ubuntu r8168模块编译错误的解决办法</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/10/15/%E5%86%8D%E8%AF%9DUbuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/" data-id="ckh1p3cds0017j3lv06rta7nf" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/10/15/%E5%86%8D%E8%AF%9DUbuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>更新了Ubuntu 16.10之后，发现有线连接模块消失了，于是又和以前一样对r8168进行编译安装。具体的方法请参考我的另一篇文章: <a href="https://yuukidach.github.io/2016/09/10/Ubuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/">Ubuntu以太网已断开的解决办法</a></p>
+<p>结果发现在 ‘make clean modules’ 这一步居然出错了。错误信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;home&#x2F;user&#x2F;download&#x2F;r8168-8.042.00&#x2F;src&#x2F;r8168_n.c: In function ‘rtl8168_init_one’:</span><br><span class="line">&#x2F;home&#x2F;user&#x2F;download&#x2F;r8168-8.042.00&#x2F;src&#x2F;r8168_n.c:22799:28: error: ‘struct net_device’ has no member named ‘gso_min_segs’; did you mean ‘gso_max_segs’?</span><br><span class="line">                         dev-&gt;gso_min_segs &#x3D; NIC_MIN_PHYS_BUF_COUNT;</span><br><span class="line">                            ^~</span><br><span class="line">&#x2F;home&#x2F;yuukidach&#x2F;下载&#x2F;r8168-8.042.00&#x2F;src&#x2F;r8168_n.c:22807:28: error: ‘struct net_device’ has no member named ‘gso_min_segs’; did you mean ‘gso_max_segs’?</span><br><span class="line">                         dev-&gt;gso_min_segs &#x3D; NIC_MIN_PHYS_BUF_COUNT;</span><br><span class="line">                            ^~</span><br><span class="line">&#x2F;home&#x2F;user&#x2F;download&#x2F;r8168-8.042.00&#x2F;src&#x2F;r8168_n.c: In function ‘rtl8168_start_xmit’:</span><br><span class="line">&#x2F;home&#x2F;user&#x2F;download&#x2F;r8168-8.042.00&#x2F;src&#x2F;r8168_n.c:24969:12: error: ‘struct net_device’ has no member named ‘trans_start’; did you mean ‘mem_start’?</span><br><span class="line">         dev-&gt;trans_start &#x3D; jiffies;</span><br></pre></td></tr></table></figure>
+
+<p>其实这个错误是因为r8168的版本和Ubuntu版本不配对导致的，只要去官网下载新的r8168的版本就行了。</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 1220 - Party at Hali-Bula--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/30/OJ/--UVa%20OJ%201220%20-%20Party%20at%20Hali-Bula--/" class="article-date">
+  <time datetime="2016-09-29T16:00:00.000Z" itemprop="datePublished">2016-09-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/30/OJ/--UVa%20OJ%201220%20-%20Party%20at%20Hali-Bula--/">UVa OJ 1220 - Party at Hali-Bula</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/30/OJ/--UVa%20OJ%201220%20-%20Party%20at%20Hali-Bula--/" data-id="ckh1p3cem002xj3lves7mhm3e" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/30/OJ/--UVa%20OJ%201220%20-%20Party%20at%20Hali-Bula--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>Here is the: <a target="_blank" rel="noopener" href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3661">problem link</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>这道题目一开始没有用f[][]来标记是否重复，导致WA了一次，后来就加上去了。另外，在处理人名时，虽然实例输入里，上司和下属名字出现是有先后的，但是提交之后，系统的测试数据貌似不一定是这样，所以要先判断是否出现，没出现就用cnt加1再赋值</p>
+<p>递归的思路还是不难的，选了上司，那么直属员工就不选，用d[][0]表示不选;没选的话就可以选直属员工，也可以不选，分别是d[][1]和d[][0]</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> G sons[b][i]</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">205</span>;</span><br><span class="line"><span class="keyword">int</span> n, res, yn, d[maxn][<span class="number">2</span>], f[maxn][<span class="number">2</span>];  </span><br><span class="line"><span class="keyword">char</span> c1[maxn], c2[maxn];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; p;  </span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sons[maxn];  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> b,<span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">int</span>&amp; ans = d[b][y];</span><br><span class="line">    <span class="keyword">if</span> (ans != <span class="number">-1</span>) <span class="keyword">return</span> ans;  </span><br><span class="line">    <span class="keyword">int</span> k = sons[b].size();  </span><br><span class="line">    <span class="keyword">if</span>(!k) &#123;f[b][y] = <span class="number">1</span>; <span class="keyword">return</span> ans = y;&#125;  </span><br><span class="line">    <span class="keyword">int</span> mark = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(y) &#123;   </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;  </span><br><span class="line">            ans += dp(G,<span class="number">0</span>);  </span><br><span class="line">            <span class="keyword">if</span>(!f[G][<span class="number">0</span>]) mark = <span class="number">0</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;  </span><br><span class="line">            <span class="keyword">if</span>(dp(G, <span class="number">0</span>) == dp(G, <span class="number">1</span>)) &#123;mark = <span class="number">0</span>; ans += d[G][<span class="number">0</span>];&#125;  </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(d[G][<span class="number">0</span>] &gt; d[G][<span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(!f[G][<span class="number">0</span>]) mark = <span class="number">0</span>; </span><br><span class="line">                ans += d[G][<span class="number">0</span>]; </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(!f[G][<span class="number">1</span>]) mark = <span class="number">0</span>; </span><br><span class="line">                ans += d[G][<span class="number">1</span>]; </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    f[b][y] = mark;</span><br><span class="line">    <span class="keyword">return</span> ans += y+<span class="number">1</span>;</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n) &#123;  </span><br><span class="line">        p.clear();  </span><br><span class="line">        <span class="built_in">memset</span>(d, <span class="number">0xff</span>, <span class="keyword">sizeof</span>(d)); </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n; ++i) sons[i].clear();</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c2;  </span><br><span class="line">        p[c2] = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n; ++i) &#123;  </span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; c1 &gt;&gt; c2;  </span><br><span class="line">            <span class="keyword">if</span>(!p.count(c1)) p[c1] = ++cnt;  </span><br><span class="line">            <span class="keyword">if</span>(!p.count(c2)) p[c2] = ++cnt; </span><br><span class="line">            sons[p[c2]].push_back(p[c1]);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span>(dp(<span class="number">0</span>,<span class="number">0</span>) &gt; dp(<span class="number">0</span>,<span class="number">1</span>)) &#123;res = d[<span class="number">0</span>][<span class="number">0</span>]; yn = f[<span class="number">0</span>][<span class="number">0</span>];&#125;  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(d[<span class="number">0</span>][<span class="number">0</span>] == d[<span class="number">0</span>][<span class="number">1</span>]) &#123;res = d[<span class="number">0</span>][<span class="number">0</span>]; yn = <span class="number">0</span>;&#125;  </span><br><span class="line">        <span class="keyword">else</span> &#123;res = d[<span class="number">0</span>][<span class="number">1</span>]; yn = f[<span class="number">0</span>][<span class="number">1</span>];&#125;  </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">        <span class="keyword">if</span>(yn) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot; Yes\n&quot;</span>;  </span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot; No\n&quot;</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 12186 - Another Crisis--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/29/OJ/--UVa%20OJ%2012186%20-%20Another%20Crisis--/" class="article-date">
+  <time datetime="2016-09-28T16:00:00.000Z" itemprop="datePublished">2016-09-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/29/OJ/--UVa%20OJ%2012186%20-%20Another%20Crisis--/">UVa OJ 12186 - Another Crisis</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/29/OJ/--UVa%20OJ%2012186%20-%20Another%20Crisis--/" data-id="ckh1p3cel002uj3lv59bj84gk" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/29/OJ/--UVa%20OJ%2012186%20-%20Another%20Crisis--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>A couple of years ago, a new world wide crisis started, leaving many people with economical problems.  Some workers of a particular company are trying to ask for an increase in their salaries.</p>
+<p>The company has a strict hierarchy, in which each employee has exactly one direct boss, with the exception of the owner of the company that has no boss. Employees that are not bosses of any other employee are called workers. The rest of the employees and the owner are called bosses.  To ask for a salary increase, a worker should file a petition to his direct boss. Of course, each boss is encouraged to try to make their subordinates happy with their current income, making the company’s profit as high as possible. However, when at least T percent of its direct subordinates have filed a petition, that boss will be pressured and have no choice but to file a petition himself to his own direct boss. Each boss files at most 1 petition to his own direct boss, regardless on how many of his subordinates filed him a petition. A boss only accounts his direct subordinates (the ones that filed him a petition and the ones that didn’t) to calculate the pressure percentage.</p>
+<p>Note that a boss can have both workers and bosses as direct subordinates at the same time. Such a boss may receive petitions from both kinds of employees, and each direct subordinate, regardless of its kind, will be accounted as 1 when checking the pressure percentage.</p>
+<p>When a petition file gets all the way up to the owner of the company, all salaries are increased. The workers’ union is desperately trying to make that happen, so they need to convince many workers to file a petition to their direct boss.</p>
+<p>Given the company’s hierarchy and the parameter T, you have to find out the minimum number of workers that have to file a petition in order to make the owner receive a petition.</p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>There are several test cases. The input for each test case is given in exactly two lines. The first line contains two integers N and T (1 ≤ N ≤ 105 , 1 ≤ T ≤ 100), separated by a single space. N indicates the number of employees of the company (not counting the owner) and T is the parameter described above. Each of the employees is identified by an integer between 1 and N. The owner is identified by the number 0. The second line contains a list of integers separated by single spaces. The integer Bi , at position i on this list (starting from 1), indicates the identification of the direct boss of employee i (0 ≤ Bi ≤ i − 1).</p>
+<p>The last test case is followed by a line containing two zeros separated by a single space.</p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>For each test case output a single line containing a single integer with the minimum number of workers that need to file a petition in order to get the owner of the company to receive a petition.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3 100</span><br><span class="line">0 0 0</span><br><span class="line">3 50</span><br><span class="line">0 0 0</span><br><span class="line">14 60</span><br><span class="line">0 0 1 1 2 2 2 5 7 5 7 5 7 5 0 0</span><br></pre></td></tr></table></figure>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>从老板开始，先询问第一层的员工每个人如果要签字，需要各自多少员工签字，然后第二层，第三层……直到最后一层</p>
+<p>接着排序，把需要最少的排前面，相加即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>+<span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> n,t;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b[x].empty()) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; son;</span><br><span class="line">    <span class="keyword">int</span> len = b[x].size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i) son.push_back(dp(b[x][i]));</span><br><span class="line">    sort(son.begin(), son.end());</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>, bor = (len*t<span class="number">-1</span>)/<span class="number">100</span>+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bor; ++i) ans += son[i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; t &amp;&amp; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; tmp;</span><br><span class="line">            b[tmp].push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; dp(<span class="number">0</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) b[i].clear();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 1331 - Minimax Triangulation--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/29/OJ/--UVa%20OJ%201331%20-%20Minimax%20Triangulation--/" class="article-date">
+  <time datetime="2016-09-28T16:00:00.000Z" itemprop="datePublished">2016-09-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/29/OJ/--UVa%20OJ%201331%20-%20Minimax%20Triangulation--/">UVa OJ 1331 - Minimax Triangulation</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/29/OJ/--UVa%20OJ%201331%20-%20Minimax%20Triangulation--/" data-id="ckh1p3ces003cj3lv37m6d7xy" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/29/OJ/--UVa%20OJ%201331%20-%20Minimax%20Triangulation--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>Here is the: <a target="_blank" rel="noopener" href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4077">problem link</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>这道题目一开始用递归做，但是时间比较长，于是花了比较长的时间去想应该怎么才能转化成递推</p>
+<p>这道题目用d[i][j]来表示从i点切割到j点中所含的面积最大的三角形中，最小的那个</p>
+<p>这里用了三个循环，第一层是确定分割时跨越的点数，第二层是起点，第三层就是起点和终点中任意取一点分割。同时还要注意分割时会不会有点卡在中间导致实际上不能被分割的情况</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">55</span>;</span><br><span class="line"><span class="keyword">int</span> n, cas;</span><br><span class="line"><span class="keyword">double</span> x[maxn], y[maxn], d[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cntArea</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fabs</span>((x[b]-x[a])*(y[c]-y[a])-(y[b]-y[a])*(x[c]-x[a]))/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isOK</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> s = cntArea(x, y, z);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == x || i == y || i ==z) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">double</span> tmp = cntArea(x,y,i)+cntArea(x,z,i)+cntArea(y,z,i);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fabs</span>(s-tmp) &lt; <span class="number">1e-6</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; cas;</span><br><span class="line">    <span class="keyword">while</span>(cas--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) <span class="built_in">cin</span> &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> a = (i+j) % n;</span><br><span class="line">                d[j][a] = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = (j+<span class="number">1</span>)%n; k != a; k = (k+<span class="number">1</span>)%n) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!isOK(j,k,a)) <span class="keyword">continue</span>;</span><br><span class="line">                    d[j][a] = min(d[j][a], max(max(d[j][k],d[k][a]),cntArea(j,k,a)));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (i == n<span class="number">-1</span>)</span><br><span class="line">                    ans = min(ans, d[j][a]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>.setf(ios::fixed);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; setprecision(<span class="number">1</span>) &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 10003 - Cutting Sticks--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/27/OJ/--UVa%20OJ%2010003%20-%20Cutting%20Sticks--/" class="article-date">
+  <time datetime="2016-09-26T16:00:00.000Z" itemprop="datePublished">2016-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/27/OJ/--UVa%20OJ%2010003%20-%20Cutting%20Sticks--/">UVa OJ 10003 - Cutting Sticks</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/27/OJ/--UVa%20OJ%2010003%20-%20Cutting%20Sticks--/" data-id="ckh1p3cdw001fj3lv48un2dc5" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/27/OJ/--UVa%20OJ%2010003%20-%20Cutting%20Sticks--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>You have to cut a wood stick into pieces. The most affordable company, The Analog Cutting Machinery, Inc. (ACM), charges money according to the length of the stick being cut. Their procedure of work requires that they only make one cut at a time.</p>
+<p>It is easy to notice that different selections in the order of cutting can led to different prices. For example, consider a stick of length 10 meters that has to be cut at 2, 4 and 7 meters from one end.  There are several choices. One can be cutting first at 2, then at 4, then at 7. This leads to a price of 10 + 8 + 6 = 24 because the first stick was of 10 meters, the resulting of 8 and the last one of 6.  Another choice could be cutting at 4, then at 2, then at 7. This would lead to a price of 10 + 4 + 6 = 20, which is a better price.</p>
+<p>Your boss trusts your computer abilities to find out the minimum cost for cutting a given stick.</p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>The input will consist of several input cases. The first line of each test case will contain a positive number l that represents the length of the stick to be cut. You can assume l &lt; 1000. The next line will contain the number n (n &lt; 50) of cuts to be made.</p>
+<p>The next line consists of n positive numbers ci (0 &lt; ci &lt; l) representing the places where the cuts have to be done, given in strictly increasing order.</p>
+<p>An input case with l = 0 will represent the end of the input.</p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>You have to print the cost of the optimal solution of the cutting problem, that is the minimum cost of cutting the given stick. Format the output as shown below.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">100</span><br><span class="line">3</span><br><span class="line">25 50 75</span><br><span class="line">10</span><br><span class="line">4</span><br><span class="line">4 5 7 8</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The minimum cutting is 200.</span><br><span class="line">The minimum cutting is 22.</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>这道题目直接用d[i][j]存储i到j被切开的最小值，即可解决</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> l, n;</span><br><span class="line"><span class="keyword">int</span> cut[<span class="number">55</span>], d[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>&amp; ans = d[x][y];</span><br><span class="line">    <span class="keyword">if</span> (ans != INF) <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="keyword">if</span> (y-x == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = x+<span class="number">1</span>; i &lt; y; ++i) </span><br><span class="line">        ans = min(ans, dp(x, i)+dp(i, y)+cut[y]-cut[x]);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; l &amp;&amp; l) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">cin</span> &gt;&gt; cut[i];</span><br><span class="line">        cut[n+<span class="number">1</span>] = l;</span><br><span class="line">        <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(d));</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;The minimum cutting is &quot;</span> </span><br><span class="line">             &lt;&lt; dp(<span class="number">0</span>, n+<span class="number">1</span>) &lt;&lt; <span class="string">&quot;.\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 1625 - Color Length--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/27/OJ/--UVa%20OJ%201625%20-%20Color%20Length--/" class="article-date">
+  <time datetime="2016-09-26T16:00:00.000Z" itemprop="datePublished">2016-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/27/OJ/--UVa%20OJ%201625%20-%20Color%20Length--/">UVa OJ 1625 - Color Length</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/27/OJ/--UVa%20OJ%201625%20-%20Color%20Length--/" data-id="ckh1p3cf7004bj3lv0c5u93lj" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/27/OJ/--UVa%20OJ%201625%20-%20Color%20Length--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>Here is the <a target="_blank" rel="noopener" href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4500">prolem link</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>这道题目要先处理好每个颜色的起止位置，不然会很不方便。用数组d[i][j]表示已经插入了第一个字符串的i个，第二个字符串的j个字母。递推的时候，只要发现还有字母没有用完，就加1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5002</span>;</span><br><span class="line"><span class="keyword">char</span> n[maxn], m[maxn];</span><br><span class="line"><span class="keyword">int</span> cas, l1, l2;</span><br><span class="line"><span class="keyword">int</span> begs[<span class="number">2</span>][<span class="number">26</span>], endz[<span class="number">2</span>][<span class="number">26</span>], d[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">findLetter</span><span class="params">(<span class="keyword">char</span> a[], <span class="keyword">int</span> l, <span class="keyword">int</span> o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= l; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!endz[o][a[i]-<span class="string">&#x27;A&#x27;</span>]) </span><br><span class="line">            begs[o][a[i]-<span class="string">&#x27;A&#x27;</span>] = i;</span><br><span class="line">        endz[o][a[i]-<span class="string">&#x27;A&#x27;</span>] = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; cas;</span><br><span class="line">    <span class="keyword">while</span>(cas--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n+<span class="number">1</span> &gt;&gt; m+<span class="number">1</span>;</span><br><span class="line">        n[<span class="number">0</span>] = m[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(begs, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(begs));</span><br><span class="line">        <span class="built_in">memset</span>(endz, <span class="number">0</span>, <span class="keyword">sizeof</span>(endz));</span><br><span class="line">        l1 = <span class="built_in">strlen</span>(n+<span class="number">1</span>);</span><br><span class="line">        l2 = <span class="built_in">strlen</span>(m+<span class="number">1</span>);</span><br><span class="line">        findLetter(n, l1, <span class="number">0</span>);</span><br><span class="line">        findLetter(m, l2, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= l1; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= l2; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> num = <span class="number">0</span>, ans = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">26</span>; ++k)</span><br><span class="line">                    <span class="keyword">if</span> ((i &gt;= begs[<span class="number">0</span>][k] || j &gt;= begs[<span class="number">1</span>][k]) &amp;&amp;</span><br><span class="line">                        (i &lt; endz[<span class="number">0</span>][k] || j &lt; endz[<span class="number">1</span>][k]))</span><br><span class="line">                        ++num;</span><br><span class="line">                <span class="keyword">if</span> (i) ans = min(d[i<span class="number">-1</span>][j], ans);</span><br><span class="line">                <span class="keyword">if</span> (j) ans = min(ans, d[i][j<span class="number">-1</span>]);</span><br><span class="line">                d[i][j] = (ans==<span class="number">0x3f3f3f3f</span>?<span class="number">0</span>:ans) + num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; d[l1][l2] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 11400 - Lighting System Design--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/25/OJ/--UVa%20OJ%2011400%20-%20Lighting%20System%20Design--/" class="article-date">
+  <time datetime="2016-09-24T16:00:00.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/25/OJ/--UVa%20OJ%2011400%20-%20Lighting%20System%20Design--/">UVa OJ 11400 - Lighting System Design</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/25/OJ/--UVa%20OJ%2011400%20-%20Lighting%20System%20Design--/" data-id="ckh1p3cea0026j3lv9g9la9ld" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/25/OJ/--UVa%20OJ%2011400%20-%20Lighting%20System%20Design--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>You are given the task to design a lighting system for a huge conference hall. After doing a lot of calculation and sketching, you have figured out the requirements for an energy-efficient design that can properly illuminate the entire hall. According to your design, you need lamps of n different power ratings. For some strange current regulation method, all the lamps need to be fed with the same amount of current. So, each category of lamp has a corresponding voltage rating. Now, you know the number of lamps and cost of every single unit of lamp for each category. But the problem is, you are to buy equivalent voltage sources for all the lamp categories. You can buy a single voltage source for each category (Each source is capable of supplying to infinite number of lamps of its voltage rating.) and complete the design. But the accounts section of your company soon figures out that they might be able to reduce the total system cost by eliminating some of the voltage sources and replacing the lamps of that category with higher rating lamps. Certainly you can never replace a lamp by a lower rating lamp as some portion of the hall might not be illuminated then. You are more concerned about money-saving than energy-saving. Find the minimum possible cost to design the system.</p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>Each case in the input begins with n (1 ≤ n ≤ 1000), denoting the number of categories. Each of the following n lines describes a category. A category is described by 4 integers - V (1 ≤ V ≤ 132000), the voltage rating, K (1 ≤ K ≤ 1000), the cost of a voltage source of this rating, C (1 ≤ C ≤ 10), the cost of a lamp of this rating and L (1 ≤ L ≤ 100), the number of lamps required in this category. The input terminates with a test case where n = 0. This case should not be processed.</p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>For each test case, print the minimum possible cost to design the system.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">100 500 10 20</span><br><span class="line">120 600 8 16</span><br><span class="line">220 400 7 18</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">778</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>这道题目一开始其实并没有看懂，不知道他到底要多少瓦灯泡去点亮大厅。后来发现灯泡数量其实是不变的，只要去更换不同的灯泡就行了。</p>
+<p>这里没用结构体或者类，而是直接用o[]来记录每种灯泡的排序，d[i]表示到i种灯泡为止，总共要花多少钱</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1001</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> v[maxn], k[maxn], l[maxn], a[maxn];</span><br><span class="line"><span class="keyword">int</span> d[maxn], o[maxn], s[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios_base::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; v[i] &gt;&gt; k[i] &gt;&gt; l[i] &gt;&gt; a[i];</span><br><span class="line">            o[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(o+<span class="number">1</span>, o+n+<span class="number">1</span>, [](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;<span class="keyword">return</span> v[a]&lt;v[b];&#125;);</span><br><span class="line">        <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(d));</span><br><span class="line">        d[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            s[i] = s[i<span class="number">-1</span>] + a[o[i]];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; ++j) &#123;</span><br><span class="line">                d[i] = min(d[i], d[j]+(s[i]-s[j])*l[o[i]]+k[o[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; d[n] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/" rel="tag">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAG/" rel="tag">DAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-conquer/" rel="tag">Divide and conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PIL/" rel="tag">PIL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Priority-Queue/" rel="tag">Priority Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bz2/" rel="tag">bz2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/" rel="tag">re</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/" rel="tag">urllib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" rel="tag">单调队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 11.67px;">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/BytesIO/" style="font-size: 10px;">BytesIO</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DP/" style="font-size: 18.33px;">DP</a> <a href="/tags/Divide-and-conquer/" style="font-size: 10px;">Divide and conquer</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 13.33px;">Greedy Algorithm</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA*</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Makefile/" style="font-size: 10px;">Makefile</a> <a href="/tags/PIL/" style="font-size: 13.33px;">PIL</a> <a href="/tags/Priority-Queue/" style="font-size: 10px;">Priority Queue</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/re/" style="font-size: 10px;">re</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/urllib/" style="font-size: 13.33px;">urllib</a> <a href="/tags/zipfile/" style="font-size: 10px;">zipfile</a> <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" style="font-size: 10px;">单调队列</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 10px;">迭代</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/03/manjaro_conf/">
+			        My Manjaro i3 Configurations
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			        Use Oracle on Docker for Windows
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/">
+			        第一次辞职
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/06/chitchat/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/">
+			        发烧带来的心态变化
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/">
+			        对于未来的困惑
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/practice/image-to-asciiart/">
+			        Convert Image to ASCII Art
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/12/Shuffling-Bits/">
+			        Shuffling Bits
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/05/makefile-learning/">
+			        Makefile for Projects with Subdirectories
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
+			        LPC55S69 USB 高速模式测试（一）
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
+			        Ucount 完结之后
+		        </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">links</h3>
+  <div class="widget">
+    
+    <li><a href="https://github.com/yuukidach" target="_blank">Dash&#39;s GitHub</a></li>
+    
+    <li><a href="http://blog.csdn.net/the_madao" target="_blank">Dash&#39;s CSDN</a></li>
+    
+    <li><a href="https://bibi-fish.github.io" target="_blank">Dandeliar&#39;s Blog</a></li>
+    
+  </ul>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	  <a href="https://github.com/yuukidach" title="Github" target="_blank">
+	    <i class="footer-icon fa fa-github-square fa-4x">&ensp;</i>
+	  </a>
+	  <a href="https://www.facebook.com/yuuki.dach" title="Facebook" target="_blank">
+		<i class="footer-icon fa fa-facebook-square fa-4x">&ensp;</i>
+	  </a>
+	  <br/>
+	  <br/>
+	  <p class="footer-words">A long long way to find myself.</p>
+	  <br/>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  &copy; 2020 Dash
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶端按钮 -->
+<script src="/js/jquery-3.1.0.min.js"></script>
+<div id="totop" style="position:fixed;bottom:110px;right:50px;cursor:pointer;">
+  <a title="Scroll Up" class="fa fa-caret-square-o-up fa-4x" style="color:grey;"></a>
+  
+<!-- <a title="Scroll Up"><img src="/images/scrollup.png"/></a> -->
+</div>
+<div id="tobottom" style="position:fixed;bottom:50px;right:50px;cursor:pointer;">
+  <a title="Scroll Down" class="fa fa-caret-square-o-down fa-4x" style="color:grey;"></a>
+</div>
+
+<script src="/js/totop.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuuki-dachs-blog';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<!-- 百度站点自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

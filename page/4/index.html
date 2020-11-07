@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Dash&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Dash&#39;s Blog">
+<meta property="og:url" content="http://yuukidach.github.io/page/4/index.html">
+<meta property="og:site_name" content="Dash&#39;s Blog">
+<meta property="og:locale">
+<meta property="article:author" content="Dash">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Dash&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link href="/images/web.ico" rel="icon" type="image/x-ico">
+
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Dash&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+		<a class="nav-icon" href="http://weibo.com/u/5997638963" title="Weibo" target="_blank">&#xf18a;</a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuukidach.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"> 
+  
+    <article id="post-Python Challenge/The Python Challenge 9-10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/19/Python%20Challenge/The%20Python%20Challenge%209-10/" class="article-date">
+  <time datetime="2016-09-18T16:00:00.000Z" itemprop="datePublished">2016-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/19/Python%20Challenge/The%20Python%20Challenge%209-10/">The Python Challenge Level 9-10 Solutions</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/19/Python%20Challenge/The%20Python%20Challenge%209-10/" data-id="ckh1p3cfw005lj3lv6q277w11" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/19/Python%20Challenge/The%20Python%20Challenge%209-10/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PIL/" rel="tag">PIL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/re/" rel="tag">re</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<h1 id="Level-9"><a href="#Level-9" class="headerlink" title="Level 9"></a><strong>Level 9</strong></h1><p>第九关树的图片其实是一个提示，就是要我把点一个个的连起来，而这个点是由网页源代码里注释的first和second部分给出的，我直接把两个部分的坐标提取到一起，能够得到一个牛的图片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw</span><br><span class="line"></span><br><span class="line">webUrl = <span class="string">&#x27;http://www.pythonchallenge.com/pc/return/good.html&#x27;</span></span><br><span class="line">webContent = requests.get(webUrl, auth=(<span class="string">&#x27;huge&#x27;</span>,<span class="string">&#x27;file&#x27;</span>)).text</span><br><span class="line">print(webContent)</span><br><span class="line">pattern = re.<span class="built_in">compile</span>(<span class="string">r&quot;(\d&#123;2,3&#125;)&quot;</span>)</span><br><span class="line">nums = re.findall(pattern, webContent)</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,nums))</span><br><span class="line">nums.remove(nums[<span class="number">0</span>])</span><br><span class="line">nums.remove(nums[<span class="number">0</span>])</span><br><span class="line">print(nums)</span><br><span class="line">img = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (<span class="number">800</span>,<span class="number">800</span>))</span><br><span class="line">draw = ImageDraw.Draw(img)</span><br><span class="line">draw.polygon(nums, <span class="string">&#x27;white&#x27;</span>)</span><br><span class="line">img.show()</span><br></pre></td></tr></table></figure>
+<p>这里最先发应的是’cow’这个单词，输入后提示我们是公的。于是再输入’ox’，结果还是不对。输入’bull’就对了</p>
+<h1 id="Level-10"><a href="#Level-10" class="headerlink" title="Level 10"></a><strong>Level 10</strong></h1><p>这一关简单明了，就是找规律（然而渣渣的我还是找了很久）</p>
+<p>可以发现，后一个数实际上是前一个数的读法，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a[0] &#x3D; 1</span><br><span class="line">a[1] &#x3D; 1个1 # 11</span><br><span class="line">a[2] &#x3D; 2个1 # 21</span><br><span class="line"># 以此类推</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a, sub = <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    j = k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> j &lt; <span class="built_in">len</span>(a):</span><br><span class="line">        <span class="keyword">while</span> k &lt; <span class="built_in">len</span>(a) <span class="keyword">and</span> a[k] == a[j]: </span><br><span class="line">            k += <span class="number">1</span></span><br><span class="line">        sub += <span class="built_in">str</span>(k-j) + a[j]</span><br><span class="line">        j = k</span><br><span class="line">    a, sub = sub, <span class="string">&#x27;&#x27;</span></span><br><span class="line">print(<span class="built_in">len</span>(a))</span><br></pre></td></tr></table></figure>
+<p>最后结果是5808</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/18/Python%20Challenge/The%20Python%20Challenge%207/" class="article-date">
+  <time datetime="2016-09-17T16:00:00.000Z" itemprop="datePublished">2016-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/18/Python%20Challenge/The%20Python%20Challenge%207/">The Python Challenge Level-7 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/18/Python%20Challenge/The%20Python%20Challenge%207/" data-id="ckh1p3cfs005dj3lv3k6gc8p0" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/18/Python%20Challenge/The%20Python%20Challenge%207/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PIL/" rel="tag">PIL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requests/" rel="tag">requests</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>这道题目网页源代码里没有什么别的提示，而图片中有个条形码类似物，那么就需要我们对图片进行处理了。先想办法把条形码读出来,并且转换成可读的文字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">imgUrl = <span class="string">&#x27;http://www.pythonchallenge.com/pc/def/oxygen.png&#x27;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(BytesIO(requests.get(imgUrl).content))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(img.width):</span><br><span class="line">    midPixel = img.getpixel((i,img.height&gt;&gt;<span class="number">1</span>))</span><br><span class="line">    print(midPixel)</span><br></pre></td></tr></table></figure>
+<p>得到结果以后我们可以发现，条形码中没一条的宽度是7个像素，所以我们可以再处理一下，把相同的条形码rgb值取一个即可。另外还要注意的是，条形码没有覆盖全部的图片，最后无序的rgb值需要删掉，所以改进一下代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">&#x27;Yuuki_Dach&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">imgUrl = <span class="string">&#x27;http://www.pythonchallenge.com/pc/def/oxygen.png&#x27;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(BytesIO(requests.get(imgUrl).content))</span><br><span class="line">midPixel = [img.getpixel((i,img.height&gt;&gt;<span class="number">1</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,img.width,<span class="number">7</span>)]</span><br><span class="line">code = [r <span class="keyword">for</span> r, g, b ,a <span class="keyword">in</span> midPixel <span class="keyword">if</span> r==g==b]</span><br><span class="line">print(<span class="string">&quot;&quot;</span>.join(<span class="built_in">map</span>(<span class="built_in">chr</span>,code)))</span><br></pre></td></tr></table></figure>
+<p>得到提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smart guy, you made it. the next level is [105, 110, 116, 101, 103, 114, 105, 116, 121]</span><br></pre></td></tr></table></figure>
+<p>再对给出的数字进行处理，就能得到‘integrity’</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/18/Python%20Challenge/The%20Python%20Challenge%208/" class="article-date">
+  <time datetime="2016-09-17T16:00:00.000Z" itemprop="datePublished">2016-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/18/Python%20Challenge/The%20Python%20Challenge%208/">The Python Challenge Level-8 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/18/Python%20Challenge/The%20Python%20Challenge%208/" data-id="ckh1p3cfv005ij3lvcryndibk" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/18/Python%20Challenge/The%20Python%20Challenge%208/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bz2/" rel="tag">bz2</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>这道题目消耗了我相当长的一段时间，让我对str和byte也有了一个新的认识。</p>
+<p>首先还是老样子，进入网页源代码，看看里面有什么</p>
+<p>首先引入眼帘的是一大串坐标代码，加上第七题的做法，很容易让人产生误会。我也试着去把他门转换了一下，发现并没有什么用处，然后就把目光集中在了里面的链接上，点了一下，需要用户名和密码，随便输入了123,并没有什么效果</p>
+<p>再看看源代码底部有’un’和’pw’，刚好两个，而且和’user name’ ‘password’相对应。<br>但是这两串字符又有什么意义呢？</p>
+<p>我查了一下，发现这实际上是经bz2压缩后的信息，于是开始编写程序解码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">__author__ &#x3D; &#39;Yuuki_Dach&#39;</span><br><span class="line"></span><br><span class="line">import bz2</span><br><span class="line"></span><br><span class="line">un &#x3D; b&quot;BZh91AY&amp;SYA\xaf\x82\r\x00\x00\x01\x01\x80\x02\xc0\x02\x00 \x00!\x9ah3M\x07&lt;]\xc9\x14\xe1BA\x06\xbe\x084&quot;</span><br><span class="line">pw &#x3D; b&quot;BZh91AY&amp;SY\x94$|\x0e\x00\x00\x00\x81\x00\x03$ \x00!\x9ah3M\x13&lt;]\xc9\x14\xe1BBP\x91\xf08&quot;</span><br><span class="line">print(bz2.decompress(un))</span><br><span class="line">print(bz2.decompress(pw))</span><br></pre></td></tr></table></figure>
+<p>得到用户名和密码就能进入下一关了</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 0-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%200-1/" class="article-date">
+  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%200-1/">The Python Challenge Level 0-1 Solutions</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%200-1/" data-id="ckh1p3cfc004nj3lvhoy3hpda" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%200-1/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。</p>
+<p>附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<h1 id="Challenge-0"><a href="#Challenge-0" class="headerlink" title="Challenge 0"></a><strong>Challenge 0</strong></h1><p>第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。</p>
+<p>算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好</p>
+<h1 id="Challenge-1"><a href="#Challenge-1" class="headerlink" title="Challenge 1"></a><strong>Challenge 1</strong></h1><p>根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line">code = (<span class="string">&quot;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&quot;</span></span><br><span class="line">        <span class="string">&quot;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&#x27;q ufw rfgq rcvr gq &quot;</span></span><br><span class="line">        <span class="string">&quot;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&quot;</span></span><br><span class="line">        <span class="string">&quot; spj.&quot;</span>)</span><br><span class="line">addr = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> alpha <span class="keyword">in</span> code:</span><br><span class="line">    <span class="keyword">if</span> alpha!=<span class="string">&#x27; &#x27;</span> <span class="keyword">and</span> alpha!=<span class="string">&#x27;.&#x27;</span> <span class="keyword">and</span> alpha!=<span class="string">&#x27;\&#x27;&#x27;</span> <span class="keyword">and</span> alpha!=<span class="string">&#x27;(&#x27;</span> <span class="keyword">and</span> alpha!=<span class="string">&#x27;)&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> alpha == <span class="string">&#x27;y&#x27;</span>:</span><br><span class="line">            alpha = <span class="string">&#x27;a&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> alpha == <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            alpha = <span class="string">&#x27;b&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            alpha = <span class="built_in">chr</span>(<span class="built_in">ord</span>(alpha)+<span class="number">2</span>)</span><br><span class="line">    addr += alpha </span><br><span class="line"></span><br><span class="line">print(addr)</span><br></pre></td></tr></table></figure>
+<p>还是比较简单直接的。提取到的结果如下：</p>
+<blockquote>
+<p>i hope you didnt translate it by hand. thats what computers are for. doing it in by hand is inefficient and that’s why this text is so long. using string.maketrans() is recommended. now apply on the url.</p>
+</blockquote>
+<p>这里提示我们可以用string.maketrans()来提高效率。所以，我们再码一遍代码，利用maketrans（）使代码变得更加简洁和美观。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line">code = (<span class="string">&quot;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&quot;</span></span><br><span class="line">        <span class="string">&quot;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&#x27;q ufw rfgq rcvr gq &quot;</span></span><br><span class="line">        <span class="string">&quot;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&quot;</span></span><br><span class="line">        <span class="string">&quot; spj.&quot;</span>)</span><br><span class="line"></span><br><span class="line">intab = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></span><br><span class="line">outtab = <span class="string">&quot;cdefghijklmnopqrstuvwxyzab&quot;</span></span><br><span class="line">transtab = <span class="string">&quot;&quot;</span>.maketrans(intab,outtab)</span><br><span class="line"></span><br><span class="line">print(code.translate(transtab))</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，maketrans()到了python3中就直接包含在str类的方法中了,如果是Python2的话记得import对应的模块。</p>
+<p>最后只要按照提示，把关卡1url里的‘map’也对应向后推两个字母，变成’ocr’就好了</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%202/" class="article-date">
+  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%202/">The Python Challenge Level-2 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%202/" data-id="ckh1p3cfg004vj3lv7svb71o4" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%202/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>The Python Challenge第二关给了我们一张书的图片，但是十分模糊的，什么都看不清，这个时候，我们看看它给我们的文字提示是</p>
+<blockquote>
+<p>MAYBE they are in the page source.</p>
+</blockquote>
+<p>这个时候我们点击鼠标右键，查看网页的源代码，会发现，果然有一大长条乱七八糟的符号。不难猜到，我们所需要的下一关的url就藏在这堆符号里。于是我们用简单的爬虫爬取网页代码，然后利用正则表达式来捕捉我们需要的字母。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">&#x27;Yuuki_Dach&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pyUrl = <span class="string">&quot;http://www.pythonchallenge.com/pc/def/ocr.html&quot;</span></span><br><span class="line">req = request.Request(pyUrl)</span><br><span class="line">resq = request.urlopen(req)</span><br><span class="line">content = resq.read()</span><br><span class="line">book = re.<span class="built_in">compile</span>(<span class="string">b&quot;&lt;!--(.*?)--&gt;&quot;</span>, re.S)</span><br><span class="line">bookContents = re.findall(book, content)</span><br><span class="line">wordsCmpl = re.<span class="built_in">compile</span>(<span class="string">b&quot;([ a-zA-Z])&quot;</span>, re.S)</span><br><span class="line"><span class="keyword">for</span> bookContent <span class="keyword">in</span> bookContents: </span><br><span class="line">    words = re.findall(wordsCmpl, bookContent)</span><br><span class="line">    code = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        code += word.decode(<span class="string">&quot;ascii&quot;</span>)</span><br><span class="line">    print(code)</span><br></pre></td></tr></table></figure>
+
+<p>这里只要注意一下编码的方式就好。</p>
+<p>运行代码，我们可以得到如下信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find rare characters in the mess below</span><br><span class="line">equality</span><br></pre></td></tr></table></figure>
+<p>将equality输入到url就能进入下一关了</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%203/" class="article-date">
+  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%203/">The Python Challenge Level-3 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%203/" data-id="ckh1p3cfh004yj3lvhs7chsat" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%203/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urllib/" rel="tag">urllib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>这里按照题目意思，利用正则匹配，找到恰好分别被三个大写字母包在左右的小写字母就好</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">&#x27;Yuuki_Dach&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pyUrl = <span class="string">&#x27;http://www.pythonchallenge.com/pc/def/equality.html&#x27;</span></span><br><span class="line">req = request.Request(pyUrl)</span><br><span class="line">resp = request.urlopen(req)</span><br><span class="line">urlContent = resp.read()</span><br><span class="line">pattern = re.<span class="built_in">compile</span>(<span class="string">b&#x27;[^A-Z][A-Z]&#123;3&#125;([a-z])[A-Z]&#123;3&#125;[^A-Z]&#x27;</span>, re.S)</span><br><span class="line">contents = re.findall(pattern, urlContent)</span><br><span class="line">code = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> content <span class="keyword">in</span> contents:</span><br><span class="line">    code += content.decode(<span class="string">&quot;ascii&quot;</span>)</span><br><span class="line">print(code)</span><br></pre></td></tr></table></figure>
+<p>得到linkedlist，输入到url中，得到提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linkedlist.php</span><br></pre></td></tr></table></figure>
+<p>把’.html’的后缀改成’.php’就通关了</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%204/" class="article-date">
+  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%204/">The Python Challenge Level-4 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%204/" data-id="ckh1p3cfm0053j3lvhiu9015w" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%204/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urllib/" rel="tag">urllib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>依然是先查看网页源代码。发现有个链接’…nothing=12345’</p>
+<p>点进去之后发现又给我们一个数字，引导我们去下一个链接，于是可以知道，只要链接爬到了终点，那么就会出现别的提示信息</p>
+<p>果然，爬到终点之后，提示我们除以二，继续爬，所以只要把代码改个数字就好，我的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">__author__ &#x3D; &#39;Yuuki_Dach&#39;</span><br><span class="line"></span><br><span class="line">from urllib import request</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">mainUrl &#x3D; &#39;http:&#x2F;&#x2F;www.pythonchallenge.com&#x2F;pc&#x2F;def&#x2F;linkedlist.php?nothing&#x3D;&#39;</span><br><span class="line">subUrl &#x3D; &#39;8022&#39; # first try is &#39;12345&#39;</span><br><span class="line">subUrl2 &#x3D; &#39;&#39; </span><br><span class="line">i &#x3D; 400</span><br><span class="line">while subUrl !&#x3D; subUrl2:</span><br><span class="line">    subUrl2 &#x3D; subUrl</span><br><span class="line">    pyUrl &#x3D; mainUrl + subUrl</span><br><span class="line">    req &#x3D; request.Request(pyUrl)</span><br><span class="line">    resp &#x3D; request.urlopen(req)</span><br><span class="line">    urlContent &#x3D; resp.read()</span><br><span class="line">    pattern &#x3D; re.compile(b&#39;\d+&#39;, re.S)</span><br><span class="line">    contents &#x3D; re.findall(pattern, urlContent)</span><br><span class="line">    for content in contents:</span><br><span class="line">        subUrl &#x3D; content.decode(&quot;ascii&quot;)</span><br><span class="line">    print(subUrl)</span><br></pre></td></tr></table></figure>
+<p>最后得到’peak’。只不过注意后缀要改回’.html’就行了</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%205/" class="article-date">
+  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%205/">The Python Challenge Level-5 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%205/" data-id="ckh1p3cfo0056j3lvd67phn13" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%205/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urllib/" rel="tag">urllib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>先看提示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pronounce it </span><br></pre></td></tr></table></figure>
+<p>再看看网页源码，’peak hell’能代表什么？</p>
+<p>我一开始以为是’pick’什么东西，点开’banner.p’之后没发现什么规律，于是先google了一下’peak hell’，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。</p>
+<p>pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。</p>
+<p>读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把’ ‘和’#’后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">&#x27;Yuuki_Dach&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line">pyUrl = <span class="string">&#x27;http://www.pythonchallenge.com/pc/def/banner.p&#x27;</span></span><br><span class="line">req = request.Request(pyUrl)</span><br><span class="line">resp = request.urlopen(req)</span><br><span class="line">urlContent = resp.read()</span><br><span class="line">code = []</span><br><span class="line">pic = pickle.loads(urlContent)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> pic:</span><br><span class="line">    <span class="keyword">for</span> letter, num <span class="keyword">in</span> line:</span><br><span class="line">        code.append(num*letter)</span><br><span class="line">    code.append(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">print(<span class="string">&quot;&quot;</span>.join(code))</span><br></pre></td></tr></table></figure>
+<p>运行之后得到的点阵图是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">                                                                                               </span><br><span class="line">              #####                                                                      ##### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">               ####                                                                       #### </span><br><span class="line">      ###      ####   ###         ###       #####   ###    #####   ###          ###       #### </span><br><span class="line">   ###   ##    #### #######     ##  ###      #### #######   #### #######     ###  ###     #### </span><br><span class="line">  ###     ###  #####    ####   ###   ####    #####    ####  #####    ####   ###     ###   #### </span><br><span class="line"> ###           ####     ####   ###    ###    ####     ####  ####     ####  ###      ####  #### </span><br><span class="line"> ###           ####     ####          ###    ####     ####  ####     ####  ###       ###  #### </span><br><span class="line">####           ####     ####     ##   ###    ####     ####  ####     #### ####       ###  #### </span><br><span class="line">####           ####     ####   ##########    ####     ####  ####     #### ##############  #### </span><br><span class="line">####           ####     ####  ###    ####    ####     ####  ####     #### ####            #### </span><br><span class="line">####           ####     #### ####     ###    ####     ####  ####     #### ####            #### </span><br><span class="line"> ###           ####     #### ####     ###    ####     ####  ####     ####  ###            #### </span><br><span class="line">  ###      ##  ####     ####  ###    ####    ####     ####  ####     ####   ###      ##   #### </span><br><span class="line">   ###    ##   ####     ####   ###########   ####     ####  ####     ####    ###    ##    #### </span><br><span class="line">      ###     ######    #####    ##    #### ######    ###########    #####      ###      ######</span><br><span class="line">                                                                                               </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>大家请把终端的宽度拉大一点，不然会和我一开始一样，读不出什么东西来，并且怀疑是不是程序写错了 =_=</p>
+<p>接下来就是把channel输入到url中了</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python Challenge/The Python Challenge 6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%206/" class="article-date">
+  <time datetime="2016-09-16T16:00:00.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/Python%20Challenge/The%20Python%20Challenge%206/">The Python Challenge Level-6 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%206/" data-id="ckh1p3cfq005aj3lv8easdf6a" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%206/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>这道题目开始让人很迷茫了（至少我是这样），先点开网页源码，没发现什么有价值等东西，然后又看看图片，发现右上角有个箭头，指着几个数字3，于是照着填进去了，发现没有链接，于是又跑去看源码，终于在开头发现了这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &lt;-- zip --&gt;</span><br></pre></td></tr></table></figure>
+<p>于是将’.html’替换成’.zip’，居然下载下来了一个压缩包，点开之后会发现有一个readme.txt，再继续点开，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">welcome to my zipped list.</span><br><span class="line"></span><br><span class="line">hint1: start from 90052</span><br><span class="line">hint2: answer is inside the zip</span><br></pre></td></tr></table></figure>
+<p>很明显，和前几题一样，就是按照90052这个数字找下去了，不过这次找的不是网页，而是文件。这里我们用zipfile这个模块来完成我们的需求</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">&#x27;Yuuki_Dach&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">zipFileName= <span class="string">&#x27;channel.zip&#x27;</span></span><br><span class="line">zipBag = zipfile.ZipFile(zipFileName)</span><br><span class="line">num = <span class="string">&#x27;90052&#x27;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    zipContent = zipBag.read(num+<span class="string">&quot;.txt&quot;</span>).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">    print(zipContent)</span><br><span class="line">    content = re.search(<span class="string">&quot;(\d+)&quot;</span>, zipContent)</span><br><span class="line">    <span class="keyword">if</span> content == <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    num = content.group()</span><br></pre></td></tr></table></figure>
+<p>运行代码，会发现有以下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collect the comments.</span><br></pre></td></tr></table></figure>
+<p>恰好室友前几天提到zip压缩包的一些相关事项，再配合上一题，于是我将代码稍作更改，把文件里等注释等内容全部读出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">__author__ &#x3D; &#39;Yuuki_Dach&#39;</span><br><span class="line"></span><br><span class="line">import zipfile</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">zipFileName&#x3D; &#39;channel.zip&#39;</span><br><span class="line">zipBag &#x3D; zipfile.ZipFile(zipFileName)</span><br><span class="line">num &#x3D; &#39;90052&#39;</span><br><span class="line">comment &#x3D; &#39;&#39;</span><br><span class="line">while True:</span><br><span class="line">    zipContent &#x3D; zipBag.read(num+&#39;.txt&#39;).decode(&#39;utf-8&#39;)</span><br><span class="line">    print(zipContent)</span><br><span class="line">    comment +&#x3D; zipBag.getinfo(num+&#39;.txt&#39;).comment.decode(&#39;utf-8&#39;)</span><br><span class="line">    content &#x3D; re.search(&quot;(\d+)&quot;, zipContent)</span><br><span class="line">    if content &#x3D;&#x3D; None:</span><br><span class="line">        break</span><br><span class="line">    num &#x3D; content.group()</span><br><span class="line">print(comment)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">****************************************************************</span><br><span class="line">****************************************************************</span><br><span class="line">**                                                            **</span><br><span class="line">**   OO    OO    XX      YYYY    GG    GG  EEEEEE NN      NN  **</span><br><span class="line">**   OO    OO  XXXXXX   YYYYYY   GG   GG   EEEEEE  NN    NN   **</span><br><span class="line">**   OO    OO XXX  XXX YYY   YY  GG GG     EE       NN  NN    **</span><br><span class="line">**   OOOOOOOO XX    XX YY        GGG       EEEEE     NNNN     **</span><br><span class="line">**   OOOOOOOO XX    XX YY        GGG       EEEEE      NN      **</span><br><span class="line">**   OO    OO XXX  XXX YYY   YY  GG GG     EE         NN      **</span><br><span class="line">**   OO    OO  XXXXXX   YYYYYY   GG   GG   EEEEEE     NN      **</span><br><span class="line">**   OO    OO    XX      YYYY    GG    GG  EEEEEE     NN      **</span><br><span class="line">**                                                            **</span><br><span class="line">****************************************************************</span><br><span class="line"> **************************************************************</span><br></pre></td></tr></table></figure>
+<p>再将hockey输入，居然还有一个猜谜！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">it&#39;s in the air. look at the letters.</span><br></pre></td></tr></table></figure>
+<p>这里不难想到’oxygen’，输入即可</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-OJ/--UVa OJ 1609 - Foul Play--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/" class="article-date">
+  <time datetime="2016-09-14T16:00:00.000Z" itemprop="datePublished">2016-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/">UVa OJ 1609 - Foul Play</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/" data-id="ckh1p3cf60048j3lva7e84wtj" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>n支队伍(2≤n≤1024,且n是2的整数幂)打淘汰赛,每轮都是两两配对,胜者进入下一轮。每支队伍的实力固定,并且已知每两支队伍之间的一场比赛结果。你喜欢1号队。虽然它不一定是最强的,但是它可以直接打败其他队伍中的至少一半,并且对于每支1号队不能直接打败的队伍t,总是存在一支1号队能直接打败的队伍t’使得t’能直接打败t。问:是否存在一种比赛安排,使得1号队夺冠?</p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>For each test case, the input is as follows:</p>
+<ul>
+<li><p>One line containing the number of teams n, where n is a power of two and 2 ≤ n ≤ 1024. Teams are numbered from 1 to n, where team 1 is your favourite team.</p>
+</li>
+<li><p>n lines, each containing a string of n binary digits.<br>The k-th digit on the j-th line is ‘1’ if team j would certainly win from team k, otherwise it is ‘0’. A team cannot play against itself, therefore the j-th digit on the j-th line is ‘0’. If j!=k, the k-th digit on the j-th line is different from the j-th digit on the k-th line.</p>
+</li>
+</ul>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>For each test case, print n − 1 lines of output, specifying a tournament schedule that ensures victory for team 1.<br>&emsp;&emsp;The first n/2 lines describe the first round of the tournament. The next n/4 lines describe the second round, if any, etc. The last line describes the final match.<br>&emsp;&emsp;Each line contains two integers x and y, indicating that team x plays a match against team y.<br>&emsp;&emsp;If there are multiple tournament schedules where team 1 wins, any one of those tournament schedules will be accepted as a correct answer.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0110</span><br><span class="line">0011</span><br><span class="line">0000</span><br><span class="line">1010</span><br><span class="line">8</span><br><span class="line">00111010</span><br><span class="line">10101111</span><br><span class="line">00010010</span><br><span class="line">01000101</span><br><span class="line">00110010</span><br><span class="line">10101011</span><br><span class="line">00010000</span><br><span class="line">10101010</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">1 2</span><br><span class="line">1 5</span><br><span class="line">3 7</span><br><span class="line">4 8</span><br><span class="line">2 6</span><br><span class="line">1 3</span><br><span class="line">4 2</span><br><span class="line">1 4</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>先把1队能打败的和不能打败的队伍全部区分开来，然后让不能打败的队伍和能被打败的队伍先互相匹配。接着对1匹配能打败的队伍。再让不能打败的队伍相互之间互相匹配，剩下的就随便匹配。每一次能减少一半的队伍，循环几次即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1025</span>;</span><br><span class="line"><span class="keyword">char</span> team[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; team[i]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; win, lose;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(team[<span class="number">1</span>][i] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                win.push_back(i);</span><br><span class="line">            <span class="keyword">else</span> lose.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> leftTeam = n;</span><br><span class="line">        <span class="keyword">while</span> (leftTeam &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; winSub, loseSub, round3;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lose.size(); ++i) &#123;</span><br><span class="line">                <span class="keyword">bool</span> matched = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; win.size(); ++j)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(win[j] &amp;&amp; team[win[j]][lose[i]] == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                        <span class="built_in">cout</span> &lt;&lt; win[j] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt;lose[i] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                        matched = <span class="literal">true</span>;</span><br><span class="line">                        winSub.push_back(win[j]);</span><br><span class="line">                        win[j] = <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(!matched) round3.push_back(lose[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> isOK = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; win.size(); ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span>(win[i]) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(!isOK)&#123;</span><br><span class="line">                        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;1 &quot;</span> &lt;&lt; win[i] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                        isOK = <span class="literal">true</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        round3.push_back(win[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; round3.size(); i += <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; round3[i] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; round3[i+<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                <span class="keyword">int</span> tmp = round3[i+<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span>(team[round3[i]][tmp] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                    tmp = round3[i];</span><br><span class="line">                <span class="keyword">if</span>(team[<span class="number">1</span>][tmp] == <span class="string">&#x27;1&#x27;</span>) winSub.push_back(tmp);</span><br><span class="line">                <span class="keyword">else</span> loseSub.push_back(tmp);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            win = winSub;</span><br><span class="line">            lose = loseSub;</span><br><span class="line">            leftTeam &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
+
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/" rel="tag">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAG/" rel="tag">DAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-conquer/" rel="tag">Divide and conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PIL/" rel="tag">PIL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Priority-Queue/" rel="tag">Priority Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bz2/" rel="tag">bz2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/" rel="tag">re</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/" rel="tag">urllib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" rel="tag">单调队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 11.67px;">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/BytesIO/" style="font-size: 10px;">BytesIO</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DP/" style="font-size: 18.33px;">DP</a> <a href="/tags/Divide-and-conquer/" style="font-size: 10px;">Divide and conquer</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 13.33px;">Greedy Algorithm</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA*</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Makefile/" style="font-size: 10px;">Makefile</a> <a href="/tags/PIL/" style="font-size: 13.33px;">PIL</a> <a href="/tags/Priority-Queue/" style="font-size: 10px;">Priority Queue</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/io/" style="font-size: 10px;">io</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/re/" style="font-size: 10px;">re</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/urllib/" style="font-size: 13.33px;">urllib</a> <a href="/tags/zipfile/" style="font-size: 10px;">zipfile</a> <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" style="font-size: 10px;">单调队列</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 10px;">迭代</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/03/manjaro_conf/">
+			        My Manjaro i3 Configurations
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			        Use Oracle on Docker for Windows
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/">
+			        第一次辞职
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/04/06/chitchat/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/">
+			        发烧带来的心态变化
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/">
+			        对于未来的困惑
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/02/19/practice/image-to-asciiart/">
+			        Convert Image to ASCII Art
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/12/Shuffling-Bits/">
+			        Shuffling Bits
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/08/05/makefile-learning/">
+			        Makefile for Projects with Subdirectories
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
+			        LPC55S69 USB 高速模式测试（一）
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
+			        Ucount 完结之后
+		        </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">links</h3>
+  <div class="widget">
+    
+    <li><a href="https://github.com/yuukidach" target="_blank">Dash&#39;s GitHub</a></li>
+    
+    <li><a href="http://blog.csdn.net/the_madao" target="_blank">Dash&#39;s CSDN</a></li>
+    
+    <li><a href="https://bibi-fish.github.io" target="_blank">Dandeliar&#39;s Blog</a></li>
+    
+  </ul>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	  <a href="https://github.com/yuukidach" title="Github" target="_blank">
+	    <i class="footer-icon fa fa-github-square fa-4x">&ensp;</i>
+	  </a>
+	  <a href="https://www.facebook.com/yuuki.dach" title="Facebook" target="_blank">
+		<i class="footer-icon fa fa-facebook-square fa-4x">&ensp;</i>
+	  </a>
+	  <br/>
+	  <br/>
+	  <p class="footer-words">A long long way to find myself.</p>
+	  <br/>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  &copy; 2020 Dash
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶端按钮 -->
+<script src="/js/jquery-3.1.0.min.js"></script>
+<div id="totop" style="position:fixed;bottom:110px;right:50px;cursor:pointer;">
+  <a title="Scroll Up" class="fa fa-caret-square-o-up fa-4x" style="color:grey;"></a>
+  
+<!-- <a title="Scroll Up"><img src="/images/scrollup.png"/></a> -->
+</div>
+<div id="tobottom" style="position:fixed;bottom:50px;right:50px;cursor:pointer;">
+  <a title="Scroll Down" class="fa fa-caret-square-o-down fa-4x" style="color:grey;"></a>
+</div>
+
+<script src="/js/totop.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuuki-dachs-blog';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<!-- 百度站点自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>
