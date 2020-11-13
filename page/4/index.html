@@ -64,6 +64,68 @@
       <div class="outer">
         <section id="main"> 
   
+    <article id="post-Python Challenge/The Python Challenge 11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/20/Python%20Challenge/The%20Python%20Challenge%2011/" class="article-date">
+  <time datetime="2016-09-19T16:00:00.000Z" itemprop="datePublished">2016-09-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/20/Python%20Challenge/The%20Python%20Challenge%2011/">The Python Challenge Level-11 Solution</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/09/20/Python%20Challenge/The%20Python%20Challenge%2011/" data-id="ckh1p3cfe004qj3lvel4yhk1y" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/09/20/Python%20Challenge/The%20Python%20Challenge%2011/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PIL/" rel="tag">PIL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <p>先附上我在Github上存放的代码仓库: <a target="_blank" rel="noopener" href="https://github.com/yuukidach/The-Python-Challenge">The Python Challenge</a></p>
+<p>这个题目感觉就很玄乎了，就只给我们一张图片，网页源码里空空如也</p>
+<p>这里实际上是把一张图片拆分成两张来看。</p>
+<p>我尝试了不同的奇偶拆分方式，最终还是选定了X轴和Y轴相加的方式来判断奇偶</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">__author__ = <span class="string">&#x27;Yuuki_Dach&#x27;</span></span><br><span class="line"></span><br><span class="line">img = Image.<span class="built_in">open</span>(<span class="string">&#x27;cave.jpg&#x27;</span>)</span><br><span class="line">width, height = img.size</span><br><span class="line">even = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (width &gt;&gt; <span class="number">1</span>, height &gt;&gt; <span class="number">1</span>))</span><br><span class="line">odd = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (width &gt;&gt; <span class="number">1</span>, height &gt;&gt; <span class="number">1</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">        imgPixel = img.getpixel((i, j))</span><br><span class="line">        <span class="keyword">if</span> (i + j) &amp; <span class="number">1</span> == <span class="number">1</span>:</span><br><span class="line">            odd.putpixel((i &gt;&gt; <span class="number">1</span>, j &gt;&gt; <span class="number">1</span>), imgPixel)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            even.putpixel((i &gt;&gt; <span class="number">1</span>, j &gt;&gt; <span class="number">1</span>), imgPixel)</span><br><span class="line">even.show()</span><br><span class="line">odd.show()</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Python Challenge/The Python Challenge 9-10" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/19/Python%20Challenge/The%20Python%20Challenge%209-10/" class="article-date">
@@ -668,78 +730,6 @@
 
 
   
-    <article id="post-OJ/--UVa OJ 1609 - Foul Play--" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/" class="article-date">
-  <time datetime="2016-09-14T16:00:00.000Z" itemprop="datePublished">2016-09-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/">UVa OJ 1609 - Foul Play</a>
-    </h1>
-  
-
-      </header>
-    
-	
-    
-	
-	<footer class="article-footer">
-      <a data-url="http://yuukidach.github.io/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/" data-id="ckh1p3cf60048j3lva7e84wtj" class="article-share-link">Share</a>
-      
-        <a href="http://yuukidach.github.io/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a></li></ul>
-
-    </footer>
-	 
-	<div class="article-entry">
-	  <div class="toggle-content" id="articleAbstract">
-	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>n支队伍(2≤n≤1024,且n是2的整数幂)打淘汰赛,每轮都是两两配对,胜者进入下一轮。每支队伍的实力固定,并且已知每两支队伍之间的一场比赛结果。你喜欢1号队。虽然它不一定是最强的,但是它可以直接打败其他队伍中的至少一半,并且对于每支1号队不能直接打败的队伍t,总是存在一支1号队能直接打败的队伍t’使得t’能直接打败t。问:是否存在一种比赛安排,使得1号队夺冠?</p>
-<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>For each test case, the input is as follows:</p>
-<ul>
-<li><p>One line containing the number of teams n, where n is a power of two and 2 ≤ n ≤ 1024. Teams are numbered from 1 to n, where team 1 is your favourite team.</p>
-</li>
-<li><p>n lines, each containing a string of n binary digits.<br>The k-th digit on the j-th line is ‘1’ if team j would certainly win from team k, otherwise it is ‘0’. A team cannot play against itself, therefore the j-th digit on the j-th line is ‘0’. If j!=k, the k-th digit on the j-th line is different from the j-th digit on the k-th line.</p>
-</li>
-</ul>
-<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>For each test case, print n − 1 lines of output, specifying a tournament schedule that ensures victory for team 1.<br>&emsp;&emsp;The first n/2 lines describe the first round of the tournament. The next n/4 lines describe the second round, if any, etc. The last line describes the final match.<br>&emsp;&emsp;Each line contains two integers x and y, indicating that team x plays a match against team y.<br>&emsp;&emsp;If there are multiple tournament schedules where team 1 wins, any one of those tournament schedules will be accepted as a correct answer.</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0110</span><br><span class="line">0011</span><br><span class="line">0000</span><br><span class="line">1010</span><br><span class="line">8</span><br><span class="line">00111010</span><br><span class="line">10101111</span><br><span class="line">00010010</span><br><span class="line">01000101</span><br><span class="line">00110010</span><br><span class="line">10101011</span><br><span class="line">00010000</span><br><span class="line">10101010</span><br></pre></td></tr></table></figure>
-
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">1 2</span><br><span class="line">1 5</span><br><span class="line">3 7</span><br><span class="line">4 8</span><br><span class="line">2 6</span><br><span class="line">1 3</span><br><span class="line">4 2</span><br><span class="line">1 4</span><br></pre></td></tr></table></figure>
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>先把1队能打败的和不能打败的队伍全部区分开来，然后让不能打败的队伍和能被打败的队伍先互相匹配。接着对1匹配能打败的队伍。再让不能打败的队伍相互之间互相匹配，剩下的就随便匹配。每一次能减少一半的队伍，循环几次即可</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1025</span>;</span><br><span class="line"><span class="keyword">char</span> team[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.txt&quot; , &quot;r&quot;, stdin );</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; team[i]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; win, lose;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(team[<span class="number">1</span>][i] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                win.push_back(i);</span><br><span class="line">            <span class="keyword">else</span> lose.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> leftTeam = n;</span><br><span class="line">        <span class="keyword">while</span> (leftTeam &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; winSub, loseSub, round3;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lose.size(); ++i) &#123;</span><br><span class="line">                <span class="keyword">bool</span> matched = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; win.size(); ++j)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(win[j] &amp;&amp; team[win[j]][lose[i]] == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                        <span class="built_in">cout</span> &lt;&lt; win[j] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt;lose[i] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                        matched = <span class="literal">true</span>;</span><br><span class="line">                        winSub.push_back(win[j]);</span><br><span class="line">                        win[j] = <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(!matched) round3.push_back(lose[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> isOK = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; win.size(); ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span>(win[i]) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(!isOK)&#123;</span><br><span class="line">                        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;1 &quot;</span> &lt;&lt; win[i] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                        isOK = <span class="literal">true</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        round3.push_back(win[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; round3.size(); i += <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; round3[i] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; round3[i+<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">                <span class="keyword">int</span> tmp = round3[i+<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span>(team[round3[i]][tmp] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                    tmp = round3[i];</span><br><span class="line">                <span class="keyword">if</span>(team[<span class="number">1</span>][tmp] == <span class="string">&#x27;1&#x27;</span>) winSub.push_back(tmp);</span><br><span class="line">                <span class="keyword">else</span> loseSub.push_back(tmp);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            win = winSub;</span><br><span class="line">            lose = loseSub;</span><br><span class="line">            leftTeam &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	  </div>
-
-	  <div class="article-more-link">
-        <a>Read More</a>
-      </div>
-		
-    </div>
-	  
-    
-	
-  </div>
-  
-</article>
-
-
-
-  
 
 
 
@@ -756,7 +746,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -766,7 +756,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -799,6 +789,13 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/13/database/xact_and_concurrency_ctrl/">
+			        Transaction and Concurrency Control
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2020/11/03/manjaro_conf/">
 			        My Manjaro i3 Configurations
 		        </a>
@@ -806,7 +803,7 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			      <a class="text" href="/2020/10/20/database/Oracle-docker-for-win10/">
 			        Use Oracle on Docker for Windows
 		        </a>
           </li>
@@ -857,13 +854,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
 			        LPC55S69 USB 高速模式测试（一）
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
-			        Ucount 完结之后
 		        </a>
           </li>
         

@@ -13,7 +13,7 @@
 <meta property="og:description" content="Manjaro edition: Manjaro-i3 This post is about how I configure my Manjaro i3 Softwares to Install fcitx5 (no need to install sogou pinyin for linux anymore) deepin-wine-wechat deepin-wine-tim wps-offi">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-11-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-07T02:54:41.150Z">
+<meta property="article:modified_time" content="2020-11-09T03:13:04.590Z">
 <meta property="article:author" content="Dash">
 <meta name="twitter:card" content="summary">
   
@@ -114,6 +114,7 @@
 <li>albert (a fast launcher)</li>
 <li>vim (with <a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">vimplus</a>)</li>
 <li>flameshot (screen capture tool)</li>
+<li>nerd-fonts-jetbrains-mono (font for vscode)</li>
 </ol>
 <h2 id="Multiple-Monitors"><a href="#Multiple-Monitors" class="headerlink" title="Multiple Monitors"></a>Multiple Monitors</h2><p>When we plug a HDMI/VGA cable into the computer, Manjaro i3 will not automatically display content in the external monitor. We need to use <code>xrandr</code> to set the display mode.</p>
 <p>More specific usage can be found here: <a target="_blank" rel="noopener" href="https://i3wm.org/docs/userguide.html#multi_monitor">Multiple monitors</a>.</p>
@@ -136,8 +137,17 @@
     
 <nav id="article-nav">
   
+    <a href="/2020/11/13/database/xact_and_concurrency_ctrl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Transaction and Concurrency Control
+        
+      </div>
+    </a>
   
-    <a href="/2020/10/20/Oracle-docker-for-win10/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2020/10/20/database/Oracle-docker-for-win10/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Use Oracle on Docker for Windows</div>
     </a>
@@ -162,7 +172,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -172,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -205,6 +215,13 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/13/database/xact_and_concurrency_ctrl/">
+			        Transaction and Concurrency Control
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2020/11/03/manjaro_conf/">
 			        My Manjaro i3 Configurations
 		        </a>
@@ -212,7 +229,7 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			      <a class="text" href="/2020/10/20/database/Oracle-docker-for-win10/">
 			        Use Oracle on Docker for Windows
 		        </a>
           </li>
@@ -263,13 +280,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
 			        LPC55S69 USB 高速模式测试（一）
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
-			        Ucount 完结之后
 		        </a>
           </li>
         

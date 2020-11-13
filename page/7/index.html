@@ -64,6 +64,76 @@
       <div class="outer">
         <section id="main"> 
   
+    <article id="post-OJ/--UVa OJ 11134 - Fabled Rooks--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/10/OJ/--UVa%20OJ%2011134%20-%20Fabled%20Rooks--/" class="article-date">
+  <time datetime="2016-08-09T16:00:00.000Z" itemprop="datePublished">2016-08-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/10/OJ/--UVa%20OJ%2011134%20-%20Fabled%20Rooks--/">UVa OJ 11134 - Fabled Rooks</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/08/10/OJ/--UVa%20OJ%2011134%20-%20Fabled%20Rooks--/" data-id="ckh1p3ce6001vj3lv9f5s043l" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/08/10/OJ/--UVa%20OJ%2011134%20-%20Fabled%20Rooks--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>&emsp;&emsp;在n*n的棋盘上放n（n≤5000）个车，使得任意两个车不相互攻击，且第i个 车在一个给定的矩形Ri之内。用4个整数x<sub>li</sub>, y<sub>li</sub>, x<sub>ri</sub>, y<sub>ri</sub>（1≤x<sub>li</sub>≤x<sub>ri</sub>≤n，1≤y<sub>li</sub>≤y<sub>ri</sub>≤n）描述第i个 矩形，其中(x<sub>li</sub>,y<sub>li</sub>)是左上角坐标，(x<sub>ri</sub>,y<sub>ri</sub>)是右下角坐标，则第i个车的位置(x,y)必须满 足x<sub>li</sub>≤x≤x<sub>ri</sub>，y<sub>li</sub>≤y≤y<sub>ri</sub>。如果无解，输出IMPOSSIBLE；否则输出n行，依次为第1,2,…,n个车 的坐标。</p>
+<a id="more"></a>
+
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>The input consists of several test cases. The first line of each of them contains one integer number, n, the side of the board. n lines follow giving the rectangles where the rooks can be placed as described above. The i-th line among them gives x<sub>li</sub>, y<sub>li</sub>, x<sub>ri</sub>, and y<sub>ri</sub>. The input file is terminated with the integer ‘0’ on a line by itself.</p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>Your task is to find such a placing of rooks that the above conditions are satisfied and then output n lines each giving the position of a rook in order in which their rectangles appeared in the input. If there are multiple solutions, any one will do. Output ‘IMPOSSIBLE’ if there is no such placing of the rooks.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">1 1 2 2</span><br><span class="line">5 7 8 8</span><br><span class="line">2 2 5 5</span><br><span class="line">2 2 5 5</span><br><span class="line">6 3 8 6</span><br><span class="line">6 3 8 5</span><br><span class="line">6 3 8 8</span><br><span class="line">3 6 7 8</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1 1</span><br><span class="line">5 8</span><br><span class="line">2 4</span><br><span class="line">4 2</span><br><span class="line">7 3</span><br><span class="line">8 5</span><br><span class="line">6 6</span><br><span class="line">3 7</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>&emsp;&emsp;这道题用贪心法就能够完成了，可以从整体去考虑，也可以从X和Y轴两个部分去考虑，分别使用贪心法来找到点的坐标。  </p>
+<p>&emsp;&emsp;我两个方法都尝试了一下，一开始是自己整块的去考虑，成功AC，然后看了看别人解题的方式，也试着讲X和Y分开来试了下，速度都差不多。但是在用X和Y分开来的时候，出了点状况。就是在希望代码不重复，而对贪心这个步骤进行函数封装的时候，本地测试，使用函数和不实用函数封装，得到的结果都是一样的。但是提交到OJ上的时候，没有函数封装的代码能AC，而封装过的会WA，不管怎么改都是WA。个人比较倾向于可能是在不懂的环境下，传指针的影响会有差别。<br>不过真正是什么原因，还是有待考究。  </p>
+<p>&emsp;&emsp;下面我把AC的代码贴出来。原来利用整块操作的代码不小心被覆盖了，这里就只放出对X和Y分别贪心的做法。  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5100</span>;</span><br><span class="line"><span class="keyword">int</span> n, possi;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; setX, setY;</span><br><span class="line"><span class="keyword">int</span> idxX[maxn], idxY[maxn]; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> l, r, id;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(rect &amp;);</span><br><span class="line">&#125; rectX[maxn],rectY[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> rect::<span class="keyword">operator</span>&lt; (rect &amp;rectB)&#123;</span><br><span class="line">    <span class="keyword">return</span> r &lt; rectB.r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">inputRect</span><span class="params">()</span></span>&#123;</span><br><span class="line">    setX.clear();</span><br><span class="line">    setY.clear();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;rectX[i].l, &amp;rectY[i].l,</span><br><span class="line">                          &amp;rectX[i].r, &amp;rectY[i].r);</span><br><span class="line">        rectX[i].id = rectY[i].id = i;</span><br><span class="line">        setX.insert(i);</span><br><span class="line">        setY.insert(i);</span><br><span class="line">    &#125;</span><br><span class="line">    setX.insert(maxn);</span><br><span class="line">    setY.insert(maxn);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n) == <span class="number">1</span> &amp;&amp; n)&#123;</span><br><span class="line">        inputRect();</span><br><span class="line">        sort(rectX+<span class="number">1</span>, rectX+n+<span class="number">1</span>);</span><br><span class="line">        sort(rectY+<span class="number">1</span>, rectY+n+<span class="number">1</span>);</span><br><span class="line">        possi = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n &amp;&amp; possi; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> tempX = *setX.lower_bound(rectX[i].l);</span><br><span class="line">            <span class="keyword">if</span> (tempX &gt; rectX[i].r) &#123; </span><br><span class="line">                possi = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            idxX[rectX[i].id] = tempX;</span><br><span class="line">            setX.erase(tempX);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> tempY = *setY.lower_bound(rectY[i].l);</span><br><span class="line">            <span class="keyword">if</span> (tempY &gt; rectY[i].r) &#123; </span><br><span class="line">                possi = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            idxY[rectY[i].id] = tempY;</span><br><span class="line">            setY.erase(tempY);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (possi)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, idxX[i], idxY[i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;IMPOSSIBLE\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-OJ/--UVa OJ 1152 - 4 Values whose Sum is 0--" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/08/OJ/--UVa%20OJ%201152%20-%204%20Values%20whose%20Sum%20is%200--/" class="article-date">
@@ -771,7 +841,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -781,7 +851,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -814,6 +884,13 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/13/database/xact_and_concurrency_ctrl/">
+			        Transaction and Concurrency Control
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2020/11/03/manjaro_conf/">
 			        My Manjaro i3 Configurations
 		        </a>
@@ -821,7 +898,7 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			      <a class="text" href="/2020/10/20/database/Oracle-docker-for-win10/">
 			        Use Oracle on Docker for Windows
 		        </a>
           </li>
@@ -872,13 +949,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
 			        LPC55S69 USB 高速模式测试（一）
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
-			        Ucount 完结之后
 		        </a>
           </li>
         

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/</loc>
+    <lastmod>2020-11-13</lastmod>
+  </url>  <url>
+    <loc>http://yuukidach.github.io/2020/10/20/database/Oracle-docker-for-win10/</loc>
+    <lastmod>2020-11-13</lastmod>
+  </url>  <url>
     <loc>http://yuukidach.github.io/2020/11/03/manjaro_conf/</loc>
-    <lastmod>2020-11-07</lastmod>
+    <lastmod>2020-11-09</lastmod>
   </url>  <url>
     <loc>http://yuukidach.github.io/2016/09/22/cout%20with%20sync/</loc>
     <lastmod>2020-11-03</lastmod>
@@ -47,9 +53,6 @@
     <lastmod>2020-11-03</lastmod>
   </url>  <url>
     <loc>http://yuukidach.github.io/2019/08/12/Shuffling-Bits/</loc>
-    <lastmod>2020-11-03</lastmod>
-  </url>  <url>
-    <loc>http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/</loc>
     <lastmod>2020-11-03</lastmod>
   </url>  <url>
     <loc>http://yuukidach.github.io/2016/09/14/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8Python3/</loc>

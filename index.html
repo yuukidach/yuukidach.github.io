@@ -64,6 +64,123 @@
       <div class="outer">
         <section id="main"> 
   
+    <article id="post-database/xact_and_concurrency_ctrl" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/13/database/xact_and_concurrency_ctrl/" class="article-date">
+  <time datetime="2020-11-12T16:00:00.000Z" itemprop="datePublished">2020-11-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Database/">Database</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/13/database/xact_and_concurrency_ctrl/">Transaction and Concurrency Control</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/" data-id="ckhgj5x2l00011vlv4imah28w" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p><strong>Transaction:</strong> A sequence of multiple actions to be executed as an <em>atomic</em> unit.</p>
+<p>Transaction in SQL view:</p>
+<ul>
+<li>Begin transaction</li>
+<li>Sequence of SQL statements</li>
+<li>End transaction</li>
+</ul>
+<p>Transaction Manager controls excution of transactions. Program logic is invisible to DBMS. For example:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="keyword">start</span> <span class="keyword">transaction</span></span><br><span class="line"><span class="number">2.</span> <span class="keyword">read</span>(R)</span><br><span class="line"><span class="number">3.</span> R = R - <span class="number">100</span>  <span class="comment">------&gt; Invisible</span></span><br><span class="line"><span class="number">4.</span> write(R)</span><br><span class="line"><span class="number">5.</span> <span class="keyword">read</span>(S)</span><br><span class="line"><span class="number">6.</span> S = S + <span class="number">100</span>  <span class="comment">------&gt; Invisible</span></span><br><span class="line"><span class="number">7.</span> write(S)</span><br><span class="line"><span class="number">8.</span> <span class="keyword">end</span> <span class="keyword">transaction</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ACID-Properties"><a href="#ACID-Properties" class="headerlink" title="ACID Properties"></a>ACID Properties</h3><p><strong>A</strong> tomicity: All actions in the transaction happen, or none happen.<br><strong>C</strong> onsistency: If the database starts our consistent, it ends up consistent at the end of the transaction.<br><strong>I</strong> solation: Execution of each transaction is isolated from that of others.<br><strong>D</strong> urability: If a transaction commits, its effect persist.</p>
+<p>Note:</p>
+<ol>
+<li>For <code>isolation</code>, it’s <strong>just</strong> the <em>excution</em> not being affected.</li>
+<li><code>Consistency</code> in database system refers to the requirement that any given DB transaction must change affected data only in allowed ways. (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Consistency_(database_systems)#:~:text=Consistency%20in%20database%20systems%20refers,triggers%2C%20and%20any%20combination%20thereof.">wiki</a>)</li>
+</ol>
+<h2 id="Concurrency-Control"><a href="#Concurrency-Control" class="headerlink" title="Concurrency Control"></a>Concurrency Control</h2><p><strong>Serial schedule:</strong> Each transaction runs from start to finish without any intervening actions from other transactions.</p>
+<p><strong>Equivalent:</strong> Two Schedules are <em>equivalent</em>, when:</p>
+<ol>
+<li>involve same transaction</li>
+<li>each individual transaction’s actions are ordered the same</li>
+<li>both schedules leave the DB in the same final state</li>
+</ol>
+<p><strong>Serializable</strong>: A serial is equivalent to some serial schedule.</p>
+<p><strong>Conflict:</strong> Two <em>oprations</em> are conflict, when:</p>
+<ol>
+<li>Are by different transactions</li>
+<li>Are on the same object</li>
+<li>At least one is write</li>
+</ol>
+<blockquote>
+<p>Order of non-conflict operations has no effect on the final state of the DB.</p>
+</blockquote>
+<p><strong>Conflict equivalent:</strong></p>
+<ol>
+<li>involve the same actions of the same transactions</li>
+<li>every pair of conflicting actions is ordered the same way</li>
+</ol>
+<p><strong>Conflict serializable:</strong></p>
+<ol>
+<li>the serial is conflict equivalent to some serial schedule</li>
+<li>the serial is also serializable</li>
+</ol>
+<blockquote>
+<p>Some serializable schedule is not conflict serializable.</p>
+</blockquote>
+<p>Example:</p>
+<p>a. conflict serializable</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T1: R(A) W(A)           R(B) W(B)</span><br><span class="line">T2:           R(A) W(A)           R(B) W(B)</span><br></pre></td></tr></table></figure>
+
+<p>b. not conflict serializable</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T1: R(A)           W(A)</span><br><span class="line">T2:      R(A) W(A)</span><br><span class="line"></span><br><span class="line">It is serializable but not conflict serializable</span><br></pre></td></tr></table></figure>
+
+<p><strong>View serializable:</strong></p>
+<ol>
+<li>same initial reads</li>
+<li>same dependent reads</li>
+<li>same winning writes (If Ti writes finial value of A in S1, then Ti also writes final value of A in S2)</li>
+</ol>
+<h2 id="Two-Phase-Locking-2PL"><a href="#Two-Phase-Locking-2PL" class="headerlink" title="Two Phase Locking (2PL)"></a>Two Phase Locking (2PL)</h2><p>Rules: transaction must obtain as S (shared) lock before reading, and an X (exclusive) lock before writing.</p>
+<p><strong>2PL guarantees conflict serializability.</strong></p>
+<p>2PL ———-&gt; Release one by one<br>strict 2PL —&gt; Release at the same time</p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-manjaro_conf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/03/manjaro_conf/" class="article-date">
@@ -117,6 +234,7 @@
 <li>albert (a fast launcher)</li>
 <li>vim (with <a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">vimplus</a>)</li>
 <li>flameshot (screen capture tool)</li>
+<li>nerd-fonts-jetbrains-mono (font for vscode)</li>
 </ol>
 <h2 id="Multiple-Monitors"><a href="#Multiple-Monitors" class="headerlink" title="Multiple Monitors"></a>Multiple Monitors</h2><p>When we plug a HDMI/VGA cable into the computer, Manjaro i3 will not automatically display content in the external monitor. We need to use <code>xrandr</code> to set the display mode.</p>
 <p>More specific usage can be found here: <a target="_blank" rel="noopener" href="https://i3wm.org/docs/userguide.html#multi_monitor">Multiple monitors</a>.</p>
@@ -138,9 +256,9 @@
 
 
   
-    <article id="post-Oracle-docker-for-win10" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-database/Oracle-docker-for-win10" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/10/20/Oracle-docker-for-win10/" class="article-date">
+    <a href="/2020/10/20/database/Oracle-docker-for-win10/" class="article-date">
   <time datetime="2020-10-19T16:00:00.000Z" itemprop="datePublished">2020-10-20</time>
 </a>
     
@@ -156,7 +274,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/20/Oracle-docker-for-win10/">Use Oracle on Docker for Windows</a>
+      <a class="article-title" href="/2020/10/20/database/Oracle-docker-for-win10/">Use Oracle on Docker for Windows</a>
     </h1>
   
 
@@ -166,9 +284,9 @@
     
 	
 	<footer class="article-footer">
-      <a data-url="http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/" data-id="ckh1p3cd50008j3lv7f9sa7oo" class="article-share-link">Share</a>
+      <a data-url="http://yuukidach.github.io/2020/10/20/database/Oracle-docker-for-win10/" data-id="ckhgj5x2j00001vlv0b2eftgz" class="article-share-link">Share</a>
       
-        <a href="http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://yuukidach.github.io/2020/10/20/database/Oracle-docker-for-win10/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -852,77 +970,6 @@
 
 
   
-    <article id="post-Ucount 完结之后" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/" class="article-date">
-  <time datetime="2017-03-26T16:00:00.000Z" itemprop="datePublished">2017-03-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Chitchat/">Chitchat</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-<div class="article-gallery">
-  <div class="article-gallery-photos">
-    
-      <a class="article-gallery-img fancybox" target="_blank" href="http://7xread.com1.z0.glb.clouddn.com/a617d394-a1ae-4419-9c73-fa604ce95679" rel="gallery_ckh1p3cdb000gj3lv9ipr7cq6 noopener">
-        <img src="http://7xread.com1.z0.glb.clouddn.com/a617d394-a1ae-4419-9c73-fa604ce95679" itemprop="image">
-      </a>
-    
-  </div>
-</div>
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">Ucount 完结之后</a>
-    </h1>
-  
-
-      </header>
-    
-	
-    
-	
-	<footer class="article-footer">
-      <a data-url="http://yuukidach.github.io/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/" data-id="ckh1p3cdb000gj3lv9ipr7cq6" class="article-share-link">Share</a>
-      
-        <a href="http://yuukidach.github.io/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-	 
-	<div class="article-entry">
-	  <div class="toggle-content" id="articleAbstract">
-	  <p>很久没更新博客了。从最开始饶有兴致地搭建，到现在，愈发地发现自己能说的东西变得少了，以至于都将近荒废了这个地方。</p>
-<p>不是说自己变得慵懒，而是近来常常有种感觉，觉得自身的知识储备太匮乏了。与其用无意义地更新博客来达到一种自我满足的状态，倒不如静下心来好好的提升自我，做点有意义的事情。</p>
-<p>写一个自己的记账软件Ucount是出于对现有记账软件各种冗余功能和广告的不满。本来寒假的时候，就应该完成记编写。但是由于自己的资料准备问题，一直到了开学都已经过去一段时间了，才真正开始着手。</p>
-<p>最基本的功能编写了两三天的样子，后来花了十多天一直优化到现在，已经将所有的基础功能都更新完毕，也算是把自己定下的诺言给实现了。</p>
-<p>接下来也就不会再去深究安卓了，毕竟这不是自己想要坚持的方向。要赶紧回到正轨才行，OJ的练习，Linux的学习还是要继续下去的。</p>
-<p>稍微写了一点文字，虽然条理十分还乱，但也算是对自己完成一个目标之后的记录吧。</p>
-
-	  </div>
-
-	  <div class="article-more-link">
-        <a>Read More</a>
-      </div>
-		
-    </div>
-	  
-    
-	
-  </div>
-  
-</article>
-
-
-
-  
 
 
 
@@ -939,7 +986,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -949,7 +996,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -982,6 +1029,13 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/13/database/xact_and_concurrency_ctrl/">
+			        Transaction and Concurrency Control
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2020/11/03/manjaro_conf/">
 			        My Manjaro i3 Configurations
 		        </a>
@@ -989,7 +1043,7 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			      <a class="text" href="/2020/10/20/database/Oracle-docker-for-win10/">
 			        Use Oracle on Docker for Windows
 		        </a>
           </li>
@@ -1040,13 +1094,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
 			        LPC55S69 USB 高速模式测试（一）
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
-			        Ucount 完结之后
 		        </a>
           </li>
         

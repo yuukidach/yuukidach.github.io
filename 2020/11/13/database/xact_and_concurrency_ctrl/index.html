@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Use Oracle on Docker for Windows | Dash&#39;s Blog</title>
+  <title>Transaction and Concurrency Control | Dash&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Environment version    WSL 2   Docker Engine v19.03.13   Oracle Database Enterprise 12.2.0.1   Install WLS2Check detailed and official document here. Problems I encountered1. Use any commands relat">
+  <meta name="description" content="TransactionDefinitionTransaction: A sequence of multiple actions to be executed as an atomic unit. Transaction in SQL view:  Begin transaction Sequence of SQL statements End transaction  Transaction M">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Use Oracle on Docker for Windows">
-<meta property="og:url" content="http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/index.html">
+<meta property="og:title" content="Transaction and Concurrency Control">
+<meta property="og:url" content="http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/index.html">
 <meta property="og:site_name" content="Dash&#39;s Blog">
-<meta property="og:description" content="Environment version    WSL 2   Docker Engine v19.03.13   Oracle Database Enterprise 12.2.0.1   Install WLS2Check detailed and official document here. Problems I encountered1. Use any commands relat">
+<meta property="og:description" content="TransactionDefinitionTransaction: A sequence of multiple actions to be executed as an atomic unit. Transaction in SQL view:  Begin transaction Sequence of SQL statements End transaction  Transaction M">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-10-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-03T07:58:57.973Z">
+<meta property="article:published_time" content="2020-11-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-13T17:22:24.398Z">
 <meta property="article:author" content="Dash">
 <meta name="twitter:card" content="summary">
   
@@ -66,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Oracle-docker-for-win10" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-database/xact_and_concurrency_ctrl" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/10/20/Oracle-docker-for-win10/" class="article-date">
-  <time datetime="2020-10-19T16:00:00.000Z" itemprop="datePublished">2020-10-20</time>
+    <a href="/2020/11/13/database/xact_and_concurrency_ctrl/" class="article-date">
+  <time datetime="2020-11-12T16:00:00.000Z" itemprop="datePublished">2020-11-13</time>
 </a>
     
   <div class="article-category">
@@ -84,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Use Oracle on Docker for Windows
+      Transaction and Concurrency Control
     </h1>
   
 
@@ -98,51 +98,76 @@
 	  <!-- Table of Contents -->
 	  
 
-      <table>
-<thead>
-<tr>
-<th align="center">Environment</th>
-<th align="center">version</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">WSL</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td align="center">Docker Engine</td>
-<td align="center">v19.03.13</td>
-</tr>
-<tr>
-<td align="center">Oracle Database</td>
-<td align="center">Enterprise 12.2.0.1</td>
-</tr>
-</tbody></table>
-<h2 id="Install-WLS2"><a href="#Install-WLS2" class="headerlink" title="Install WLS2"></a>Install WLS2</h2><p>Check detailed and official document <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">here</a>.</p>
-<h3 id="Problems-I-encountered"><a href="#Problems-I-encountered" class="headerlink" title="Problems I encountered"></a>Problems I encountered</h3><p>1. Use any commands related to WSL2 will cause error： “The attempted operation is not supported for the type of object referenced.”</p>
-<p>This is beacause the proxy software conflicts with the sock port of WSL2.</p>
-<h4 id="Short-term-solution"><a href="#Short-term-solution" class="headerlink" title="Short term solution"></a>Short term solution</h4><p>Run command line as admin:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winsock reset</span><br></pre></td></tr></table></figure>
+      <h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p><strong>Transaction:</strong> A sequence of multiple actions to be executed as an <em>atomic</em> unit.</p>
+<p>Transaction in SQL view:</p>
+<ul>
+<li>Begin transaction</li>
+<li>Sequence of SQL statements</li>
+<li>End transaction</li>
+</ul>
+<p>Transaction Manager controls excution of transactions. Program logic is invisible to DBMS. For example:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="keyword">start</span> <span class="keyword">transaction</span></span><br><span class="line"><span class="number">2.</span> <span class="keyword">read</span>(R)</span><br><span class="line"><span class="number">3.</span> R = R - <span class="number">100</span>  <span class="comment">------&gt; Invisible</span></span><br><span class="line"><span class="number">4.</span> write(R)</span><br><span class="line"><span class="number">5.</span> <span class="keyword">read</span>(S)</span><br><span class="line"><span class="number">6.</span> S = S + <span class="number">100</span>  <span class="comment">------&gt; Invisible</span></span><br><span class="line"><span class="number">7.</span> write(S)</span><br><span class="line"><span class="number">8.</span> <span class="keyword">end</span> <span class="keyword">transaction</span></span><br></pre></td></tr></table></figure>
 
-<p>Then reboot computer.</p>
-<h4 id="Long-term-solution"><a href="#Long-term-solution" class="headerlink" title="Long term solution"></a>Long term solution</h4><p>Download NoLsp.exe <a href="https://link.zhihu.com/?target=http://www.proxifier.com/tmp/Test20200228/NoLsp.exe">here</a>.</p>
-<p>Run command line as admin:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Location of NoLsp.exe&gt; C:\windows\system32\wsl.exe</span><br></pre></td></tr></table></figure>
+<h3 id="ACID-Properties"><a href="#ACID-Properties" class="headerlink" title="ACID Properties"></a>ACID Properties</h3><p><strong>A</strong> tomicity: All actions in the transaction happen, or none happen.<br><strong>C</strong> onsistency: If the database starts our consistent, it ends up consistent at the end of the transaction.<br><strong>I</strong> solation: Execution of each transaction is isolated from that of others.<br><strong>D</strong> urability: If a transaction commits, its effect persist.</p>
+<p>Note:</p>
+<ol>
+<li>For <code>isolation</code>, it’s <strong>just</strong> the <em>excution</em> not being affected.</li>
+<li><code>Consistency</code> in database system refers to the requirement that any given DB transaction must change affected data only in allowed ways. (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Consistency_(database_systems)#:~:text=Consistency%20in%20database%20systems%20refers,triggers%2C%20and%20any%20combination%20thereof.">wiki</a>)</li>
+</ol>
+<h2 id="Concurrency-Control"><a href="#Concurrency-Control" class="headerlink" title="Concurrency Control"></a>Concurrency Control</h2><p><strong>Serial schedule:</strong> Each transaction runs from start to finish without any intervening actions from other transactions.</p>
+<p><strong>Equivalent:</strong> Two Schedules are <em>equivalent</em>, when:</p>
+<ol>
+<li>involve same transaction</li>
+<li>each individual transaction’s actions are ordered the same</li>
+<li>both schedules leave the DB in the same final state</li>
+</ol>
+<p><strong>Serializable</strong>: A serial is equivalent to some serial schedule.</p>
+<p><strong>Conflict:</strong> Two <em>oprations</em> are conflict, when:</p>
+<ol>
+<li>Are by different transactions</li>
+<li>Are on the same object</li>
+<li>At least one is write</li>
+</ol>
+<blockquote>
+<p>Order of non-conflict operations has no effect on the final state of the DB.</p>
+</blockquote>
+<p><strong>Conflict equivalent:</strong></p>
+<ol>
+<li>involve the same actions of the same transactions</li>
+<li>every pair of conflicting actions is ordered the same way</li>
+</ol>
+<p><strong>Conflict serializable:</strong></p>
+<ol>
+<li>the serial is conflict equivalent to some serial schedule</li>
+<li>the serial is also serializable</li>
+</ol>
+<blockquote>
+<p>Some serializable schedule is not conflict serializable.</p>
+</blockquote>
+<p>Example:</p>
+<p>a. conflict serializable</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T1: R(A) W(A)           R(B) W(B)</span><br><span class="line">T2:           R(A) W(A)           R(B) W(B)</span><br></pre></td></tr></table></figure>
 
-<h2 id="Install-Docker-and-Oracle"><a href="#Install-Docker-and-Oracle" class="headerlink" title="Install Docker and Oracle"></a>Install Docker and Oracle</h2><p>Download docker desktop and pull the image like in <a target="_blank" rel="noopener" href="https://dbtut.com/index.php/2020/01/09/how-to-install-oracle-database-in-docker/">this post</a>.</p>
-<h2 id="Use-SQL-Developer"><a href="#Use-SQL-Developer" class="headerlink" title="Use SQL Developer"></a>Use SQL Developer</h2><p>Directly download and connection to the database.</p>
-<h3 id="Problem-I-encountered"><a href="#Problem-I-encountered" class="headerlink" title="Problem I encountered"></a>Problem I encountered</h3><p>1. Invalid username / password</p>
-<p>I’m still a newbie to database. I still don’t know why this happened. But the solution to this is to create a new user account in database system directly in docker. Then reboot and we can use the new accout to login.</p>
-<p>Command to create a new user account:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; alter session set &quot;_ORACLE_SCRIPT&quot;=true;</span><br><span class="line">SQL&gt; create user &lt;username&gt; identified by &lt;password&gt;;</span><br><span class="line">SQL&gt; GRANT CONNECT, RESOURCE, DBA TO &lt;username&gt;;</span><br></pre></td></tr></table></figure>
+<p>b. not conflict serializable</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T1: R(A)           W(A)</span><br><span class="line">T2:      R(A) W(A)</span><br><span class="line"></span><br><span class="line">It is serializable but not conflict serializable</span><br></pre></td></tr></table></figure>
+
+<p><strong>View serializable:</strong></p>
+<ol>
+<li>same initial reads</li>
+<li>same dependent reads</li>
+<li>same winning writes (If Ti writes finial value of A in S1, then Ti also writes final value of A in S2)</li>
+</ol>
+<h2 id="Two-Phase-Locking-2PL"><a href="#Two-Phase-Locking-2PL" class="headerlink" title="Two Phase Locking (2PL)"></a>Two Phase Locking (2PL)</h2><p>Rules: transaction must obtain as S (shared) lock before reading, and an X (exclusive) lock before writing.</p>
+<p><strong>2PL guarantees conflict serializability.</strong></p>
+<p>2PL ———-&gt; Release one by one<br>strict 2PL —&gt; Release at the same time</p>
 
 	  
 	</div>
 	
 	<footer class="article-footer">
-      <a data-url="http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/" data-id="ckh1p3cd50008j3lv7f9sa7oo" class="article-share-link">Share</a>
+      <a data-url="http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/" data-id="ckhgj5x2l00011vlv4imah28w" class="article-share-link">Share</a>
       
-        <a href="http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -154,19 +179,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/03/manjaro_conf/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          My Manjaro i3 Configurations
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/03/manjaro_conf/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">第一次辞职</div>
+      <div class="article-nav-title">My Manjaro i3 Configurations</div>
     </a>
   
 </nav>
@@ -189,7 +205,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -199,7 +215,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -232,6 +248,13 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/13/database/xact_and_concurrency_ctrl/">
+			        Transaction and Concurrency Control
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2020/11/03/manjaro_conf/">
 			        My Manjaro i3 Configurations
 		        </a>
@@ -239,7 +262,7 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2020/10/20/Oracle-docker-for-win10/">
+			      <a class="text" href="/2020/10/20/database/Oracle-docker-for-win10/">
 			        Use Oracle on Docker for Windows
 		        </a>
           </li>
@@ -290,13 +313,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
 			        LPC55S69 USB 高速模式测试（一）
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
-			        Ucount 完结之后
 		        </a>
           </li>
         
@@ -369,7 +385,7 @@
 <script>
   var disqus_shortname = 'yuuki-dachs-blog';
   
-  var disqus_url = 'http://yuukidach.github.io/2020/10/20/Oracle-docker-for-win10/';
+  var disqus_url = 'http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/';
   
   (function(){
     var dsq = document.createElement('script');
