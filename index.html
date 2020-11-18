@@ -64,6 +64,47 @@
       <div class="outer">
         <section id="main"> 
   
+    <article id="post-chitchat/自己到底是一个什么样的人呢" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/18/chitchat/%E8%87%AA%E5%B7%B1%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%80%E4%B8%AA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA%E5%91%A2/" class="article-date">
+  <time datetime="2020-11-18T03:25:32.918Z" itemprop="datePublished">2020-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2020/11/18/chitchat/%E8%87%AA%E5%B7%B1%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%80%E4%B8%AA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA%E5%91%A2/" data-id="ckhmuhs0o00004ulvhdpy881l" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2020/11/18/chitchat/%E8%87%AA%E5%B7%B1%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%80%E4%B8%AA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA%E5%91%A2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-database/xact_and_concurrency_ctrl" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/13/database/xact_and_concurrency_ctrl/" class="article-date">
@@ -865,117 +906,12 @@
 
 
   
-    <article id="post-LPC55S69-USB-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/23/LPC55S69-USB-test/" class="article-date">
-  <time datetime="2019-05-22T16:00:00.000Z" itemprop="datePublished">2019-05-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/MCU/">MCU</a>►<a class="article-category-link" href="/categories/MCU/USB/">USB</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/23/LPC55S69-USB-test/">LPC55S69 USB 高速模式测试（一）</a>
-    </h1>
-  
-
-      </header>
-    
-	
-    
-	
-	<footer class="article-footer">
-      <a data-url="http://yuukidach.github.io/2019/05/23/LPC55S69-USB-test/" data-id="ckh1p3cd00003j3lvd4o7gjxs" class="article-share-link">Share</a>
-      
-        <a href="http://yuukidach.github.io/2019/05/23/LPC55S69-USB-test/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/USB/" rel="tag">USB</a></li></ul>
-
-    </footer>
-	 
-	<div class="article-entry">
-	  <div class="toggle-content" id="articleAbstract">
-	  <h1 id="测试目标"><a href="#测试目标" class="headerlink" title="测试目标"></a>测试目标</h1><p>配置LPC55S69 EVK所带的高速USB作为功能设备，测试其最快速率能达到多少，用于验证后续的开发。</p>
-<h1 id="LPC55S69配置"><a href="#LPC55S69配置" class="headerlink" title="LPC55S69配置"></a>LPC55S69配置</h1><p>LPC55S69是一款基于ARM内核的双核MCU， 由两个Cortex-M33构成。其最高运行频率为100MHz。</p>
-<p><img src="/2019/05/23/LPC55S69-USB-test/lpc55s69_overview.jpg" alt="LPC55S69 EVK">  </p>
-<p>整个工程的准备工作如下：</p>
-<ol>
-<li>选用CPU0作为默认的控制核心</li>
-<li>配置MAIN_CLK为96MHz（为了使用高速USB口，CPU时钟频率不得低于60MHz）</li>
-<li>给USB HS PHY上电</li>
-<li>USB功能设备配置<ul>
-<li>配置功能设备，需要先使能host controller的时钟，以便进行USB配置</li>
-<li>DEV_ENABLE置1，让一个端口表现为USB设备</li>
-<li>清除USB1_HOST位，关闭host controller，降低能耗</li>
-</ul>
-</li>
-<li>USB时钟配置<ul>
-<li>USB PHY配置48MHz时钟</li>
-<li>USB PHY以及对应SRAM时钟使能</li>
-</ul>
-</li>
-</ol>
-<h1 id="传输测试"><a href="#传输测试" class="headerlink" title="传输测试"></a>传输测试</h1><p>连接方式：LPC55S69 EVK &lt;——-USB 2.0 HS ——–&gt; MacBook</p>
-<p>Corex-M33 freq: 100MHz</p>
-<p>使用官方提供的SKD（v2.5.1），利用块传输（bulk transfer）。循环发送</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (1) &#123;</span><br><span class="line">    USB_DeviceCdcAcmSend(s_cdcVcom.cdcAcmHandle, USB_CDC_VCOM_BULK_IN_ENDPOINT, tmp_buf, buf_len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>tmp_buf为buffer地址，buf_len是需要传送的数据长度</p>
-<p>使用上述方式发送数据，buf_len越长，发送USB发送速率越快，最快能到8MB/s左右，无传输错误发生。</p>
-<p>8MB/s的速率对于HS USB来说是明显偏低的。通过调整整个工程的优化等级，可以提高速率。将优化等级调整至-O1或者以上，USB的速率可以达到21MB/s，无传输错误发生。</p>
-<p><img src="/2019/05/23/LPC55S69-USB-test/SDK_test.png" alt="测试结果"></p>
-<p>此外，如果MCU的时钟频率降低，USB的传输速率也会相应降低，通过USB分析仪观察后，可以发现是NAK的数量变多。</p>
-<h1 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h1><p>虽然最后通过增长buf_len，以及调整优化等级，可以使得高速USB口的速率在21MB/s左右。但是对于最高速率480Mbps的Hi-Speed USB来说，速率上还是有所欠缺。</p>
-<p>采用USB分析仪进行抓包分析<br><img src="/2019/05/23/LPC55S69-USB-test/packet1.png" alt="抓包分析"></p>
-<p>可以发现在进行数据传输的时候，USB发送了过多的NAK。测试中的USB传输，其发送NAK与发送有效数据的时间基本相同，可以做如下简单计算：  </p>
-<p>由于一次有效的数据传输不光包含了数据本身，还包含了令牌包和握手包，因此有效数据在一次事务传输中的占比可以考虑为512/518。计算480Mbps下的理论传输速率为  </p>
-<center>480 / 8 / 2 / 518 * 512 = 29.6525 MB/s</center>
-
-<p>考虑到实际的损耗，21MB/s看起来就是一个可以接受的数据了。</p>
-<p>值得注意的是，由于MCU的时钟频率降低，NAK的数量会变多。而NAK的数量变多不外乎两种原因：</p>
-<ul>
-<li>USB device没有数据需要发送</li>
-<li>USB device正忙，无法相应host的请求</li>
-</ul>
-<p>MCU的时钟频率降低会导致NAK增多，也就说尽管整个测试工程只执行了USB搬运，但是MCU还是有大量的操作需要处理。结合优化后的USB速率会变高这一情况来看，USB工作在21MB/s的速率，极有可能是MCU的数据搬运不及时，没有搬运到USB发送数据的缓存当中。</p>
-<p>可以从软件上考虑对USB速率的优化。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>LPCXpresso55S69 Development Board (Rev. 1.2 — 25 April 2019)</li>
-<li>LPC55S6x User manual (Rev. 1.2 — 3 May 2019)</li>
-</ol>
-
-	  </div>
-
-	  <div class="article-more-link">
-        <a>Read More</a>
-      </div>
-		
-    </div>
-	  
-    
-	
-  </div>
-  
-</article>
-
-
-
-  
 
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -996,7 +932,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1026,6 +962,13 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/18/chitchat/%E8%87%AA%E5%B7%B1%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%80%E4%B8%AA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA%E5%91%A2/">
+			        (no title)
+		        </a>
+          </li>
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
@@ -1087,13 +1030,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/08/05/makefile-learning/">
 			        Makefile for Projects with Subdirectories
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2019/05/23/LPC55S69-USB-test/">
-			        LPC55S69 USB 高速模式测试（一）
 		        </a>
           </li>
         
