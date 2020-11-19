@@ -64,6 +64,72 @@
       <div class="outer">
         <section id="main"> 
   
+    <article id="post-OJ/--UVa OJ 10603 - Fill--" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/01/OJ/--UVa%20OJ%2010603%20-%20Fill--/" class="article-date">
+  <time datetime="2016-07-31T16:00:00.000Z" itemprop="datePublished">2016-08-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming-Exercises/">Programming Exercises</a>►<a class="article-category-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/01/OJ/--UVa%20OJ%2010603%20-%20Fill--/">UVa OJ 10603 - Fill</a>
+    </h1>
+  
+
+      </header>
+    
+	
+    
+	
+	<footer class="article-footer">
+      <a data-url="http://yuukidach.github.io/2016/08/01/OJ/--UVa%20OJ%2010603%20-%20Fill--/" data-id="ckhoismh0001j8plv97fwhfqe" class="article-share-link">Share</a>
+      
+        <a href="http://yuukidach.github.io/2016/08/01/OJ/--UVa%20OJ%2010603%20-%20Fill--/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+	 
+	<div class="article-entry">
+	  <div class="toggle-content" id="articleAbstract">
+	  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h1><p>There are three jugs with a volume of a, b and c liters. (a, b, and c are positive integers not greater than 200). The first and the second jug are initially empty, while the third is completely filled with water. It is allowed to pour water from one jug into another until either the first one is empty or the second one is full. This operation can be performed zero, one or more times. </p>
+<p>You are to write a program that computes the least total amount of water that needs to be poured; so that at least one of the jugs contains exactly d liters of water (d is a positive integer not greater than 200). If it is not possible to measure d liters this way your program should find a smaller amount of water d′ &lt; d which is closest to d and for which d′ liters could be produced. When d′ is found, your program should compute the least total amount of poured water needed to produce d′ liters in at least one of the jugs.<br><a id="more"></a></p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h1><p>The first line of input contains the number of test cases. In the next T lines, T test cases follow. Each test case is given in one line of input containing four space separated integers — a, b, c and d.</p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h1><p>The output consists of two integers separated by a single space. The first integer equals the least total amount (the sum of all waters you pour from one jug to another) of poured water. The second integer equals d, if d liters of water could be produced by such transformations, or equals the closest smaller value d′ that your program has found.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2 3 4 2</span><br><span class="line">96 97 199 62</span><br></pre></td></tr></table></figure>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">9859 62</span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h1><p>这是一个最短路径问题，利用BFS即可以得到答案。 </p>
+<p>主要还是需要注意运行时间问题，尽量将循环的范围缩小。同时，使用memset对字节进行操作也能起到提升速度的作用。</p>
+<p>这里在做完题目以后恰好看到了<a target="_blank" rel="noopener" href="http://morris821028.github.io/2014/05/05/oj/uva/uva-10603/">Morris’s Blog</a>，感觉他的代码格式看起来很舒服，也便于大家理解，因此将代码格式改得和他基本一样了，只做了一点微小的改动。大家可以也去他的Blog逛一逛，还是有很大收获的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sf 0x7f</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">201</span>;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; qa,qb,qc,qd;</span><br><span class="line"><span class="keyword">int</span> vis[maxn][maxn][maxn],water[maxn];</span><br><span class="line"><span class="keyword">int</span> A, B, C, D;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push_Node</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    qa.push(a), qb.push(b), qc.push(c), qd.push(d);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c, <span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    Push_Node(a, b, c, d);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!qa.empty())&#123;</span><br><span class="line">        a = qa.front(), qa.pop();</span><br><span class="line">        b = qb.front(), qb.pop();</span><br><span class="line">        c = qc.front(), qc.pop();</span><br><span class="line">        d = qd.front(), qd.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (d &gt;= water[D])      <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span> (d &gt;= vis[a][b][c])  <span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        vis[a][b][c] = d;				</span><br><span class="line">        water[a] = min(water[a], d);    </span><br><span class="line">        water[b] = min(water[b], d);</span><br><span class="line">        water[c] = min(water[c], d);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a &lt; B-b) Push_Node(<span class="number">0</span>, b+a, c, d+a);</span><br><span class="line">        <span class="keyword">else</span>	     Push_Node(a-(B-b), B, c, d+(B-b));</span><br><span class="line">        <span class="keyword">if</span> (a &lt; C-c) Push_Node(<span class="number">0</span>, b, c+a, d+a);</span><br><span class="line">        <span class="keyword">else</span>         Push_Node(a-(C-c), b, C, d+(C-c));</span><br><span class="line">        <span class="keyword">if</span> (b &lt; A-a) Push_Node(a + b, <span class="number">0</span>, c, d + b);</span><br><span class="line">        <span class="keyword">else</span>         Push_Node(A, b-(A-a), c, d+(A-a));</span><br><span class="line">        <span class="keyword">if</span> (b &lt; C-c) Push_Node(a, <span class="number">0</span>, c+b, d+b);</span><br><span class="line">        <span class="keyword">else</span>         Push_Node(a, b-(C-c), C, d+(C-c));</span><br><span class="line">        <span class="keyword">if</span> (c &lt; A-a) Push_Node(a+c, b, <span class="number">0</span>, d+c);</span><br><span class="line">        <span class="keyword">else</span>         Push_Node(A, b, c-(A-a), d+(A-a));</span><br><span class="line">        <span class="keyword">if</span> (c &lt; B-b) Push_Node(a, b+c, <span class="number">0</span>, d+c);</span><br><span class="line">        <span class="keyword">else</span>         Push_Node(a, B, c-(B-b), d+(B-b));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cas,a,b,c,d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;cas);</span><br><span class="line">    <span class="keyword">while</span> (cas--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;A, &amp;B, &amp;C, &amp;D);</span><br><span class="line">        <span class="built_in">memset</span>(water, sf, <span class="keyword">sizeof</span>(water));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= A; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= B; j++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= C; k++)</span><br><span class="line">                    vis[i][j][k] = <span class="number">0x7ffffff</span>;</span><br><span class="line">        bfs(<span class="number">0</span>, <span class="number">0</span>, C, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">while</span> (water[D] == <span class="number">0x7f7f7f7f</span>)	D--;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, water[D], D);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+	  </div>
+
+	  <div class="article-more-link">
+        <a>Read More</a>
+      </div>
+		
+    </div>
+	  
+    
+	
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/23/hello-world/" class="article-date">
@@ -92,7 +158,7 @@
     
 	
 	<footer class="article-footer">
-      <a data-url="http://yuukidach.github.io/2016/07/23/hello-world/" data-id="ckh1p3cdh000qj3lvgj3pain6" class="article-share-link">Share</a>
+      <a data-url="http://yuukidach.github.io/2016/07/23/hello-world/" data-id="ckhoismgk000l8plv1rek18yf" class="article-share-link">Share</a>
       
         <a href="http://yuukidach.github.io/2016/07/23/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -137,7 +203,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chitchat/">Chitchat</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/C-C/">C/C++</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/">MCU</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/MCU/USB/">USB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Makefile/">Makefile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/">Programming Exercises</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/The-Python-Challenge/">The Python Challenge</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming-Exercises/UVa-OJ/">UVa OJ</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/">Web Design</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Design/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/">C/C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/">Ubuntu</a><span class="category-list-count">5</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -147,17 +213,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/" rel="tag">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BytesIO/" rel="tag">BytesIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAG/" rel="tag">DAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-conquer/" rel="tag">Divide and conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy Algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Makefile/" rel="tag">Makefile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PIL/" rel="tag">PIL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Priority-Queue/" rel="tag">Priority Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bz2/" rel="tag">bz2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/io/" rel="tag">io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/" rel="tag">re</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/" rel="tag">urllib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipfile/" rel="tag">zipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" rel="tag">单调队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -180,8 +236,15 @@
         
           <li>
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2020/11/18/chitchat/%E8%87%AA%E5%B7%B1%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%80%E4%B8%AA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA%E5%91%A2/">
-			        (no title)
+			      <a class="text" href="/2020/11/18/ml/decision-tree-and-knn-learning/">
+			        Decision Tree and k-Nearest Neighbors Learning
+		        </a>
+          </li>
+        
+          <li>
+			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
+			      <a class="text" href="/2020/11/18/chitchat/%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA/">
+			        自己到底是一个什么样的人呢
 		        </a>
           </li>
         
@@ -238,13 +301,6 @@
 			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
 			      <a class="text" href="/2019/08/12/Shuffling-Bits/">
 			        Shuffling Bits
-		        </a>
-          </li>
-        
-          <li>
-			      <span class="widget-icon" style="float:left;color:#ccccff;">&#xf0f6&emsp;</span>
-			      <a class="text" href="/2019/08/05/makefile-learning/">
-			        Makefile for Projects with Subdirectories
 		        </a>
           </li>
         
@@ -362,5 +418,20 @@
 })();
 </script>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
