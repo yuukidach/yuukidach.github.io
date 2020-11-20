@@ -12,10 +12,13 @@
 <meta property="og:site_name" content="Dash&#39;s Blog">
 <meta property="og:description" content="Entropy1. Shannon information  I &#x3D; -\log_2{p} $ p $ is the probability of the event Event with smaller probability contains more information. Logrithm base is 2 beacause in information technology 1 bi">
 <meta property="og:locale">
+<meta property="og:image" content="http://yuukidach.github.io/2020/11/18/ml/decision-tree-and-knn-learning/evaluation_matrix.png">
+<meta property="og:image" content="http://yuukidach.github.io/2020/11/18/ml/decision-tree-and-knn-learning/auc.png">
 <meta property="article:published_time" content="2020-11-18T13:02:19.285Z">
-<meta property="article:modified_time" content="2020-11-19T17:28:12.714Z">
+<meta property="article:modified_time" content="2020-11-20T02:14:00.699Z">
 <meta property="article:author" content="Dash">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yuukidach.github.io/2020/11/18/ml/decision-tree-and-knn-learning/evaluation_matrix.png">
   
     <link rel="alternate" href="/atom.xml" title="Dash&#39;s Blog" type="application/atom+xml">
   
@@ -99,7 +102,7 @@
 	  
    	    <div id="toc" class="toc-article">
 		  <strong class="toc-title">Contents</strong>
-	   	    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Entropy"><span class="toc-number">1.</span> <span class="toc-text">Entropy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ID3-Iterative-Dichotomiser-3-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">ID3 (Iterative Dichotomiser 3) Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C4-5-Algorithm"><span class="toc-number">3.</span> <span class="toc-text">C4.5 Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-Nearest-Neighbors-Algorithm"><span class="toc-number">4.</span> <span class="toc-text">k-Nearest Neighbors Algorithm</span></a></li></ol>
+	   	    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Entropy"><span class="toc-number">1.</span> <span class="toc-text">Entropy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ID3-Iterative-Dichotomiser-3-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">ID3 (Iterative Dichotomiser 3) Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C4-5-Algorithm"><span class="toc-number">3.</span> <span class="toc-text">C4.5 Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-Nearest-Neighbors-Algorithm"><span class="toc-number">4.</span> <span class="toc-text">k-Nearest Neighbors Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evaluation-Classification"><span class="toc-number">5.</span> <span class="toc-text">Evaluation Classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Issues-in-Decision-Tree-Learning"><span class="toc-number">6.</span> <span class="toc-text">Issues in Decision Tree Learning</span></a></li></ol>
 	    </div>
 	  
 
@@ -233,7 +236,50 @@ d(x^{(i)}, x^{(j)}) = \sqrt{\sum_{r=1}^{n}{(f_r(x^{i})-f_r(x^{(j)}))^2}}</script
 <script type="math/tex; mode=display">
 \hat{f} \gets \text{argmax}_{v \in V} \sum_{i=1}^{k} I(f(x^{(i)}) == v)</script><p>We can also use distance weighted nearest neighbor algorithm:</p>
 <script type="math/tex; mode=display">
-\hat{f} \gets \frac{\sum_{i=1}^{k}{w_if(x^{(i)})}}{\sum_{i=1}^{k}{w_i}}, \ \text {where} \ w_i = \frac{1}{d(x^{(q)}, x^{(i)})^2}</script>
+\hat{f} \gets \frac{\sum_{i=1}^{k}{w_if(x^{(i)})}}{\sum_{i=1}^{k}{w_i}}, \ \text {where} \ w_i = \frac{1}{d(x^{(q)}, x^{(i)})^2}</script><h2 id="Evaluation-Classification"><a href="#Evaluation-Classification" class="headerlink" title="Evaluation Classification"></a>Evaluation Classification</h2><p>1. Evaluation Metrics</p>
+<p><img src="/2020/11/18/ml/decision-tree-and-knn-learning/evaluation_matrix.png" alt="Evaluation Metrics"></p>
+<script type="math/tex; mode=display">
+Accuracy = \frac{a+d}{a+b+c+d} \\
+Precision = \frac{d}{b+d} \\
+Sensitivity = Recall = \frac{d}{c+d} \\
+Specificity = \frac{a}{a+b} \\
+(False\ Positive\ Rate = 1 - Specificity)</script><p>2. Area Under ROC Curve (AUC)</p>
+<p><img src="/2020/11/18/ml/decision-tree-and-knn-learning/auc.png" alt="AUC"></p>
+<ul>
+<li>Cutoff is the threshold a classification model uses to split between 2 classes.</li>
+<li>As the cutoff decreases, more and more cases are classified as 1; hence, the sensitivity increases and speificity decreases.</li>
+<li>As the ROC curvebows above the diagonal, the predictive power increases. Curve 1 is better than curve 2</li>
+</ul>
+<h2 id="Issues-in-Decision-Tree-Learning"><a href="#Issues-in-Decision-Tree-Learning" class="headerlink" title="Issues in Decision Tree Learning"></a>Issues in Decision Tree Learning</h2><p>1. Features with many unique values</p>
+<p><strong>Problem:</strong> <em>Gain</em> tends to select features with many unique values to clssify instance.</p>
+<p><strong>Solution:</strong> Adjust <em>Gain</em> to <em>GainRatio</em></p>
+<script type="math/tex; mode=display">
+SplitInfomation(S,A) \equiv -\sum_{i=1}^{c}\frac{|S_i|}{|S|}\log_2{\frac{|S_i|}{|S|}} \\
+GainRatio(S,A) = \frac{Gain(S,A)}{SplitInfomation(S,A)}</script><p>$ S $ is the set of all records in a prarent node. $ S_i $ is a subset of records that have feature $ A_i $</p>
+<p>When should Gain Ratio be used in place of Gain?</p>
+<ul>
+<li>Compute both Gain Ratio and Gain for each feature</li>
+<li>Use Gain Ratio only for features with above-average Gain</li>
+</ul>
+<p>2. Overfitting</p>
+<p>Ways to avoid overfitting:</p>
+<ul>
+<li>Stop growing tree when data split is not statistically significant.</li>
+<li>Grow full tree then post-prune.</li>
+</ul>
+<p>Selecting best tree:</p>
+<ul>
+<li>Measure performance over taining data</li>
+<li>Measure performance over seperate validation datases</li>
+<li>Add penalty against complexity</li>
+</ul>
+<p>3. Unknown feature values</p>
+<p>Strategies to impute missing values of feature A:</p>
+<ul>
+<li>Use most common value of A in all instances having missing value for A</li>
+<li>Within each group of instances having same target value, assign most common value of A to instances</li>
+</ul>
+
 	  
 	</div>
 	

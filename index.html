@@ -231,7 +231,50 @@ d(x^{(i)}, x^{(j)}) = \sqrt{\sum_{r=1}^{n}{(f_r(x^{i})-f_r(x^{(j)}))^2}}</script
 <script type="math/tex; mode=display">
 \hat{f} \gets \text{argmax}_{v \in V} \sum_{i=1}^{k} I(f(x^{(i)}) == v)</script><p>We can also use distance weighted nearest neighbor algorithm:</p>
 <script type="math/tex; mode=display">
-\hat{f} \gets \frac{\sum_{i=1}^{k}{w_if(x^{(i)})}}{\sum_{i=1}^{k}{w_i}}, \ \text {where} \ w_i = \frac{1}{d(x^{(q)}, x^{(i)})^2}</script>
+\hat{f} \gets \frac{\sum_{i=1}^{k}{w_if(x^{(i)})}}{\sum_{i=1}^{k}{w_i}}, \ \text {where} \ w_i = \frac{1}{d(x^{(q)}, x^{(i)})^2}</script><h2 id="Evaluation-Classification"><a href="#Evaluation-Classification" class="headerlink" title="Evaluation Classification"></a>Evaluation Classification</h2><p>1. Evaluation Metrics</p>
+<p><img src="/2020/11/18/ml/decision-tree-and-knn-learning/evaluation_matrix.png" alt="Evaluation Metrics"></p>
+<script type="math/tex; mode=display">
+Accuracy = \frac{a+d}{a+b+c+d} \\
+Precision = \frac{d}{b+d} \\
+Sensitivity = Recall = \frac{d}{c+d} \\
+Specificity = \frac{a}{a+b} \\
+(False\ Positive\ Rate = 1 - Specificity)</script><p>2. Area Under ROC Curve (AUC)</p>
+<p><img src="/2020/11/18/ml/decision-tree-and-knn-learning/auc.png" alt="AUC"></p>
+<ul>
+<li>Cutoff is the threshold a classification model uses to split between 2 classes.</li>
+<li>As the cutoff decreases, more and more cases are classified as 1; hence, the sensitivity increases and speificity decreases.</li>
+<li>As the ROC curvebows above the diagonal, the predictive power increases. Curve 1 is better than curve 2</li>
+</ul>
+<h2 id="Issues-in-Decision-Tree-Learning"><a href="#Issues-in-Decision-Tree-Learning" class="headerlink" title="Issues in Decision Tree Learning"></a>Issues in Decision Tree Learning</h2><p>1. Features with many unique values</p>
+<p><strong>Problem:</strong> <em>Gain</em> tends to select features with many unique values to clssify instance.</p>
+<p><strong>Solution:</strong> Adjust <em>Gain</em> to <em>GainRatio</em></p>
+<script type="math/tex; mode=display">
+SplitInfomation(S,A) \equiv -\sum_{i=1}^{c}\frac{|S_i|}{|S|}\log_2{\frac{|S_i|}{|S|}} \\
+GainRatio(S,A) = \frac{Gain(S,A)}{SplitInfomation(S,A)}</script><p>$ S $ is the set of all records in a prarent node. $ S_i $ is a subset of records that have feature $ A_i $</p>
+<p>When should Gain Ratio be used in place of Gain?</p>
+<ul>
+<li>Compute both Gain Ratio and Gain for each feature</li>
+<li>Use Gain Ratio only for features with above-average Gain</li>
+</ul>
+<p>2. Overfitting</p>
+<p>Ways to avoid overfitting:</p>
+<ul>
+<li>Stop growing tree when data split is not statistically significant.</li>
+<li>Grow full tree then post-prune.</li>
+</ul>
+<p>Selecting best tree:</p>
+<ul>
+<li>Measure performance over taining data</li>
+<li>Measure performance over seperate validation datases</li>
+<li>Add penalty against complexity</li>
+</ul>
+<p>3. Unknown feature values</p>
+<p>Strategies to impute missing values of feature A:</p>
+<ul>
+<li>Use most common value of A in all instances having missing value for A</li>
+<li>Within each group of instances having same target value, assign most common value of A to instances</li>
+</ul>
+
 	  </div>
 
 	  <div class="article-more-link">
