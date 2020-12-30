@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Practice on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/categories/practice/</link>
+    <description>Recent content in Practice on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/categories/practice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Manjaro i3 Configurations</title>
+      <link>https://yuukidach.github.io/p/my-manjaro-i3-configurations/</link>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/my-manjaro-i3-configurations/</guid>
+      <description>Manjaro edition: Manjaro-i3
+This post is about how I configure my Manjaro i3
+Softwares to Install  fcitx5 (no need to install sogou pinyin for linux anymore) deepin-wine-wechat deepin-wine-tim wps-office (together with ttf-wps-fonts) ttf-menlo-powerline-git (font for terminal) mpv (vedio player) netease-cloud-music Insync (sync a certain folder with google driver) variety (wallpaper software) picom albert (a fast launcher) vim (with vimplus) flameshot (screen capture tool) nerd-fonts-jetbrains-mono (font for vscode)  Multiple Monitors When we plug a HDMI/VGA cable into the computer, Manjaro i3 will not automatically display content in the external monitor.</description>
+    </item>
+    
+    <item>
+      <title>Convert Image to ASCII Art</title>
+      <link>https://yuukidach.github.io/p/convert-image-to-ascii-art/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/convert-image-to-ascii-art/</guid>
+      <description>Background Image Processing Library To process a image, the easiest way is using a open source library.
+Since this project is written for others. They are not familiar with the image processing and it&amp;rsquo;s to hard for them to install OpenCV in their computer. So, I tried to find a light-weight image processing processing library called CImg.
+To use this repo, we just need to put the header file CImg.h into our own project folder and include it in the program.</description>
+    </item>
+    
+    <item>
+      <title>字幕文件批量重命名脚本（二） —— Linux</title>
+      <link>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC%E4%BA%8C-linux/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC%E4%BA%8C-linux/</guid>
+      <description>还是老样子，先上GitHub：Yuuki_Dach&amp;rsquo;s GitHub
+上次自己写了一个字幕批量重命名的脚本，结果发现在处理字幕文件的时候还是存在bug（毕竟是自己一边看番，一边测试+改进，没有特意的去找测试样本）
+首先是关于视频文件的查找，原来的查找方式十分简单，也没有使用正则表达式，只是粗略的查找了一下，这里利用find的功能，使得查找更加精确。
+在处理字幕文件的时候，也有问题。for循环在利用find查找的时候，会把空格视为一个间断。因此，这里利用IFS，把find指令找到的文件名当作一整块来处理就行了。
+另外，字幕文件的后缀名有多种，而且利用正则表达式来匹配的方式也有很多，这里就留到下次再来处理。
+#! /bin/bash echo &amp;quot;Before the opration stars, please make sure you have been in the right folder!&amp;quot; while true; do read -p &amp;quot;Do you want to continue? y/n &amp;quot; yn case ${yn} in [Yy]* ) break;; [Nn]* ) exit;; * ) echo &amp;quot;Please answer yes or no.&amp;quot;;; esac done echo &amp;quot;What is the videos&#39; extension name?&amp;quot; read video_extension_name echo &amp;quot;How many episodes does it have?</description>
+    </item>
+    
+    <item>
+      <title>字幕文件批量重命名脚本 —— Linux</title>
+      <link>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC-linux/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC-linux/</guid>
+      <description>现在更新博客的速度大大降低了，主要还是认为把自己做的题目传上来对别人和自己的帮助都不是很大。行，废话少说，我们切入正题吧。
+刚刚闲来无事，想到之前看番的时候，有些另外下载的字幕会和视频名字不匹配，给观看带来不必要的麻烦，所以动手写了一个比较粗糙的字幕文件批量重命名的脚本。
+代码已经上传到Yuuki_Dach&amp;rsquo;s GitHub，后续还会慢慢添加别的脚本。
+其实代码并不复杂，就是先确定文件路径，然后手动输入视频文件后缀名和集数，然后开始运行就行了，这里还是把代码也贴一下，方便大家吧
+#! /bin/bash  echo &amp;#34;Before the opration stars, please make sure you have been in the right folder!&amp;#34; while true; do read -p &amp;#34;Do you want to continue? y/n&amp;#34; yn case ${yn} in [Yy]* ) break;; [Nn]* ) exit;; * ) echo &amp;#34;Please answer yes or no.&amp;#34;;; esac done echo &amp;#34;What is the videos&amp;#39; extension name?&amp;#34; read video_extension_name echo &amp;#34;How many episodes does it have?&amp;#34; read total_video_episode_num echo &amp;#34;These files were renamed successfully:&amp;#34; for target_episode in `seq -w 1 ${total_video_episode_num}` do target_video=(*[^0-9]${target_episode}[^0-9]*${video_extension_name}) target_video=${target_video%${video_extension_name}} for target_srt in `find -regex &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu r8168模块编译错误的解决办法</title>
+      <link>https://yuukidach.github.io/p/ubuntu-r8168%E6%A8%A1%E5%9D%97%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/ubuntu-r8168%E6%A8%A1%E5%9D%97%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>更新了Ubuntu 16.10之后，发现有线连接模块消失了，于是又和以前一样对r8168进行编译安装。具体的方法请参考我的另一篇文章: Ubuntu以太网已断开的解决办法
+结果发现在 &amp;lsquo;make clean modules&amp;rsquo; 这一步居然出错了。错误信息如下：
+/home/user/download/r8168-8.042.00/src/r8168_n.c: In function ‘rtl8168_init_one’: /home/user/download/r8168-8.042.00/src/r8168_n.c:22799:28: error: ‘struct net_device’ has no member named ‘gso_min_segs’; did you mean ‘gso_max_segs’? dev-&amp;gt;gso_min_segs = NIC_MIN_PHYS_BUF_COUNT; ^~ /home/yuukidach/下载/r8168-8.042.00/src/r8168_n.c:22807:28: error: ‘struct net_device’ has no member named ‘gso_min_segs’; did you mean ‘gso_max_segs’? dev-&amp;gt;gso_min_segs = NIC_MIN_PHYS_BUF_COUNT; ^~ /home/user/download/r8168-8.042.00/src/r8168_n.c: In function ‘rtl8168_start_xmit’: /home/user/download/r8168-8.042.00/src/r8168_n.c:24969:12: error: ‘struct net_device’ has no member named ‘trans_start’; did you mean ‘mem_start’? dev-&amp;gt;trans_start = jiffies; 其实这个错误是因为r8168的版本和Ubuntu版本不配对导致的，只要去官网下载新的r8168的版本就行了。</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu以太网已断开的解决办法</title>
+      <link>https://yuukidach.github.io/p/ubuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B7%B2%E6%96%AD%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Sat, 10 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/ubuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B7%B2%E6%96%AD%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>有部分人在使用Ubuntu的时候可能会遇到和我一样的问题，就是以太网显示已断开，这面原因有很多，但是大多都是驱动问题。网上也有教程，亲测以后发现有些地方并不适用，这里我们就来谈谈这个问题。
+我的Ubuntu版本是16.04 LTS， 有线网卡是Realtek的
+装完系统以后以太网显示已断开，但是如果编辑连接的话，可以发现，其实是一直在使用的。真正原因，是网卡驱动不兼容的问题。Ubuntu自带的是r8169，而我需要的是r8168。因此，我们只需要安装上r8168就好了。
+但是网上虽然有比较好的教程，但是有一些瑕疵，不通用，有人会说自己找不到r8169.ko这个文件并删除。实际上，我们应该用find指令去找我们所需要的文件的位置，而不是完全照搬那些解决方法。
+下面开始谈谈解决方式：
+  下载驱动并解压好
+去Realtek官网下载好r8168的驱动: 下载连接
+  获取root权限
+  sudo su 删除r8169模块  rmmod r8169 mv /&#39;-yourFile&#39;/r8169.ko ~/r8169.ko.backup 将&#39;-yourFile&#39;替换成具体的文件路径，也就是存放了r8169.ko这个文件的路径  比如我的是
+&amp;gt;/lib/modules/`4.4.0-36-generic`/kernel/drivers/net/enthernet/realtek 具体还是利用find指令自己去找   安装r8168
+切换到解压完的目录执行以下指令
+  make clean modules make install  添加驱动模块到内核中
+先让系统知道我们的模块，然后添加到内核中
+  depmod -a insmod ./src/r8168.ko 让模块在启动的时候生效  mv /initrd.img ~/initrd.img.backup mkinitramfs -o /boot/initrd.img-`uname -r` `uname -r` echo &amp;quot;r8168&amp;quot; &amp;gt;&amp;gt; /etc/modules &amp;lsquo;uname -r&amp;rsquo;是内核版本代号，就是4.4.0-36-generic这类，具体还是看自己的文件。之前在找r8169.ko的时候就会看到
+最后可以用lspci -v这个指令来看看自己用的是什么驱动</description>
+    </item>
+    
+  </channel>
+</rss>

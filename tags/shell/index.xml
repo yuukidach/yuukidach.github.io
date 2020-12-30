@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/shell/</link>
+    <description>Recent content in Shell on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字幕文件批量重命名脚本（二） —— Linux</title>
+      <link>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC%E4%BA%8C-linux/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC%E4%BA%8C-linux/</guid>
+      <description>还是老样子，先上GitHub：Yuuki_Dach&amp;rsquo;s GitHub
+上次自己写了一个字幕批量重命名的脚本，结果发现在处理字幕文件的时候还是存在bug（毕竟是自己一边看番，一边测试+改进，没有特意的去找测试样本）
+首先是关于视频文件的查找，原来的查找方式十分简单，也没有使用正则表达式，只是粗略的查找了一下，这里利用find的功能，使得查找更加精确。
+在处理字幕文件的时候，也有问题。for循环在利用find查找的时候，会把空格视为一个间断。因此，这里利用IFS，把find指令找到的文件名当作一整块来处理就行了。
+另外，字幕文件的后缀名有多种，而且利用正则表达式来匹配的方式也有很多，这里就留到下次再来处理。
+#! /bin/bash echo &amp;quot;Before the opration stars, please make sure you have been in the right folder!&amp;quot; while true; do read -p &amp;quot;Do you want to continue? y/n &amp;quot; yn case ${yn} in [Yy]* ) break;; [Nn]* ) exit;; * ) echo &amp;quot;Please answer yes or no.&amp;quot;;; esac done echo &amp;quot;What is the videos&#39; extension name?&amp;quot; read video_extension_name echo &amp;quot;How many episodes does it have?</description>
+    </item>
+    
+    <item>
+      <title>字幕文件批量重命名脚本 —— Linux</title>
+      <link>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC-linux/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC-linux/</guid>
+      <description>现在更新博客的速度大大降低了，主要还是认为把自己做的题目传上来对别人和自己的帮助都不是很大。行，废话少说，我们切入正题吧。
+刚刚闲来无事，想到之前看番的时候，有些另外下载的字幕会和视频名字不匹配，给观看带来不必要的麻烦，所以动手写了一个比较粗糙的字幕文件批量重命名的脚本。
+代码已经上传到Yuuki_Dach&amp;rsquo;s GitHub，后续还会慢慢添加别的脚本。
+其实代码并不复杂，就是先确定文件路径，然后手动输入视频文件后缀名和集数，然后开始运行就行了，这里还是把代码也贴一下，方便大家吧
+#! /bin/bash  echo &amp;#34;Before the opration stars, please make sure you have been in the right folder!&amp;#34; while true; do read -p &amp;#34;Do you want to continue? y/n&amp;#34; yn case ${yn} in [Yy]* ) break;; [Nn]* ) exit;; * ) echo &amp;#34;Please answer yes or no.&amp;#34;;; esac done echo &amp;#34;What is the videos&amp;#39; extension name?&amp;#34; read video_extension_name echo &amp;#34;How many episodes does it have?&amp;#34; read total_video_episode_num echo &amp;#34;These files were renamed successfully:&amp;#34; for target_episode in `seq -w 1 ${total_video_episode_num}` do target_video=(*[^0-9]${target_episode}[^0-9]*${video_extension_name}) target_video=${target_video%${video_extension_name}} for target_srt in `find -regex &amp;#34;.</description>
+    </item>
+    
+  </channel>
+</rss>

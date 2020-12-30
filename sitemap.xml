@@ -1,925 +1,544 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://yuukidach.github.io/2020/11/18/ml/decision-tree-and-knn-learning/</loc>
-    
-    <lastmod>2020-11-20</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/11/18/chitchat/%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA/</loc>
-    
-    <lastmod>2020-11-18</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/chitchat/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/11/13/database/xact_and_concurrency_ctrl/</loc>
-    
-    <lastmod>2020-11-18</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/chitchat/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/10/20/database/Oracle-docker-for-win10/</loc>
-    
-    <lastmod>2020-11-13</lastmod>
-    
+    <loc>https://yuukidach.github.io/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/11/03/manjaro_conf/</loc>
-    
-    <lastmod>2020-11-09</lastmod>
-    
+    <loc>https://yuukidach.github.io/post/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/22/cout%20with%20sync/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/migratetohugo/</loc>
+    <lastmod>2020-12-30T17:32:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/07/23/hello-world/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/about-me/</loc>
+    <lastmod>2020-12-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2019/08/05/makefile-learning/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/archives/</loc>
+    <lastmod>2020-12-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/20/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Hexo%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/page/</loc>
+    <lastmod>2020-12-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/24/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2Read%20More%E6%8C%89%E9%92%AE%E7%9A%84%E6%94%B9%E8%BF%9B/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/ml/decision-tree-and-knn-learning/</loc>
+    <lastmod>2020-11-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/10/15/%E5%86%8D%E8%AF%9DUbuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/machine-learning/</loc>
+    <lastmod>2020-11-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2017/02/05/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/database/</loc>
+    <lastmod>2020-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2017/02/12/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%EF%BC%88%E4%BA%8C%EF%BC%89/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/transaction-and-concurrency-control/</loc>
+    <lastmod>2020-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2017/01/05/%E9%A9%AD%E8%BF%9C%E8%B7%AF%E4%B8%8A/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/my-manjaro-i3-configurations/</loc>
+    <lastmod>2020-11-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/04/06/chitchat/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/practice/</loc>
+    <lastmod>2020-11-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/02/19/chitchat/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/use-oracle-on-docker-for-windows/</loc>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/04/chitchat/%E6%97%A0%E6%89%80%E4%BA%8B%E4%BA%8B%E7%9A%84%E9%97%B2%E6%9A%87%E6%97%B6%E5%85%89/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/</loc>
+    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/04/10/chitchat/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/</loc>
+    <lastmod>2020-04-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2020/02/19/practice/image-to-asciiart/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/convert-image-to-ascii-art/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/about/index.html</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/categories/index.html</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/algorithm/</loc>
+    <lastmod>2019-08-12T09:44:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2019/08/12/Shuffling-Bits/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/learning/</loc>
+    <lastmod>2019-08-12T09:44:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/14/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8Python3/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/shuffling-bits/</loc>
+    <lastmod>2019-08-12T09:44:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/10/Ubuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/c/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2017/03/27/Ucount%20%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/makefile/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/10/Way%20to%20Clean%20Code/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/makefile-for-projects-with-subdirectories/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/05/OJ/--UVa%20OJ%2011093%20-%20Just%20Finish%20it%20up--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/lpc55s69-usb-%E9%AB%98%E9%80%9F%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95%E4%B8%80/</loc>
+    <lastmod>2019-05-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/14/OJ/--UVa%20OJ%2011054%20-%20Wine%20trading%20in%20Gergovia--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/mcu/</loc>
+    <lastmod>2019-05-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/05/OJ/--UVa%20OJ%2011212%20-%20Editing%20a%20Book--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/ucount-%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/10/OJ/--UVa%20OJ%2011134%20-%20Fabled%20Rooks--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/linux/</loc>
+    <lastmod>2017-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/25/OJ/--UVa%20OJ%2011400%20-%20Lighting%20System%20Design--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/shell/</loc>
+    <lastmod>2017-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/08/OJ/--UVa%20OJ%201152%20-%204%20Values%20whose%20Sum%20is%200--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/ubuntu/</loc>
+    <lastmod>2017-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/25/OJ/--UVa%20OJ%2011572%20-%20Unique%20Snowflakes--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC%E4%BA%8C-linux/</loc>
+    <lastmod>2017-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/25/OJ/--UVa%20OJ%2011584%20-%20Partitioning%20by%20Palindromes--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D%E8%84%9A%E6%9C%AC-linux/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/24/OJ/--UVa%20OJ%20116%20-%20Unidirectional%20TSP--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/stm32/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/06/OJ/--UVa%20OJ%20120%20-%20Stacks%20of%20Flapjacks--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/%E9%A9%AD%E8%BF%9C%E8%B7%AF%E4%B8%8Astm32%E6%AF%94%E8%B5%9B%E4%BD%9C%E5%93%81%E7%9A%84%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/06/OJ/--UVa%20OJ%2012174%20-%20Shuffle--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/ubuntu-r8168%E6%A8%A1%E5%9D%97%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
+    <lastmod>2016-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/29/OJ/--UVa%20OJ%2012186%20-%20Another%20Crisis--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2016-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/30/OJ/--UVa%20OJ%201220%20-%20Party%20at%20Hali-Bula--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/dp/</loc>
+    <lastmod>2016-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/21/OJ/--UVa%20OJ%2012265%20-%20Selling%20Land--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/programming-exercises/</loc>
+    <lastmod>2016-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/24/OJ/--UVa%20OJ%2012563%20-%20Jin%20Ge%20Jin%20Qu%20hao--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1220-party-at-hali-bula/</loc>
+    <lastmod>2016-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/04/OJ/--UVa%20OJ%2012627%20-%20Erratic%20Expansion--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-12186-another-crisis/</loc>
+    <lastmod>2016-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/29/OJ/--UVa%20OJ%201331%20-%20Minimax%20Triangulation--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1331-minimax-triangulation/</loc>
+    <lastmod>2016-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/23/OJ/--UVa%20OJ%201347%20-%20Tour--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-10003-cutting-sticks/</loc>
+    <lastmod>2016-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/20/OJ/--UVa%20OJ%201442%20-%20Cav--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1625-color-length/</loc>
+    <lastmod>2016-09-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/26/OJ/--UVa%20OJ%201471%20-%20Defense%20Lines--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-11400-lighting-system-design/</loc>
+    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/29/OJ/--UVa%20OJ%201451%20-%20Average--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-11584-partitioning-by-palindromes/</loc>
+    <lastmod>2016-09-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/04/OJ/--UVa%20OJ%201601%20-%20The%20Morning%20after%20Halloween--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-116-unidirectional-tsp/</loc>
+    <lastmod>2016-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/07/OJ/--UVa%20OJ%201605%20-%20Building%20for%20UN--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-12563-jin-ge-jin-qu-hao/</loc>
+    <lastmod>2016-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/16/OJ/--UVa%20OJ%201606%20-%20Amphiphilic%20Carbon%20Molecules--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1347-tour/</loc>
+    <lastmod>2016-09-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/06/OJ/--UVa%20OJ%201607%20-%20Gates--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/dag/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/10/OJ/--UVa%20OJ%201608%20-%20Non-boring%20sequences--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/stdios_basesync_with_stdio/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/15/OJ/--UVa%20OJ%201609%20-%20Foul%20Play--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-437-the-tower-of-babylon/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/27/OJ/--UVa%20OJ%201625%20-%20Color%20Length--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-714-copying-books/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/22/OJ/--UVa%20OJ%20437%20-%20The%20Tower%20of%20Babylon--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-12265-selling-land/</loc>
+    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/01/OJ/--UVa%20OJ%20714%20-%20Copying%20Books--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/greedy-algorithm/</loc>
+    <lastmod>2016-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%200-1/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/categories/the-python-challenge/</loc>
+    <lastmod>2016-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/20/Python%20Challenge/The%20Python%20Challenge%2011/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-11-solution/</loc>
+    <lastmod>2016-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%202/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1442-cav/</loc>
+    <lastmod>2016-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%203/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-9-10-solutions/</loc>
+    <lastmod>2016-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%204/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-7-solution/</loc>
+    <lastmod>2016-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%205/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-8-solution/</loc>
+    <lastmod>2016-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/17/Python%20Challenge/The%20Python%20Challenge%206/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-0-1-solutions/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/18/Python%20Challenge/The%20Python%20Challenge%207/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-2-solution/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/18/Python%20Challenge/The%20Python%20Challenge%208/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-3-solution/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/19/Python%20Challenge/The%20Python%20Challenge%209-10/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-4-solution/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/22/OJ/--UVa%20OJ%201025%20-%20A%20Spy%20in%20the%20Metro--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-5-solution/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/27/OJ/--UVa%20OJ%2010003%20-%20Cutting%20Sticks--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/the-python-challenge-level-6-solution/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/01/OJ/--UVa%20OJ%2010603%20-%20Fill--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1609-foul-play/</loc>
+    <lastmod>2016-09-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/03/OJ/--UVa%20OJ%2010954%20-%20Add%20All--/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8python3/</loc>
+    <lastmod>2016-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2019/05/23/LPC55S69-USB-test/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/divide-and-conquer/</loc>
+    <lastmod>2016-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/09/04/C++_functional%E5%A4%B4%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/ubuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B7%B2%E6%96%AD%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
+    <lastmod>2016-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/14/Get%20Start%20With%20HTML/</loc>
-    
-    <lastmod>2020-11-03</lastmod>
-    
+    <loc>https://yuukidach.github.io/p/uva-oj-1608-non-boring-sequences/</loc>
+    <lastmod>2016-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/2016/08/04/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/</loc>
-    
-    <lastmod>2016-09-14</lastmod>
-    
+    <loc>https://yuukidach.github.io/tags/binary-search/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
   </url>
   
-
   <url>
-    <loc>http://yuukidach.github.io/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-12174-shuffle/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
   </url>
-
   
   <url>
-    <loc>http://yuukidach.github.io/tags/HTML/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1607-gates/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/USB/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/tags/list/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Algorithm/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-11093-just-finish-it-up/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Ubuntu/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/c-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1lambdafunctionbind%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2016-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Python/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-12627-erratic-expansion/</loc>
+    <lastmod>2016-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/C-C/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/tags/priority-queue/</loc>
+    <lastmod>2016-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/io/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-10954-add-all/</loc>
+    <lastmod>2016-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/C/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-714-copying-books/</loc>
+    <lastmod>2016-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Makefile/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1451-average/</loc>
+    <lastmod>2016-08-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Hexo/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</loc>
+    <lastmod>2016-08-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/jQuery/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1471-defense-lines/</loc>
+    <lastmod>2016-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Linux/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-11572-unique-snowflakes/</loc>
+    <lastmod>2016-08-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Shell/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/categories/blog/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/STM32/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2read-more%E6%8C%89%E9%92%AE%E7%9A%84%E6%94%B9%E8%BF%9B/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/DP/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84hexo%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2016-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/C/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1606-amphiphilic-carbon-molecules/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/BFS/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/get-start-with-html/</loc>
+    <lastmod>2016-08-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Priority-Queue/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-11054-wine-trading-in-gergovia/</loc>
+    <lastmod>2016-08-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/List/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-11134-fabled-rooks/</loc>
+    <lastmod>2016-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/IDA/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/way-to-clean-code/</loc>
+    <lastmod>2016-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Greedy-Algorithm/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/tags/hash/</loc>
+    <lastmod>2016-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Hash/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1152-4-values-whose-sum-is-0/</loc>
+    <lastmod>2016-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1605-building-for-un/</loc>
+    <lastmod>2016-08-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Binary-Search/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-120-stacks-of-flapjacks/</loc>
+    <lastmod>2016-08-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/Divide-and-conquer/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/tags/ida/</loc>
+    <lastmod>2016-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/%E8%BF%AD%E4%BB%A3/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-11212-editing-a-book/</loc>
+    <lastmod>2016-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/DAG/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-1601-the-morning-after-halloween/</loc>
+    <lastmod>2016-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/PIL/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/</loc>
+    <lastmod>2016-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/%E6%97%A0%E6%89%80%E4%BA%8B%E4%BA%8B%E7%9A%84%E9%97%B2%E6%9A%87%E6%97%B6%E5%85%89/</loc>
+    <lastmod>2016-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/urllib/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/uva-oj-10603-fill/</loc>
+    <lastmod>2016-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/zipfile/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/p/hello-world/</loc>
+    <lastmod>2016-07-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://yuukidach.github.io/tags/BytesIO/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/tags/requests/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/tags/bz2/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/tags/re/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Web-Design/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/MCU/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Programming-Exercises/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C-C/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Ubuntu/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Web-Design/HTML/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Chitchat/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/MCU/USB/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Makefile/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Programming-Exercises/Algorithm/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Linux/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Web-Design/Hexo/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Web-Design/jQuery/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Programming-Exercises/UVa-OJ/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Programming-Exercises/The-Python-Challenge/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Database/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Machine-Learning/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Image-Processing/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yuukidach.github.io/categories/Image-Processing/C-C/</loc>
-    <lastmod>2020-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yuukidach.github.io/search/</loc>
   </url>
   
 </urlset>

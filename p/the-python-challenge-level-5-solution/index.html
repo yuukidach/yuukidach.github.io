@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='先附上我在Github上存放的代码仓库: The Python Challenge
+先看提示:
+pronounce it 再看看网页源码，&amp;lsquo;peak hell&amp;rsquo;能代表什么？
+我一开始以为是&amp;rsquo;pick&amp;rsquo;什么东西，点开&amp;rsquo;banner.p&amp;rsquo;之后没发现什么规律，于是先google了一下&amp;rsquo;peak hell&amp;rsquo;，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。
+pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。
+读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把&#39; &amp;lsquo;和&amp;rsquo;#&amp;lsquo;后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from urllib import request import pickle pyUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/banner.p&amp;#39; req = request.Request(pyUrl) resp = request.urlopen(req) urlContent = resp.read() code = [] pic = pickle.loads(urlContent) for line in pic: for letter, num in line: code.append(num*letter) code.append(&amp;#39;\n&amp;#39;) print(&amp;#34;&amp;#34;.join(code)) 运行之后得到的点阵图是
+ ##### ##### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ### #### ### ### ##### ### ##### ### ### #### ### ## #### ####### ## ### #### ####### #### ####### ### ### #### ### ### ##### #### ### #### ##### #### ##### #### ### ### #### ### #### #### ### ### #### #### #### #### ### #### #### ### #### #### ### #### #### #### #### ### ### #### #### #### #### ## ### #### #### #### #### #### ### #### #### #### #### ########## #### #### #### #### ############## #### #### #### #### ### #### #### #### #### #### #### #### #### #### #### #### ### #### #### #### #### #### #### ### #### #### #### ### #### #### #### #### ### #### ### ## #### #### ### #### #### #### #### #### ### ## #### ### ## #### #### ########### #### #### #### #### ### ## #### ### ###### ##### ## #### ###### ########### ##### ### ###### 大家请把终端的宽度拉大一点，不然会和我一开始一样，读不出什么东西来，并且怀疑是不是程序写错了 =_='><title>The Python Challenge Level-5 Solution</title>
+
+<link rel='canonical' href='https://yuukidach.github.io/p/the-python-challenge-level-5-solution/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='The Python Challenge Level-5 Solution'>
+<meta property='og:description' content='先附上我在Github上存放的代码仓库: The Python Challenge
+先看提示:
+pronounce it 再看看网页源码，&amp;lsquo;peak hell&amp;rsquo;能代表什么？
+我一开始以为是&amp;rsquo;pick&amp;rsquo;什么东西，点开&amp;rsquo;banner.p&amp;rsquo;之后没发现什么规律，于是先google了一下&amp;rsquo;peak hell&amp;rsquo;，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。
+pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。
+读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把&#39; &amp;lsquo;和&amp;rsquo;#&amp;lsquo;后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from urllib import request import pickle pyUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/banner.p&amp;#39; req = request.Request(pyUrl) resp = request.urlopen(req) urlContent = resp.read() code = [] pic = pickle.loads(urlContent) for line in pic: for letter, num in line: code.append(num*letter) code.append(&amp;#39;\n&amp;#39;) print(&amp;#34;&amp;#34;.join(code)) 运行之后得到的点阵图是
+ ##### ##### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ### #### ### ### ##### ### ##### ### ### #### ### ## #### ####### ## ### #### ####### #### ####### ### ### #### ### ### ##### #### ### #### ##### #### ##### #### ### ### #### ### #### #### ### ### #### #### #### #### ### #### #### ### #### #### ### #### #### #### #### ### ### #### #### #### #### ## ### #### #### #### #### #### ### #### #### #### #### ########## #### #### #### #### ############## #### #### #### #### ### #### #### #### #### #### #### #### #### #### #### #### ### #### #### #### #### #### #### ### #### #### #### ### #### #### #### #### ### #### ### ## #### #### ### #### #### #### #### #### ### ## #### ### ## #### #### ########### #### #### #### #### ### ## #### ### ###### ##### ## #### ###### ########### ##### ### ###### 大家请把终端的宽度拉大一点，不然会和我一开始一样，读不出什么东西来，并且怀疑是不是程序写错了 =_='>
+<meta property='og:url' content='https://yuukidach.github.io/p/the-python-challenge-level-5-solution/'>
+<meta property='og:site_name' content='Dash&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2016-09-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2016-09-17T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="The Python Challenge Level-5 Solution">
+<meta name="twitter:description" content="先附上我在Github上存放的代码仓库: The Python Challenge
+先看提示:
+pronounce it 再看看网页源码，&amp;lsquo;peak hell&amp;rsquo;能代表什么？
+我一开始以为是&amp;rsquo;pick&amp;rsquo;什么东西，点开&amp;rsquo;banner.p&amp;rsquo;之后没发现什么规律，于是先google了一下&amp;rsquo;peak hell&amp;rsquo;，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。
+pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。
+读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把&#39; &amp;lsquo;和&amp;rsquo;#&amp;lsquo;后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from urllib import request import pickle pyUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/banner.p&amp;#39; req = request.Request(pyUrl) resp = request.urlopen(req) urlContent = resp.read() code = [] pic = pickle.loads(urlContent) for line in pic: for letter, num in line: code.append(num*letter) code.append(&amp;#39;\n&amp;#39;) print(&amp;#34;&amp;#34;.join(code)) 运行之后得到的点阵图是
+ ##### ##### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ### #### ### ### ##### ### ##### ### ### #### ### ## #### ####### ## ### #### ####### #### ####### ### ### #### ### ### ##### #### ### #### ##### #### ##### #### ### ### #### ### #### #### ### ### #### #### #### #### ### #### #### ### #### #### ### #### #### #### #### ### ### #### #### #### #### ## ### #### #### #### #### #### ### #### #### #### #### ########## #### #### #### #### ############## #### #### #### #### ### #### #### #### #### #### #### #### #### #### #### #### ### #### #### #### #### #### #### ### #### #### #### ### #### #### #### #### ### #### ### ## #### #### ### #### #### #### #### #### ### ## #### ### ## #### #### ########### #### #### #### #### ### ## #### ### ###### ##### ## #### ###### ########### ##### ### ###### 大家请把终端的宽度拉大一点，不然会和我一开始一样，读不出什么东西来，并且怀疑是不是程序写错了 =_=">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub6321020dedfcea2dceafae09ca2caaa_21891_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://yuukidach.github.io/">Dash&#39;s Blog</a></h1>
+        <h2 class="site-description">A long long way to find myself.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://yuukidach.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/programming-exercises/" style="background-color: #2a9d8f; color: #fff;">
+                Programming Exercises
+            </a>
+        
+            <a href="/categories/the-python-challenge/" style="background-color: #2a9d8f; color: #fff;">
+                The Python Challenge
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/the-python-challenge-level-5-solution/">The Python Challenge Level-5 Solution</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Sep 17, 2016</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>先附上我在Github上存放的代码仓库: <a class="link" href="https://github.com/yuukidach/The-Python-Challenge"  target="_blank" rel="noopener"
+    >The Python Challenge</a></p>
+<p>先看提示:</p>
+<pre><code>pronounce it 
+</code></pre><p>再看看网页源码，&lsquo;peak hell&rsquo;能代表什么？</p>
+<p>我一开始以为是&rsquo;pick&rsquo;什么东西，点开&rsquo;banner.p&rsquo;之后没发现什么规律，于是先google了一下&rsquo;peak hell&rsquo;，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。</p>
+<p>pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。</p>
+<p>读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把' &lsquo;和&rsquo;#&lsquo;后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="ch">#! /usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Yuuki_Dach&#39;</span>
+
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">pyUrl</span> <span class="o">=</span> <span class="s1">&#39;http://www.pythonchallenge.com/pc/def/banner.p&#39;</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">pyUrl</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="n">urlContent</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">code</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pic</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">urlContent</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">pic</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">letter</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="n">code</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="o">*</span><span class="n">letter</span><span class="p">)</span>
+    <span class="n">code</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+</code></pre></div><p>运行之后得到的点阵图是</p>
+<pre><code>
+                                                                                               
+              #####                                                                      ##### 
+               ####                                                                       #### 
+               ####                                                                       #### 
+               ####                                                                       #### 
+               ####                                                                       #### 
+               ####                                                                       #### 
+               ####                                                                       #### 
+               ####                                                                       #### 
+      ###      ####   ###         ###       #####   ###    #####   ###          ###       #### 
+   ###   ##    #### #######     ##  ###      #### #######   #### #######     ###  ###     #### 
+  ###     ###  #####    ####   ###   ####    #####    ####  #####    ####   ###     ###   #### 
+ ###           ####     ####   ###    ###    ####     ####  ####     ####  ###      ####  #### 
+ ###           ####     ####          ###    ####     ####  ####     ####  ###       ###  #### 
+####           ####     ####     ##   ###    ####     ####  ####     #### ####       ###  #### 
+####           ####     ####   ##########    ####     ####  ####     #### ##############  #### 
+####           ####     ####  ###    ####    ####     ####  ####     #### ####            #### 
+####           ####     #### ####     ###    ####     ####  ####     #### ####            #### 
+ ###           ####     #### ####     ###    ####     ####  ####     ####  ###            #### 
+  ###      ##  ####     ####  ###    ####    ####     ####  ####     ####   ###      ##   #### 
+   ###    ##   ####     ####   ###########   ####     ####  ####     ####    ###    ##    #### 
+      ###     ######    #####    ##    #### ######    ###########    #####      ###      ######
+                                                                                               
+
+</code></pre><p>大家请把终端的宽度拉大一点，不然会和我一开始一样，读不出什么东西来，并且怀疑是不是程序写错了 =_=</p>
+<p>接下来就是把channel输入到url中了</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-11-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-11 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-9-10-solutions/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level 9-10 Solutions</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-7-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-7 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-8-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-8 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-0-1-solutions/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level 0-1 Solutions</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2016 - 
+        
+        2020 Dash&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Binary Search on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/binary-search/</link>
+    <description>Recent content in Binary Search on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Sep 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/binary-search/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa OJ 1607 - Gates</title>
+      <link>https://yuukidach.github.io/p/uva-oj-1607-gates/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-1607-gates/</guid>
+      <description>Problem 描述起来很麻烦，大家还是直接去OJ站看吧。我之后也会解释一下题目的意思
+题目链接： 1607 - Gates
+Input The first line of the input contains exactly one positive integer d equal to the number of data sets, 1 ≤ d ≤ 20. The data sets follow.
+Each data set consists of two consecutive lines. The rst of those lines contains exactly two positive integers n and m separated by single space, 1 ≤ n ≤ 100.000, 1 ≤ m ≤ 200.000. Integer n is the number of the net inputs and integer m is the number of the gates in the net.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 714 - Copying Books</title>
+      <link>https://yuukidach.github.io/p/uva-oj-714-copying-books/</link>
+      <pubDate>Thu, 01 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-714-copying-books/</guid>
+      <description>Problem 把一个包含m个正整数的序列划分成k个（1≤k≤m≤500）非空的连续子序列，使得每个正 整数恰好属于一个序列。设第i个序列的各数之和为S(i)，你的任务是让所有S(i)的最大值尽 量小。例如，序列1 2 3 2 5 4划分成3个序列的最优方案为1 2 3 | 2 5 | 4，其中S(1)、S(2)、S(3) 分别为6、7、4，最大值为7；如果划分成1 2 | 3 2 | 5 4，则最大值为9，不如刚才的好。每个 整数不超过107。如果有多解，S(1)应尽量小。如果仍然有多解，S(2)应尽量小，依此类推
+Input The input consists of N cases. The first line of the input contains only positive integer N. Then follow the cases. Each case consists of exactly two lines. At the first line, there are two integers m and k, 1 ≤ k ≤ m ≤ 500.</description>
+    </item>
+    
+  </channel>
+</rss>

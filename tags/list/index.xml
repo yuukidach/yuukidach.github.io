@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>List on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/list/</link>
+    <description>Recent content in List on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Sep 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/list/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa OJ 11093 - Just Finish it up</title>
+      <link>https://yuukidach.github.io/p/uva-oj-11093-just-finish-it-up/</link>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-11093-just-finish-it-up/</guid>
+      <description>Problem Along a circular track, there are N gas stations, which are numbered clockwise from 1 up to N. At station i, there are pi gallons of petrol available. To race from station i to its clockwise neighbor one need qi gallons of petrol. Consider a race where a car will start the race with an empty fuel tank. Your task is to find whether the car can complete the race from any of the stations or not.</description>
+    </item>
+    
+  </channel>
+</rss>

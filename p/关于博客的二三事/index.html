@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='自从博客搭建以来，已经陆续续地将页面更新几次了。总一开始的默认的landscape主题，到hueman，再到icarus，都有过尝试，最终还是选定了landscape作为主题。主要还是这个主题的自主性更大一些，而且有一个很大的banner，看起来比较舒服。
+ 在调整各种颜色的时候，只是觉得黑色的比较舒服，没有那么刺眼，现在再看我的博客，居然和我在第二篇文章里提到的Morris&amp;rsquo;s Blog十分的相似(摊手)。
+ 之前在各个板块，包括图标什么的，调整过很多次了，但是没有及时的记载下来，现在才想起来要有个记录什么的。不过话说回来，在知乎上看到别人更新的时候，都会用“某年某月某日”更新了XXX&amp;hellip;早就也想着要这样试一次了，借此机会，也算满足我的一个小愿望吧
+2016-08-04 1.更新了主页右上角图标 美化了GitHub的标志，同时增加了Facebook的图标，搜索栏也能使用Google搜索了。话说回来，我的Facebook基本没加什么好友哇，求勾搭(笑)。
+2.提交了Google和百度的抓取 一开始提交了好几次都不成功，后来才发现，在利用html文件进行验证的时候，需要把文件放在theme的source目录下，而不是根目录的source目录下。
+ 不得不说还是Google的操作方便，效率也高啊。
+2016-08-06 3.解决了字符缩进问题 贴上去的代码再也不会出现莫名其妙的缩进问题了，高亮问题也得到了解决。其实更多的是编辑器的问题 ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+4.返回顶部按钮优化 调用本地上传的jQuery文件，不会出现国内网络点击“返回顶部”按钮没有反应的问题
+5.新增文章目录 再也不用担心鼠标滚轮滚坏了还找不到需要的内容啦！
+6.更换了网页图标 没有烦人的四方形白边框了。这应该不是强迫症吧┑(￣Д ￣)┍
+7.右上角新加微博图标 大家一起愉快地刷微博啊。
+2016-08-07 8.更换了主页标题的字体样式 终于感觉看自己的博客首页没有那么别扭了！
+2016-08-11 9.修改了底部导航栏颜色 一片白色根本什么都看不清啊。还是黑色的舒服。
+2016-08-12 10.增加了文章封面 终于不用担心目录和文章开头的图片相冲突了。
+11.增加了二级目录 啊，缠绕在心头的心病终于解决了。
+2016-08-14 12.修改了水平线格式 果然还是1.3px，solid 叫人放心啊。
+2016-08-16 13.修复了最底部出现双斜杠的情况 找了好久的原因，最后发现是一个注释给写错了 (:зゝ∠)
+2016-08-17 14.更改了主页文章footer的位置 将主页文章的footer提到了标题下，为后续的界面更改做准备。
+15.修改了分享框内字体颜色 一开始大意了，没有调整，导致看不清框内文字，现已修正为黑色。
+2016-08-18 16.Recent Posts栏目更改 文章名称前增加了字符画，美化界面
+2016-08-21 17.修改文章预览效果 给文章预览的底部加上了文字渐隐效果。Read More按钮也将进行后续改进，以提升文章的打开速度，方便阅读
+2016-08-23 18.完善了Read More按钮 借鉴了Morris博客里的展开按钮。可以在主页进行展开和收缩，阅读更加快速和方便。但是焦点问题还是需要一点点修复
+2016-08-24 19.更改了引用的样式 进行了一定的美化，缩小了字样，添加了左边界，一定程度上有助于阅读
+20.进一步美化Recent Post栏目 令过长文章名称可以以省略号的形式隐藏，并将文章数量扩增到10个，文章名称前的字符画也改为用fontawesome中的图标'><title>关于博客的二三事</title>
+
+<link rel='canonical' href='https://yuukidach.github.io/p/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='关于博客的二三事'>
+<meta property='og:description' content='自从博客搭建以来，已经陆续续地将页面更新几次了。总一开始的默认的landscape主题，到hueman，再到icarus，都有过尝试，最终还是选定了landscape作为主题。主要还是这个主题的自主性更大一些，而且有一个很大的banner，看起来比较舒服。
+ 在调整各种颜色的时候，只是觉得黑色的比较舒服，没有那么刺眼，现在再看我的博客，居然和我在第二篇文章里提到的Morris&amp;rsquo;s Blog十分的相似(摊手)。
+ 之前在各个板块，包括图标什么的，调整过很多次了，但是没有及时的记载下来，现在才想起来要有个记录什么的。不过话说回来，在知乎上看到别人更新的时候，都会用“某年某月某日”更新了XXX&amp;hellip;早就也想着要这样试一次了，借此机会，也算满足我的一个小愿望吧
+2016-08-04 1.更新了主页右上角图标 美化了GitHub的标志，同时增加了Facebook的图标，搜索栏也能使用Google搜索了。话说回来，我的Facebook基本没加什么好友哇，求勾搭(笑)。
+2.提交了Google和百度的抓取 一开始提交了好几次都不成功，后来才发现，在利用html文件进行验证的时候，需要把文件放在theme的source目录下，而不是根目录的source目录下。
+ 不得不说还是Google的操作方便，效率也高啊。
+2016-08-06 3.解决了字符缩进问题 贴上去的代码再也不会出现莫名其妙的缩进问题了，高亮问题也得到了解决。其实更多的是编辑器的问题 ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+4.返回顶部按钮优化 调用本地上传的jQuery文件，不会出现国内网络点击“返回顶部”按钮没有反应的问题
+5.新增文章目录 再也不用担心鼠标滚轮滚坏了还找不到需要的内容啦！
+6.更换了网页图标 没有烦人的四方形白边框了。这应该不是强迫症吧┑(￣Д ￣)┍
+7.右上角新加微博图标 大家一起愉快地刷微博啊。
+2016-08-07 8.更换了主页标题的字体样式 终于感觉看自己的博客首页没有那么别扭了！
+2016-08-11 9.修改了底部导航栏颜色 一片白色根本什么都看不清啊。还是黑色的舒服。
+2016-08-12 10.增加了文章封面 终于不用担心目录和文章开头的图片相冲突了。
+11.增加了二级目录 啊，缠绕在心头的心病终于解决了。
+2016-08-14 12.修改了水平线格式 果然还是1.3px，solid 叫人放心啊。
+2016-08-16 13.修复了最底部出现双斜杠的情况 找了好久的原因，最后发现是一个注释给写错了 (:зゝ∠)
+2016-08-17 14.更改了主页文章footer的位置 将主页文章的footer提到了标题下，为后续的界面更改做准备。
+15.修改了分享框内字体颜色 一开始大意了，没有调整，导致看不清框内文字，现已修正为黑色。
+2016-08-18 16.Recent Posts栏目更改 文章名称前增加了字符画，美化界面
+2016-08-21 17.修改文章预览效果 给文章预览的底部加上了文字渐隐效果。Read More按钮也将进行后续改进，以提升文章的打开速度，方便阅读
+2016-08-23 18.完善了Read More按钮 借鉴了Morris博客里的展开按钮。可以在主页进行展开和收缩，阅读更加快速和方便。但是焦点问题还是需要一点点修复
+2016-08-24 19.更改了引用的样式 进行了一定的美化，缩小了字样，添加了左边界，一定程度上有助于阅读
+20.进一步美化Recent Post栏目 令过长文章名称可以以省略号的形式隐藏，并将文章数量扩增到10个，文章名称前的字符画也改为用fontawesome中的图标'>
+<meta property='og:url' content='https://yuukidach.github.io/p/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/'>
+<meta property='og:site_name' content='Dash&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2016-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2016-08-04T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="关于博客的二三事">
+<meta name="twitter:description" content="自从博客搭建以来，已经陆续续地将页面更新几次了。总一开始的默认的landscape主题，到hueman，再到icarus，都有过尝试，最终还是选定了landscape作为主题。主要还是这个主题的自主性更大一些，而且有一个很大的banner，看起来比较舒服。
+ 在调整各种颜色的时候，只是觉得黑色的比较舒服，没有那么刺眼，现在再看我的博客，居然和我在第二篇文章里提到的Morris&amp;rsquo;s Blog十分的相似(摊手)。
+ 之前在各个板块，包括图标什么的，调整过很多次了，但是没有及时的记载下来，现在才想起来要有个记录什么的。不过话说回来，在知乎上看到别人更新的时候，都会用“某年某月某日”更新了XXX&amp;hellip;早就也想着要这样试一次了，借此机会，也算满足我的一个小愿望吧
+2016-08-04 1.更新了主页右上角图标 美化了GitHub的标志，同时增加了Facebook的图标，搜索栏也能使用Google搜索了。话说回来，我的Facebook基本没加什么好友哇，求勾搭(笑)。
+2.提交了Google和百度的抓取 一开始提交了好几次都不成功，后来才发现，在利用html文件进行验证的时候，需要把文件放在theme的source目录下，而不是根目录的source目录下。
+ 不得不说还是Google的操作方便，效率也高啊。
+2016-08-06 3.解决了字符缩进问题 贴上去的代码再也不会出现莫名其妙的缩进问题了，高亮问题也得到了解决。其实更多的是编辑器的问题 ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+4.返回顶部按钮优化 调用本地上传的jQuery文件，不会出现国内网络点击“返回顶部”按钮没有反应的问题
+5.新增文章目录 再也不用担心鼠标滚轮滚坏了还找不到需要的内容啦！
+6.更换了网页图标 没有烦人的四方形白边框了。这应该不是强迫症吧┑(￣Д ￣)┍
+7.右上角新加微博图标 大家一起愉快地刷微博啊。
+2016-08-07 8.更换了主页标题的字体样式 终于感觉看自己的博客首页没有那么别扭了！
+2016-08-11 9.修改了底部导航栏颜色 一片白色根本什么都看不清啊。还是黑色的舒服。
+2016-08-12 10.增加了文章封面 终于不用担心目录和文章开头的图片相冲突了。
+11.增加了二级目录 啊，缠绕在心头的心病终于解决了。
+2016-08-14 12.修改了水平线格式 果然还是1.3px，solid 叫人放心啊。
+2016-08-16 13.修复了最底部出现双斜杠的情况 找了好久的原因，最后发现是一个注释给写错了 (:зゝ∠)
+2016-08-17 14.更改了主页文章footer的位置 将主页文章的footer提到了标题下，为后续的界面更改做准备。
+15.修改了分享框内字体颜色 一开始大意了，没有调整，导致看不清框内文字，现已修正为黑色。
+2016-08-18 16.Recent Posts栏目更改 文章名称前增加了字符画，美化界面
+2016-08-21 17.修改文章预览效果 给文章预览的底部加上了文字渐隐效果。Read More按钮也将进行后续改进，以提升文章的打开速度，方便阅读
+2016-08-23 18.完善了Read More按钮 借鉴了Morris博客里的展开按钮。可以在主页进行展开和收缩，阅读更加快速和方便。但是焦点问题还是需要一点点修复
+2016-08-24 19.更改了引用的样式 进行了一定的美化，缩小了字样，添加了左边界，一定程度上有助于阅读
+20.进一步美化Recent Post栏目 令过长文章名称可以以省略号的形式隐藏，并将文章数量扩增到10个，文章名称前的字符画也改为用fontawesome中的图标">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub6321020dedfcea2dceafae09ca2caaa_21891_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://yuukidach.github.io/">Dash&#39;s Blog</a></h1>
+        <h2 class="site-description">A long long way to find myself.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://yuukidach.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/chitchat/" style="background-color: #2a9d8f; color: #fff;">
+                Chitchat
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/">关于博客的二三事</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Aug 04, 2016</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>  自从博客搭建以来，已经陆续续地将页面更新几次了。总一开始的默认的landscape主题，到hueman，再到icarus，都有过尝试，最终还是选定了landscape作为主题。主要还是这个主题的自主性更大一些，而且有一个很大的banner，看起来比较舒服。</p>
+<p>  在调整各种颜色的时候，只是觉得黑色的比较舒服，没有那么刺眼，现在再看我的博客，居然和我在第二篇文章里提到的Morris&rsquo;s Blog十分的相似(摊手)。</p>
+<p>  之前在各个板块，包括图标什么的，调整过很多次了，但是没有及时的记载下来，现在才想起来要有个记录什么的。不过话说回来，在知乎上看到别人更新的时候，都会用“某年某月某日”更新了XXX&hellip;早就也想着要这样试一次了，借此机会，也算满足我的一个小愿望吧</p>
+<h3 id="2016-08-04">2016-08-04</h3>
+<p>1.<!-- raw HTML omitted --><strong>更新了主页右上角图标</strong><!-- raw HTML omitted --></p>
+<p>  美化了GitHub的标志，同时增加了Facebook的图标，搜索栏也能使用Google搜索了。<del>话说回来，我的Facebook基本没加什么好友哇，求勾搭(笑)。</del></p>
+<!-- raw HTML omitted -->
+<p>2.<!-- raw HTML omitted --><strong>提交了Google和百度的抓取</strong><!-- raw HTML omitted --></p>
+<p>  一开始提交了好几次都不成功，后来才发现，在利用html文件进行验证的时候，需要把文件放在theme的source目录下，而不是根目录的source目录下。</p>
+<p><img src="http://7xread.com1.z0.glb.clouddn.com/e36692c7-8bd4-4742-899c-fd3734e032f4" alt=""  /></p>
+<p>  不得不说还是Google的操作方便，效率也高啊。</p>
+<h3 id="2016-08-06">2016-08-06</h3>
+<p>3.<!-- raw HTML omitted --><strong>解决了字符缩进问题</strong><!-- raw HTML omitted --></p>
+<p>  贴上去的代码再也不会出现莫名其妙的缩进问题了，高亮问题也得到了解决。<del>其实更多的是编辑器的问题 ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</del></p>
+<p>4.<!-- raw HTML omitted --><strong>返回顶部按钮优化</strong><!-- raw HTML omitted --></p>
+<p>  调用本地上传的jQuery文件，不会出现国内网络点击“返回顶部”按钮没有反应的问题</p>
+<p>5.<!-- raw HTML omitted --><strong>新增文章目录</strong><!-- raw HTML omitted --></p>
+<p>  再也不用担心鼠标滚轮滚坏了还找不到需要的内容啦！</p>
+<!-- raw HTML omitted -->
+<p>6.<!-- raw HTML omitted --><strong>更换了网页图标</strong><!-- raw HTML omitted --></p>
+<p>  没有烦人的四方形白边框了。<del>这应该不是强迫症吧┑(￣Д ￣)┍</del></p>
+<p>7.<!-- raw HTML omitted --><strong>右上角新加微博图标</strong><!-- raw HTML omitted --></p>
+<p>  大家一起愉快地刷微博啊。</p>
+<h3 id="2016-08-07">2016-08-07</h3>
+<p>8.<!-- raw HTML omitted --><strong>更换了主页标题的字体样式</strong><!-- raw HTML omitted --></p>
+<p>  终于感觉看自己的博客首页没有那么别扭了！</p>
+<h3 id="2016-08-11">2016-08-11</h3>
+<p>9.<!-- raw HTML omitted --><strong>修改了底部导航栏颜色</strong><!-- raw HTML omitted --></p>
+<p>  一片白色根本什么都看不清啊。还是黑色的舒服。</p>
+<h3 id="2016-08-12">2016-08-12</h3>
+<p>10.<!-- raw HTML omitted --><strong>增加了文章封面</strong><!-- raw HTML omitted --></p>
+<p>  终于不用担心目录和文章开头的图片相冲突了。</p>
+<p>11.<!-- raw HTML omitted --><strong>增加了二级目录</strong><!-- raw HTML omitted --></p>
+<p>  啊，缠绕在心头的心病终于解决了。</p>
+<h3 id="2016-08-14">2016-08-14</h3>
+<p>12.<!-- raw HTML omitted --><strong>修改了水平线格式</strong><!-- raw HTML omitted --></p>
+<p>  果然还是1.3px，solid 叫人放心啊。</p>
+<h3 id="2016-08-16">2016-08-16</h3>
+<p>13.<!-- raw HTML omitted --><strong>修复了最底部出现双斜杠的情况</strong><!-- raw HTML omitted --></p>
+<p>  找了好久的原因，最后发现是一个注释给写错了 <em>(:зゝ∠)</em></p>
+<h3 id="2016-08-17">2016-08-17</h3>
+<p>14.<!-- raw HTML omitted --><strong>更改了主页文章footer的位置</strong><!-- raw HTML omitted --></p>
+<p>  将主页文章的footer提到了标题下，为后续的界面更改做准备。</p>
+<p>15.<!-- raw HTML omitted --><strong>修改了分享框内字体颜色</strong><!-- raw HTML omitted --></p>
+<p>  一开始大意了，没有调整，导致看不清框内文字，现已修正为黑色。</p>
+<h3 id="2016-08-18">2016-08-18</h3>
+<p>16.<!-- raw HTML omitted --><strong>Recent Posts栏目更改</strong><!-- raw HTML omitted --></p>
+<p>  文章名称前增加了字符画，美化界面</p>
+<h3 id="2016-08-21">2016-08-21</h3>
+<p>17.<!-- raw HTML omitted --><strong>修改文章预览效果</strong><!-- raw HTML omitted --></p>
+<p>  给文章预览的底部加上了文字渐隐效果。Read More按钮也将进行后续改进，以提升文章的打开速度，方便阅读</p>
+<h3 id="2016-08-23">2016-08-23</h3>
+<p>18.<!-- raw HTML omitted --><strong>完善了Read More按钮</strong><!-- raw HTML omitted --></p>
+<p>  借鉴了Morris博客里的展开按钮。可以在主页进行展开和收缩，阅读更加快速和方便。但是焦点问题还是需要一点点修复</p>
+<h3 id="2016-08-24">2016-08-24</h3>
+<p>19.<!-- raw HTML omitted --><strong>更改了引用的样式</strong><!-- raw HTML omitted --></p>
+<p>  进行了一定的美化，缩小了字样，添加了左边界，一定程度上有助于阅读</p>
+<p>20.<!-- raw HTML omitted --><strong>进一步美化Recent Post栏目</strong><!-- raw HTML omitted --></p>
+<p>  令过长文章名称可以以省略号的形式隐藏，并将文章数量扩增到10个，文章名称前的字符画也改为用fontawesome中的图标</p>
+<p>21.<!-- raw HTML omitted --><strong>更换主页banner</strong><!-- raw HTML omitted --></p>
+<p>  之前比较匆忙，没有太多的考虑banner，就用了一张秒五的图片。刚刚看番时无意中截下一张图，正式将其更换为新的banner。<del>如果有人能认出来是哪部番的banner，直接给跪啊</del></p>
+<h3 id="2016-08-28">2016-08-28</h3>
+<p>22.<!-- raw HTML omitted --><strong>修改了Archive界面</strong><!-- raw HTML omitted --></p>
+<p>  Archive界面更加简洁美观。由原来的多篇文章共用一行的无序状态，变为一片文章一行。增加了指示箭头，看起来更加轻松舒适</p>
+<p>23.<!-- raw HTML omitted --><strong>更换了文章tag前的标志</strong><!-- raw HTML omitted --></p>
+<p>  由原来的#变为tag字符画</p>
+<h3 id="2016-09-04">2016-09-04</h3>
+<p>24.<!-- raw HTML omitted --><strong>更换了侧边栏和archive页面字体</strong><!-- raw HTML omitted --></p>
+<p>  侧边栏变为Tahoma，避免了中英文同时显示时，中文过细的问题。 archive页面则变更为Verdana，更加易于阅读</p>
+<p>25.<!-- raw HTML omitted --><strong>更换了二级标题颜色</strong><!-- raw HTML omitted --></p>
+<p>  二级标题终于能够一眼认出来了。（其实是我以前二级标题基本没用过啦╮(╯▽╰)╭）</p>
+<h3 id="2016-09-05">2016-09-05</h3>
+<p>26.<!-- raw HTML omitted --><strong>更改了顶栏和底栏</strong><!-- raw HTML omitted --></p>
+<p>  顶栏的github和facebook图标已经移至底栏（可惜了没有微博的方块图标/(ㄒoㄒ)/~~）。同时在底栏添加了一句自己想说的话。</p>
+<p>27.<!-- raw HTML omitted --><strong>更改了顶栏标题字体</strong><!-- raw HTML omitted --></p>
+<p>  这次是二更标题字体了，之前的字体还是没有好斟酌，这次重新选定了一个，CSS中的顺序是Calligraph421 BT排在第一。</p>
+<h3 id="2016-09-16">2016-09-16</h3>
+<p>27.<!-- raw HTML omitted --><strong>小幅修改最近文章栏目</strong><!-- raw HTML omitted --></p>
+<p>  将图标和文字链接分开，同时更改了图标颜色</p>
+<p>28.<!-- raw HTML omitted --><strong>更改上翻图标并增加下翻按钮</strong><!-- raw HTML omitted --></p>
+<p>  将利用上翻按钮的图片改为font-awesome中的图片文字。同时增加了下翻按钮</p>
+<p><strong>29. 提供数学公式的支持</strong> &ndash; 2020.11.19</p>
+<p>替换<code>hexo-renderer-marked</code>为<code>hexo-renderer-kramed</code>，以提供更好的markdown支持，并使用<code>hexo-renderer-mathjax</code>增加对 MathJax 的支持。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-kramed --save
+npm install hexo-renderer-mathjax --save
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/p/migratetohugo/">
+        
+        
+            <div class="article-image">
+                <img src="/p/migratetohugo/cover.014fe5cddb71ad94d715e3bf6429f39a_hub662a7dadcf66f5ea9d1983c35e8cae7_995899_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="MigrateToHugo" 
+                        data-hash="md5-AU/lzdtxrZTXFeO/ZCnzmg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从HEXO迁移到HUGO</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BE%9E%E8%81%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第一次辞职</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%8F%91%E7%83%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BF%83%E6%80%81%E5%8F%98%E5%8C%96/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">发烧带来的心态变化</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%AF%B9%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91/_hudf79e89601825aa0295c04be598f8691_160907_39c527bc1c092446838f8fb9225f2e76.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="对于未来的困惑" 
+                        data-hash="md5-CgFBZ4zZVRCsVusRq8FSMQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">对于未来的困惑</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/ucount-%E5%AE%8C%E7%BB%93%E4%B9%8B%E5%90%8E/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ucount 完结之后</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2016 - 
+        
+        2020 Dash&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

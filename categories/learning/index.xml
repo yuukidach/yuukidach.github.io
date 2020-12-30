@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/categories/learning/</link>
+    <description>Recent content in Learning on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Aug 2019 09:44:44 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/categories/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shuffling Bits</title>
+      <link>https://yuukidach.github.io/p/shuffling-bits/</link>
+      <pubDate>Mon, 12 Aug 2019 09:44:44 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/shuffling-bits/</guid>
+      <description>Background NOTE: This article is from chapter 7.2 in Hackers&#39; Delight. I write this post because:
+ To have a better understanding of the algorithm Need to apply it in a similar situation  Resources sometimes can be scarce in MCU. We may tend to use as little resources as possible and do calculations as fast as we could when the performance of MCU just barely meets our demands.
+Besides when talking about calculations in MCU, many people would think about bit operation.</description>
+    </item>
+    
+    <item>
+      <title>Makefile for Projects with Subdirectories</title>
+      <link>https://yuukidach.github.io/p/makefile-for-projects-with-subdirectories/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/makefile-for-projects-with-subdirectories/</guid>
+      <description>Abstract In order to manage our project easily, we may tend to make for help. Usually, our projects will contians many subdirectories. So writing a makefile which can always compile our projects successfully when our project add, delete or modify some sub-dirs is quite important.
+Background Take my private projects kmusb for example.
+It file structure is like:
+. ├── README.md ├── arg_parser │ ├── arg_parser.c │ └── arg_parser.h ├── bin ├── data ├── kmusb.</description>
+    </item>
+    
+    <item>
+      <title>std::ios_base::sync_with_stdio()</title>
+      <link>https://yuukidach.github.io/p/stdios_basesync_with_stdio/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/stdios_basesync_with_stdio/</guid>
+      <description>std::ios_base::sync_with_stdio() 今天在做OJ的时候意外地发现printf和cout的输出顺序和代码顺序不一样，如下
+printf(&amp;#34;Case Number %d: &amp;#34;, ++cas); if(takeTime[0][1] &amp;gt;= 0x3f3f3f3f) cout &amp;lt;&amp;lt; &amp;#34;impossible\n&amp;#34;; else cout &amp;lt;&amp;lt; takeTime[0][1] &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;; 得到的输出却是
+impossible impossible impossible Case Number 1: Case Number 2: Case Number 3: 后来仔细地看了看，才发现问题是出在ios_base::sync_with_stdio()这个函数上。
+这个函数当我们填入false的值时，相当于把C和C++的输入输出流解绑了，那么cout就能够拥有自己的缓冲区。如果我们去掉解绑的话，那么我们就会看到结果变得和我们预想的是一样了。
+Case Number 1: impossible Case Number 2: impossible Case Number 3: impossible 所以将C++和C的输入输出流同步，是一种比较安全的方式，不要滥用ios_base::sync_with_stdio()
+cin.tie() 还有一个值得一提的就是cin.tie().
+和sync_with_sdtio类似，cin.tie()也是为了让输入输出变得比较安全的方式。当我们填入NULL或者0解绑之后，对于
+cout &amp;lt;&amp;lt; &amp;#34;Enter name:&amp;#34;; cin &amp;gt;&amp;gt; name; 就会发现，是先输入，再输出&amp;rsquo;Enter name:&#39;
+这是因为解绑了输入输出之后cout需要在缓冲区写入之后才能执行
+参考  Significance of ios_base::sync_with_stdio(false); cin.tie(NULL)  </description>
+    </item>
+    
+    <item>
+      <title>Ubuntu下使用Python3</title>
+      <link>https://yuukidach.github.io/p/ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8python3/</link>
+      <pubDate>Wed, 14 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8python3/</guid>
+      <description>这篇文章算是给初次在Ubuntu上使用Python编程的人一个提醒吧。
+使用方法 首先我们要知道Ubuntu自带的是Python2，然而有很多人(比如我)在学习Python的时候希望使用Python3
+我们先使用
+sudo apt install python3 老版本Ubuntu请将 &amp;lsquo;apt&amp;rsquo; 改为 &amp;lsquo;apt-get&amp;rsquo;
+安装好了Python3之后，我们想在终端中直接使用Python3，可是当我们输入 &amp;lsquo;python&amp;rsquo;之后，却发现还是Python2。这个时候其实很简单，只要在 &amp;lsquo;python&amp;rsquo;后面加个 &amp;lsquo;3&amp;rsquo; 就好，具体如下:
+python3 cmd cmd 是你自己的指令。这个时候我们就是使用Python3了
+Warning！！！ 不过我要说的不只是这些，而是这篇文章：在Ubuntu中安装Python3
+不推荐大家采用文章里的方式
+这篇文章开头写的很好，告诉我们Ubuntu很多底层采用的是Python2，当时后面居然让我们把link文件改掉。这样会导致Ubuntu的系统出现一些错误，比如安装软件失败。所以大家还是直接使用 &amp;lsquo;python3&amp;rsquo; 这个命令就好，不要自找麻烦。</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;函数对象，Lambda，function，bind相关知识</title>
+      <link>https://yuukidach.github.io/p/c-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1lambdafunctionbind%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Sun, 04 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/c-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1lambdafunctionbind%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</guid>
+      <description>昨天做题时无意间得知了&amp;lt;functional&amp;gt;这个头文件，之后自己也稍微地了解了一下相关的一些知识。
+内容比较多，叙述方面可能不是很详尽，大家如果看完还有不是很理解的地方，建议进文末的链接看看。
+&amp;lt;functional&amp;gt;头文件 关于这个头文件，在cppreference.com中是这样定义的:
+ This header is part of the function objects library and provides the standard hash function.
+ 这个头文件定义了许多函数对象类型和支持函数对象的功能。
+函数对象 关于函数对象这里就来比较详细的讲一下，也为后面的内容做一个铺垫。
+先来看看cplusplus.com中关于函数对象（Function object）的定义：
+ Function objects are objects specifically designed to be used with a syntax similar to that of functions. In C++, this is achieved by defining member function operator() in their class.
+ 简单的说，函数对象是通过重载operator()这个操作符，利用和函数相类似的句法，实现了函数的功能。来看一个例子：
+class myFunctionClass{ public: int operator()(int x){ return x; } }test; int a = test(6); 这个程序中，如果我们输出a，就会发现，a的值是6，十分简单易懂。</description>
+    </item>
+    
+    <item>
+      <title>Get Start With HTML</title>
+      <link>https://yuukidach.github.io/p/get-start-with-html/</link>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/get-start-with-html/</guid>
+      <description>这些天在鼓捣博客，对界面所做的改动，也都是landscape这个主题的框架下所进行的。虽然说自由度相对于别的博客站点的自由度要高很多，但是自己没有一点网页编程知识的话，也是不能够讲网页完全设计成自己所喜欢的样子。因此在这里开一个类似于笔记本性质的文章吧，也方便我以后进行回忆。
+Introduction  HTML指的是超文本标记语言 (Hyper Text Markup Language) HTML不是一种编程语言，而是一种标记语言 (markup language) 标记语言是一套标记标签 (markup tag) HTML使用标记标签来描述网页  Basic   HTML的链接通过&amp;lt;a&amp;gt;来进行定义
+&amp;lt;a href=&amp;ldquo;url&amp;rdquo;&amp;gt;link text&amp;lt;/a&amp;gt;
+  图像通过&amp;lt;img&amp;gt; &amp;lt;img src=&amp;ldquo;link&amp;rdquo; settings/&amp;gt;
+在src的后面还能加上alt 表示在图片加载不出来时显示的文字信息，如：&amp;lt;img src=&amp;ldquo;link&amp;rdquo; alt=&amp;ldquo;text&amp;rdquo; settings/&amp;gt;
+  Conditional comments defines some HTML tags to be executed by Internet Explorer only.
+  &amp;lt;!--[if IE 8]&amp;gt; .... some HTML here .... &amp;lt;![endif]--&amp;gt; The &amp;lt;title&amp;gt; element defines the title of the document, and is required in all HTML/XHTML documents.</description>
+    </item>
+    
+  </channel>
+</rss>

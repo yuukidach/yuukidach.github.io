@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。
+附上我在Github上存放的代码仓库: The Python Challenge
+Challenge 0 第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。
+算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好
+Challenge 1 根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- code = (&amp;#34;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&amp;#34; &amp;#34;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&amp;#39;q ufw rfgq rcvr gq &amp;#34; &amp;#34;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&amp;#34; &amp;#34; spj.&amp;#34;) addr = &amp;#34;&amp;#34; for alpha in code: if alpha!'><title>The Python Challenge Level 0-1 Solutions</title>
+
+<link rel='canonical' href='https://yuukidach.github.io/p/the-python-challenge-level-0-1-solutions/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='The Python Challenge Level 0-1 Solutions'>
+<meta property='og:description' content='前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。
+附上我在Github上存放的代码仓库: The Python Challenge
+Challenge 0 第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。
+算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好
+Challenge 1 根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- code = (&amp;#34;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&amp;#34; &amp;#34;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&amp;#39;q ufw rfgq rcvr gq &amp;#34; &amp;#34;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&amp;#34; &amp;#34; spj.&amp;#34;) addr = &amp;#34;&amp;#34; for alpha in code: if alpha!'>
+<meta property='og:url' content='https://yuukidach.github.io/p/the-python-challenge-level-0-1-solutions/'>
+<meta property='og:site_name' content='Dash&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2016-09-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2016-09-17T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="The Python Challenge Level 0-1 Solutions">
+<meta name="twitter:description" content="前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。
+附上我在Github上存放的代码仓库: The Python Challenge
+Challenge 0 第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。
+算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好
+Challenge 1 根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- code = (&amp;#34;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&amp;#34; &amp;#34;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&amp;#39;q ufw rfgq rcvr gq &amp;#34; &amp;#34;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&amp;#34; &amp;#34; spj.&amp;#34;) addr = &amp;#34;&amp;#34; for alpha in code: if alpha!">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub6321020dedfcea2dceafae09ca2caaa_21891_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://yuukidach.github.io/">Dash&#39;s Blog</a></h1>
+        <h2 class="site-description">A long long way to find myself.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://yuukidach.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/programming-exercises/" style="background-color: #2a9d8f; color: #fff;">
+                Programming Exercises
+            </a>
+        
+            <a href="/categories/the-python-challenge/" style="background-color: #2a9d8f; color: #fff;">
+                The Python Challenge
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/the-python-challenge-level-0-1-solutions/">The Python Challenge Level 0-1 Solutions</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Sep 17, 2016</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。</p>
+<p>附上我在Github上存放的代码仓库: <a class="link" href="https://github.com/yuukidach/The-Python-Challenge"  target="_blank" rel="noopener"
+    >The Python Challenge</a></p>
+<h1 id="challenge-0"><strong>Challenge 0</strong></h1>
+<p>第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。</p>
+<p>算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好</p>
+<h1 id="challenge-1"><strong>Challenge 1</strong></h1>
+<p>根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="ch">#! /usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&#34;</span>
+        <span class="s2">&#34;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&#39;q ufw rfgq rcvr gq &#34;</span>
+        <span class="s2">&#34;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&#34;</span>
+        <span class="s2">&#34; spj.&#34;</span><span class="p">)</span>
+<span class="n">addr</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+
+<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">alpha</span><span class="o">!=</span><span class="s1">&#39; &#39;</span> <span class="ow">and</span> <span class="n">alpha</span><span class="o">!=</span><span class="s1">&#39;.&#39;</span> <span class="ow">and</span> <span class="n">alpha</span><span class="o">!=</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="ow">and</span> <span class="n">alpha</span><span class="o">!=</span><span class="s1">&#39;(&#39;</span> <span class="ow">and</span> <span class="n">alpha</span><span class="o">!=</span><span class="s1">&#39;)&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">alpha</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+        <span class="k">elif</span> <span class="n">alpha</span> <span class="o">==</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">addr</span> <span class="o">+=</span> <span class="n">alpha</span> 
+
+<span class="k">print</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+</code></pre></div><p>还是比较简单直接的。提取到的结果如下：</p>
+<blockquote>
+<p>i hope you didnt translate it by hand. thats what computers are for. doing it in by hand is inefficient and that&rsquo;s why this text is so long. using string.maketrans() is recommended. now apply on the url.</p>
+</blockquote>
+<p>这里提示我们可以用string.maketrans()来提高效率。所以，我们再码一遍代码，利用maketrans（）使代码变得更加简洁和美观。</p>
+<div class="highlight"><pre class="chroma"><code class="language-Python" data-lang="Python"><span class="ch">#! /usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&#34;</span>
+        <span class="s2">&#34;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&#39;q ufw rfgq rcvr gq &#34;</span>
+        <span class="s2">&#34;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&#34;</span>
+        <span class="s2">&#34; spj.&#34;</span><span class="p">)</span>
+
+<span class="n">intab</span> <span class="o">=</span> <span class="s2">&#34;abcdefghijklmnopqrstuvwxyz&#34;</span>
+<span class="n">outtab</span> <span class="o">=</span> <span class="s2">&#34;cdefghijklmnopqrstuvwxyzab&#34;</span>
+<span class="n">transtab</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="n">intab</span><span class="p">,</span><span class="n">outtab</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">transtab</span><span class="p">))</span>
+</code></pre></div><p>需要注意的是，maketrans()到了python3中就直接包含在str类的方法中了,如果是Python2的话记得import对应的模块。</p>
+<p>最后只要按照提示，把关卡1url里的‘map’也对应向后推两个字母，变成&rsquo;ocr&rsquo;就好了</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-11-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-11 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-9-10-solutions/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level 9-10 Solutions</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-7-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-7 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-8-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-8 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/the-python-challenge-level-2-solution/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Python Challenge Level-2 Solution</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2016 - 
+        
+        2020 Dash&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

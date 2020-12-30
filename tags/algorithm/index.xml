@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/algorithm/</link>
+    <description>Recent content in Algorithm on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Aug 2019 09:44:44 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shuffling Bits</title>
+      <link>https://yuukidach.github.io/p/shuffling-bits/</link>
+      <pubDate>Mon, 12 Aug 2019 09:44:44 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/shuffling-bits/</guid>
+      <description>Background NOTE: This article is from chapter 7.2 in Hackers&#39; Delight. I write this post because:
+ To have a better understanding of the algorithm Need to apply it in a similar situation  Resources sometimes can be scarce in MCU. We may tend to use as little resources as possible and do calculations as fast as we could when the performance of MCU just barely meets our demands.
+Besides when talking about calculations in MCU, many people would think about bit operation.</description>
+    </item>
+    
+  </channel>
+</rss>

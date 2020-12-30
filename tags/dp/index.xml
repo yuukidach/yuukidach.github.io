@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DP on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/dp/</link>
+    <description>Recent content in DP on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Sep 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/dp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa OJ 1220 - Party at Hali-Bula</title>
+      <link>https://yuukidach.github.io/p/uva-oj-1220-party-at-hali-bula/</link>
+      <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-1220-party-at-hali-bula/</guid>
+      <description>Problem Here is the: problem link
+Solution 这道题目一开始没有用f[][]来标记是否重复，导致WA了一次，后来就加上去了。另外，在处理人名时，虽然实例输入里，上司和下属名字出现是有先后的，但是提交之后，系统的测试数据貌似不一定是这样，所以要先判断是否出现，没出现就用cnt加1再赋值
+递归的思路还是不难的，选了上司，那么直属员工就不选，用d[][0]表示不选;没选的话就可以选直属员工，也可以不选，分别是d[][1]和d[][0]
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;map&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;cstring&amp;gt;using namespace std; #define G sons[b][i] const int maxn = 205; int n, res, yn, d[maxn][2], f[maxn][2]; char c1[maxn], c2[maxn]; map&amp;lt;string, int&amp;gt; p; vector&amp;lt;int&amp;gt; sons[maxn]; int dp(int b,int y) { int&amp;amp; ans = d[b][y]; if (ans != -1) return ans; int k = sons[b].size(); if(!k) {f[b][y] = 1; return ans = y;} int mark = 1; if(y) { for(int i = 0; i &amp;lt; k; ++i) { ans += dp(G,0); if(!</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 12186 - Another Crisis</title>
+      <link>https://yuukidach.github.io/p/uva-oj-12186-another-crisis/</link>
+      <pubDate>Thu, 29 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-12186-another-crisis/</guid>
+      <description>Problem A couple of years ago, a new world wide crisis started, leaving many people with economical problems. Some workers of a particular company are trying to ask for an increase in their salaries.
+The company has a strict hierarchy, in which each employee has exactly one direct boss, with the exception of the owner of the company that has no boss. Employees that are not bosses of any other employee are called workers.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 1331 - Minimax Triangulation</title>
+      <link>https://yuukidach.github.io/p/uva-oj-1331-minimax-triangulation/</link>
+      <pubDate>Thu, 29 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-1331-minimax-triangulation/</guid>
+      <description>Problem Here is the: problem link
+Solution 这道题目一开始用递归做，但是时间比较长，于是花了比较长的时间去想应该怎么才能转化成递推
+这道题目用d[i][j]来表示从i点切割到j点中所含的面积最大的三角形中，最小的那个
+这里用了三个循环，第一层是确定分割时跨越的点数，第二层是起点，第三层就是起点和终点中任意取一点分割。同时还要注意分割时会不会有点卡在中间导致实际上不能被分割的情况
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cmath&amp;gt;#include &amp;lt;iomanip&amp;gt;using namespace std; const int maxn = 55; int n, cas; double x[maxn], y[maxn], d[maxn][maxn]; double cntArea(int a, int b, int c) { return fabs((x[b]-x[a])*(y[c]-y[a])-(y[b]-y[a])*(x[c]-x[a]))/2; } bool isOK(int x,int y, int z) { double s = cntArea(x, y, z); for (int i = 0; i &amp;lt; n; ++i) { if (i == x || i == y || i ==z) continue; double tmp = cntArea(x,y,i)+cntArea(x,z,i)+cntArea(y,z,i); if (fabs(s-tmp) &amp;lt; 1e-6) return false; } return true; } int main() { ios::sync_with_stdio(false); cin.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 10003 - Cutting Sticks</title>
+      <link>https://yuukidach.github.io/p/uva-oj-10003-cutting-sticks/</link>
+      <pubDate>Tue, 27 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-10003-cutting-sticks/</guid>
+      <description>Problem You have to cut a wood stick into pieces. The most affordable company, The Analog Cutting Machinery, Inc. (ACM), charges money according to the length of the stick being cut. Their procedure of work requires that they only make one cut at a time.
+It is easy to notice that different selections in the order of cutting can led to different prices. For example, consider a stick of length 10 meters that has to be cut at 2, 4 and 7 meters from one end.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 1625 - Color Length</title>
+      <link>https://yuukidach.github.io/p/uva-oj-1625-color-length/</link>
+      <pubDate>Tue, 27 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-1625-color-length/</guid>
+      <description>Problem Here is the prolem link
+Solution 这道题目要先处理好每个颜色的起止位置，不然会很不方便。用数组d[i][j]表示已经插入了第一个字符串的i个，第二个字符串的j个字母。递推的时候，只要发现还有字母没有用完，就加1
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;using namespace std; const int maxn = 5002; char n[maxn], m[maxn]; int cas, l1, l2; int begs[2][26], endz[2][26], d[maxn][maxn]; void findLetter(char a[], int l, int o) { for (int i = 1; i &amp;lt;= l; ++i) { if (!endz[o][a[i]-&amp;#39;A&amp;#39;]) begs[o][a[i]-&amp;#39;A&amp;#39;] = i; endz[o][a[i]-&amp;#39;A&amp;#39;] = i; } } int main() { ios::sync_with_stdio(false); cin.tie(NULL); //freopen(&amp;#34;input.txt&amp;#34; , &amp;#34;r&amp;#34;, stdin );  //freopen(&amp;#34;output.txt&amp;#34;, &amp;#34;w&amp;#34;, stdout);  cin &amp;gt;&amp;gt; cas; while(cas--) { cin &amp;gt;&amp;gt; n+1 &amp;gt;&amp;gt; m+1; n[0] = m[0] = 0; memset(begs, 0x3f, sizeof(begs)); memset(endz, 0, sizeof(endz)); l1 = strlen(n+1); l2 = strlen(m+1); findLetter(n, l1, 0); findLetter(m, l2, 1); for (int i = 0; i &amp;lt;= l1; ++i) { for (int j = 0; j &amp;lt;= l2; ++j) { int num = 0, ans = 0x3f3f3f3f; for (int k = 0; k &amp;lt; 26; ++k) if ((i &amp;gt;= begs[0][k] || j &amp;gt;= begs[1][k]) &amp;amp;&amp;amp; (i &amp;lt; endz[0][k] || j &amp;lt; endz[1][k])) ++num; if (i) ans = min(d[i-1][j], ans); if (j) ans = min(ans, d[i][j-1]); d[i][j] = (ans==0x3f3f3f3f?</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 11584 - Partitioning by Palindromes</title>
+      <link>https://yuukidach.github.io/p/uva-oj-11584-partitioning-by-palindromes/</link>
+      <pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-11584-partitioning-by-palindromes/</guid>
+      <description>Problem Here is the: link
+Solution 先对字符串进行预处理，把回文字符串的长度全部记录下来，然后用DP对回文字符串的个数进行处理。最小个数=min(之前已经处理过的长度所含回文字符串的最小值+未处理的长度所含回文字符数的最小值)
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;using namespace std; const int maxn = 1005; char s[maxn]; int d[maxn], idx[maxn][maxn], cas; int main() { ios_base::sync_with_stdio(false); cin.tie(NULL); //freopen(&amp;#34;input.txt&amp;#34; , &amp;#34;r&amp;#34;, stdin );  //freopen(&amp;#34;output.txt&amp;#34;, &amp;#34;w&amp;#34;, stdout);  cin &amp;gt;&amp;gt; cas; while(cas--) { cin &amp;gt;&amp;gt; s+1; int n = strlen(s+1); memset(d, 0x3f, sizeof(d)); d[0] = 0; for (int i = 1; i &amp;lt;= n; ++i) { idx[i][i] = 1; for (int j = i+1; j &amp;lt;= n; ++j) { bool isOK = false; for (int k = 0; k &amp;lt; (j-i+1&amp;gt;&amp;gt;1); ++k) if (s[i+k] !</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 116 - Unidirectional TSP</title>
+      <link>https://yuukidach.github.io/p/uva-oj-116-unidirectional-tsp/</link>
+      <pubDate>Sat, 24 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-116-unidirectional-tsp/</guid>
+      <description>Problem Here is the: problem link
+Solutions 这道题目不难，但是要注意一下输出的格式，我因为输出格式的问题反复提交了好几次
+我们用dp[i][j]来表示(i,j)距离最后一列的距离。为了节省时间，用了一个Next[]数组来保存向右走的路径，避免反复取余造成的时间上的浪费。
+还有，记得不要用next和end，是关键字 =_=
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstring&amp;gt;#include &amp;lt;cstdio&amp;gt;using namespace std; int r, c, start, End; int Next[12]; int block[12][102], idx[12][102]; long dp[12][102]; int main(){ ios::sync_with_stdio(false); cin.tie(NULL); //freopen(&amp;#34;input.txt&amp;#34; , &amp;#34;r&amp;#34;, stdin );  //freopen(&amp;#34;output.txt&amp;#34;, &amp;#34;w&amp;#34;, stdout);  while(cin &amp;gt;&amp;gt; r &amp;gt;&amp;gt; c) { memset(idx, 0, sizeof(idx)); memset(dp, 0, sizeof(dp)); for (int i = 1; i &amp;lt;= r; ++i) Next[i] = i; Next[r+1] = 1; Next[0] = r; for (int i = 1; i &amp;lt;= r; ++i) for (int j = 1; j &amp;lt;= c; ++j) cin &amp;gt;&amp;gt; block[i][j]; for (int j = c; j &amp;gt; 0; --j) { for (int i = 1; i &amp;lt;= r; ++i) { long tmp = 0x3f3f3f3f3f3f; for (int k = -1; k &amp;lt; 2; ++k) { long a = dp[Next[i+k]][j+1]+block[i][j]; if (a &amp;lt; tmp) { tmp = dp[i][j] = a; idx[i][j] = Next[i+k]; } else if (a == tmp) idx[i][j] = min(idx[i][j], Next[i+k]); } } } start = 1; long tmp, minh = dp[1][1]; for (int i = 2; i &amp;lt;= r; ++i) { tmp = dp[i][1]; if (tmp &amp;lt; minh) { start = i; minh = tmp; } } End = start; for(int j = 1; j &amp;lt; c; ++j) { cout &amp;lt;&amp;lt; End &amp;lt;&amp;lt; &amp;#39; &amp;#39;; End = idx[End][j]; } cout &amp;lt;&amp;lt; End &amp;lt;&amp;lt; &amp;#39;\n&amp;#39; &amp;lt;&amp;lt; dp[start][1] &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;; } return 0; } </description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 12563 - Jin Ge Jin Qu hao</title>
+      <link>https://yuukidach.github.io/p/uva-oj-12563-jin-ge-jin-qu-hao/</link>
+      <pubDate>Sat, 24 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-12563-jin-ge-jin-qu-hao/</guid>
+      <description>Problem Here is the: link
+Solution 这道题目一开始用时间作为一个大循环去进行递推，但是发现并不是很好判断歌曲是否有唱过，所以后来还是采用歌曲作为大循环，再以时间为小循环。不过记得要留出1s来给《劲歌金曲》
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;using namespace std; int T, n, t, cas, ans; int song[51], dp[9001]; long long lis[9001]; int main() { ios_base::sync_with_stdio(false); cin.tie(NULL); //freopen(&amp;#34;input.txt&amp;#34; , &amp;#34;r&amp;#34;, stdin );  //freopen(&amp;#34;output.txt&amp;#34;, &amp;#34;w&amp;#34;, stdout);  cin &amp;gt;&amp;gt; T; while(T--) { cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; t; memset(dp, 0x8f, sizeof(dp)); dp[0] = 0; ans = t-1; for (int i = 0; i &amp;lt; n; ++i) cin &amp;gt;&amp;gt; song[i]; for (int i = 0; i &amp;lt; n; ++i) for (int j = t-1; j &amp;gt;= song[i]; --j) dp[j] = max(dp[j], dp[j-song[i]]+1); for (int i = t-1; i &amp;gt;=0; --i) ans = dp[i]&amp;gt;dp[ans] ?</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 1347 - Tour</title>
+      <link>https://yuukidach.github.io/p/uva-oj-1347-tour/</link>
+      <pubDate>Fri, 23 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-1347-tour/</guid>
+      <description>Problem John Doe, a skilled pilot, enjoys traveling. While on vacation, he rents a small plane and starts visiting beautiful places. To save money, John must determine the shortest closed tour that connects his destinations. Each destination is represented by a point in the plane pi = &amp;lt; xi, yi &amp;gt; . John uses the following strategy: he starts from the leftmost point, then he goes strictly left to right to the rightmost point, and then he goes strictly right back to the starting point.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 437 - The Tower of Babylon</title>
+      <link>https://yuukidach.github.io/p/uva-oj-437-the-tower-of-babylon/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-437-the-tower-of-babylon/</guid>
+      <description>Problem The babylonians had n types of blocks, and an unlimited supply of blocks of each type. Each type-i block was a rectangular solid with linear dimensions (xi, yi, zi). A block could be reoriented so that any two of its three dimensions determined the dimensions of the base and the other dimension was the height.
+They wanted to construct the tallest tower possible by stacking blocks. The problem was that, in building a tower, one block could only be placed on top of another block as long as the two base dimensions of the upper block were both strictly smaller than the corresponding base dimensions of the lower block.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 714 - Copying Books</title>
+      <link>https://yuukidach.github.io/p/uva-oj-714-copying-books/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-714-copying-books/</guid>
+      <description>Problem Here is the Problem Link
+Solution 在车站有三种选择：1.等；2.向右走 3.向左走
+我们从约定的地点和约定的时间倒回来考虑，如果能够在0（初始时刻）回到车站1,就表示能够完成。
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstring&amp;gt;#include &amp;lt;cstdio&amp;gt;using namespace std; int n, T, m1, m2, cas;; int t[55], d[255], e[255]; int fromRight[205][55], fromLeft[205][55], takeTime[205][55]; void init() { memset(fromLeft, 0, sizeof(fromLeft )); memset(fromRight, 0, sizeof(fromRight)); cin &amp;gt;&amp;gt; T; for (int i = 1; i &amp;lt; n ; ++i) cin &amp;gt;&amp;gt; t[i]; cin &amp;gt;&amp;gt; m1; for (int i = 1; i &amp;lt;= m1; ++i) { cin &amp;gt;&amp;gt; d[i]; int tmp = d[i]; fromLeft[tmp][1] = 1; for (int j = 1; j &amp;lt; n; ++j) { tmp += t[j]; if (tmp &amp;lt;= T) fromLeft[tmp][j+1] = 1; else break; } } cin &amp;gt;&amp;gt; m2; for (int i = 1; i &amp;lt;= m2; ++i) { cin &amp;gt;&amp;gt; e[i]; int tmp = e[i]; fromRight[tmp][n] = 1; for (int j = n-1; j &amp;gt; 1; --j) { tmp += t[j]; if (tmp &amp;lt;= T) fromRight[tmp][j] = 1; else break; } } memset(takeTime, 0x3f, sizeof(takeTime)); takeTime[T][n] = 0; } int main() { ios_base::sync_with_stdio(false); cin.</description>
+    </item>
+    
+    <item>
+      <title>UVa OJ 1471 - Defense Lines</title>
+      <link>https://yuukidach.github.io/p/uva-oj-1471-defense-lines/</link>
+      <pubDate>Fri, 26 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-1471-defense-lines/</guid>
+      <description>Problem After the last war devastated your country, you - as the king of the land of Ardenia - decided it was high time to improve the defense of your capital city. A part of your fortification is a line of mage towers, starting near the city and continuing to the northern woods. Your advisors determined that the quality of the defense depended only on one factor: the length of a longest contiguous tower sequence of increasing heights.</description>
+    </item>
+    
+  </channel>
+</rss>

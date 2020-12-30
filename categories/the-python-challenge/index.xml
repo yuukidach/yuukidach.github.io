@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Python Challenge on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/categories/the-python-challenge/</link>
+    <description>Recent content in The Python Challenge on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Sep 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/categories/the-python-challenge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Python Challenge Level-11 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-11-solution/</link>
+      <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-11-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+这个题目感觉就很玄乎了，就只给我们一张图片，网页源码里空空如也
+这里实际上是把一张图片拆分成两张来看。
+我尝试了不同的奇偶拆分方式，最终还是选定了X轴和Y轴相加的方式来判断奇偶
+from io import BytesIO from PIL import Image __author__ = &amp;#39;Yuuki_Dach&amp;#39; img = Image.open(&amp;#39;cave.jpg&amp;#39;) width, height = img.size even = Image.new(&amp;#39;RGB&amp;#39;, (width &amp;gt;&amp;gt; 1, height &amp;gt;&amp;gt; 1)) odd = Image.new(&amp;#39;RGB&amp;#39;, (width &amp;gt;&amp;gt; 1, height &amp;gt;&amp;gt; 1)) for i in range(width): for j in range(height): imgPixel = img.getpixel((i, j)) if (i + j) &amp;amp; 1 == 1: odd.putpixel((i &amp;gt;&amp;gt; 1, j &amp;gt;&amp;gt; 1), imgPixel) else: even.</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level 9-10 Solutions</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-9-10-solutions/</link>
+      <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-9-10-solutions/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+Level 9 第九关树的图片其实是一个提示，就是要我把点一个个的连起来，而这个点是由网页源代码里注释的first和second部分给出的，我直接把两个部分的坐标提取到一起，能够得到一个牛的图片
+import requests import re from PIL import Image, ImageDraw webUrl = &amp;#39;http://www.pythonchallenge.com/pc/return/good.html&amp;#39; webContent = requests.get(webUrl, auth=(&amp;#39;huge&amp;#39;,&amp;#39;file&amp;#39;)).text print(webContent) pattern = re.compile(r&amp;#34;(\d{2,3})&amp;#34;) nums = re.findall(pattern, webContent) nums = list(map(int,nums)) nums.remove(nums[0]) nums.remove(nums[0]) print(nums) img = Image.new(&amp;#39;RGB&amp;#39;, (800,800)) draw = ImageDraw.Draw(img) draw.polygon(nums, &amp;#39;white&amp;#39;) img.show() 这里最先发应的是&amp;rsquo;cow&amp;rsquo;这个单词，输入后提示我们是公的。于是再输入&amp;rsquo;ox&#39;，结果还是不对。输入&amp;rsquo;bull&amp;rsquo;就对了
+Level 10 这一关简单明了，就是找规律（然而渣渣的我还是找了很久）
+可以发现，后一个数实际上是前一个数的读法，比如
+a[0] = 1 a[1] = 1个1 # 11 a[2] = 2个1 # 21 # 以此类推 a, sub = &amp;#39;1&amp;#39;, &amp;#39;&amp;#39; for i in range(30): j = k = 0 while j &amp;lt; len(a): while k &amp;lt; len(a) and a[k] == a[j]: k += 1 sub += str(k-j) + a[j] j = k a, sub = sub, &amp;#39;&amp;#39; print(len(a)) 最后结果是5808</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-7 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-7-solution/</link>
+      <pubDate>Sun, 18 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-7-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+这道题目网页源代码里没有什么别的提示，而图片中有个条形码类似物，那么就需要我们对图片进行处理了。先想办法把条形码读出来,并且转换成可读的文字
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- from PIL import Image from io import BytesIO import requests imgUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/oxygen.png&amp;#39; img = Image.open(BytesIO(requests.get(imgUrl).content)) for i in range(img.width): midPixel = img.getpixel((i,img.height&amp;gt;&amp;gt;1)) print(midPixel) 得到结果以后我们可以发现，条形码中没一条的宽度是7个像素，所以我们可以再处理一下，把相同的条形码rgb值取一个即可。另外还要注意的是，条形码没有覆盖全部的图片，最后无序的rgb值需要删掉，所以改进一下代码
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from PIL import Image from io import BytesIO import requests imgUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/oxygen.png&amp;#39; img = Image.open(BytesIO(requests.get(imgUrl).content)) midPixel = [img.getpixel((i,img.height&amp;gt;&amp;gt;1)) for i in range(0,img.</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-8 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-8-solution/</link>
+      <pubDate>Sun, 18 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-8-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+这道题目消耗了我相当长的一段时间，让我对str和byte也有了一个新的认识。
+首先还是老样子，进入网页源代码，看看里面有什么
+首先引入眼帘的是一大串坐标代码，加上第七题的做法，很容易让人产生误会。我也试着去把他门转换了一下，发现并没有什么用处，然后就把目光集中在了里面的链接上，点了一下，需要用户名和密码，随便输入了123,并没有什么效果
+再看看源代码底部有&amp;rsquo;un&amp;rsquo;和&amp;rsquo;pw&#39;，刚好两个，而且和&amp;rsquo;user name&#39; &amp;lsquo;password&amp;rsquo;相对应。 但是这两串字符又有什么意义呢？
+我查了一下，发现这实际上是经bz2压缩后的信息，于是开始编写程序解码
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &#39;Yuuki_Dach&#39; import bz2 un = b&amp;quot;BZh91AY&amp;amp;SYA\xaf\x82\r\x00\x00\x01\x01\x80\x02\xc0\x02\x00 \x00!\x9ah3M\x07&amp;lt;]\xc9\x14\xe1BA\x06\xbe\x084&amp;quot; pw = b&amp;quot;BZh91AY&amp;amp;SY\x94$|\x0e\x00\x00\x00\x81\x00\x03$ \x00!\x9ah3M\x13&amp;lt;]\xc9\x14\xe1BBP\x91\xf08&amp;quot; print(bz2.decompress(un)) print(bz2.decompress(pw)) 得到用户名和密码就能进入下一关了</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level 0-1 Solutions</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-0-1-solutions/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-0-1-solutions/</guid>
+      <description>前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。
+附上我在Github上存放的代码仓库: The Python Challenge
+Challenge 0 第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。
+算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好
+Challenge 1 根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- code = (&amp;#34;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dm&amp;#34; &amp;#34;p. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr&amp;#39;q ufw rfgq rcvr gq &amp;#34; &amp;#34;qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc&amp;#34; &amp;#34; spj.&amp;#34;) addr = &amp;#34;&amp;#34; for alpha in code: if alpha!</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-2 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-2-solution/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-2-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+The Python Challenge第二关给了我们一张书的图片，但是十分模糊的，什么都看不清，这个时候，我们看看它给我们的文字提示是
+ MAYBE they are in the page source.
+ 这个时候我们点击鼠标右键，查看网页的源代码，会发现，果然有一大长条乱七八糟的符号。不难猜到，我们所需要的下一关的url就藏在这堆符号里。于是我们用简单的爬虫爬取网页代码，然后利用正则表达式来捕捉我们需要的字母。
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from urllib import request import re pyUrl = &amp;#34;http://www.pythonchallenge.com/pc/def/ocr.html&amp;#34; req = request.Request(pyUrl) resq = request.urlopen(req) content = resq.read() book = re.compile(b&amp;#34;&amp;lt;!--(.*?)--&amp;gt;&amp;#34;, re.S) bookContents = re.findall(book, content) wordsCmpl = re.compile(b&amp;#34;([ a-zA-Z])&amp;#34;, re.S) for bookContent in bookContents: words = re.findall(wordsCmpl, bookContent) code = &amp;#34;&amp;#34; for word in words: code += word.</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-3 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-3-solution/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-3-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+这里按照题目意思，利用正则匹配，找到恰好分别被三个大写字母包在左右的小写字母就好
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from urllib import request import re pyUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/equality.html&amp;#39; req = request.Request(pyUrl) resp = request.urlopen(req) urlContent = resp.read() pattern = re.compile(b&amp;#39;[^A-Z][A-Z]{3}([a-z])[A-Z]{3}[^A-Z]&amp;#39;, re.S) contents = re.findall(pattern, urlContent) code = &amp;#39;&amp;#39; for content in contents: code += content.decode(&amp;#34;ascii&amp;#34;) print(code) 得到linkedlist，输入到url中，得到提示
+linkedlist.php 把&#39;.html&amp;rsquo;的后缀改成&#39;.php&amp;rsquo;就通关了</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-4 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-4-solution/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-4-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+依然是先查看网页源代码。发现有个链接&#39;&amp;hellip;nothing=12345&#39;
+点进去之后发现又给我们一个数字，引导我们去下一个链接，于是可以知道，只要链接爬到了终点，那么就会出现别的提示信息
+果然，爬到终点之后，提示我们除以二，继续爬，所以只要把代码改个数字就好，我的代码如下：
+#!/usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &#39;Yuuki_Dach&#39; from urllib import request import re mainUrl = &#39;http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=&#39; subUrl = &#39;8022&#39; # first try is &#39;12345&#39; subUrl2 = &#39;&#39; i = 400 while subUrl != subUrl2: subUrl2 = subUrl pyUrl = mainUrl + subUrl req = request.Request(pyUrl) resp = request.urlopen(req) urlContent = resp.read() pattern = re.compile(b&#39;\d+&#39;, re.S) contents = re.findall(pattern, urlContent) for content in contents: subUrl = content.</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-5 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-5-solution/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-5-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+先看提示:
+pronounce it 再看看网页源码，&amp;lsquo;peak hell&amp;rsquo;能代表什么？
+我一开始以为是&amp;rsquo;pick&amp;rsquo;什么东西，点开&amp;rsquo;banner.p&amp;rsquo;之后没发现什么规律，于是先google了一下&amp;rsquo;peak hell&amp;rsquo;，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。
+pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。
+读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把&#39; &amp;lsquo;和&amp;rsquo;#&amp;lsquo;后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; from urllib import request import pickle pyUrl = &amp;#39;http://www.pythonchallenge.com/pc/def/banner.p&amp;#39; req = request.Request(pyUrl) resp = request.urlopen(req) urlContent = resp.read() code = [] pic = pickle.loads(urlContent) for line in pic: for letter, num in line: code.append(num*letter) code.append(&amp;#39;\n&amp;#39;) print(&amp;#34;&amp;#34;.join(code)) 运行之后得到的点阵图是
+ ##### ##### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ### #### ### ### ##### ### ##### ### ### #### ### ## #### ####### ## ### #### ####### #### ####### ### ### #### ### ### ##### #### ### #### ##### #### ##### #### ### ### #### ### #### #### ### ### #### #### #### #### ### #### #### ### #### #### ### #### #### #### #### ### ### #### #### #### #### ## ### #### #### #### #### #### ### #### #### #### #### ########## #### #### #### #### ############## #### #### #### #### ### #### #### #### #### #### #### #### #### #### #### #### ### #### #### #### #### #### #### ### #### #### #### ### #### #### #### #### ### #### ### ## #### #### ### #### #### #### #### #### ### ## #### ### ## #### #### ########### #### #### #### #### ### ## #### ### ###### ##### ## #### ###### ########### ##### ### ###### 大家请把终端的宽度拉大一点，不然会和我一开始一样，读不出什么东西来，并且怀疑是不是程序写错了 =_=</description>
+    </item>
+    
+    <item>
+      <title>The Python Challenge Level-6 Solution</title>
+      <link>https://yuukidach.github.io/p/the-python-challenge-level-6-solution/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/the-python-challenge-level-6-solution/</guid>
+      <description>先附上我在Github上存放的代码仓库: The Python Challenge
+这道题目开始让人很迷茫了（至少我是这样），先点开网页源码，没发现什么有价值等东西，然后又看看图片，发现右上角有个箭头，指着几个数字3，于是照着填进去了，发现没有链接，于是又跑去看源码，终于在开头发现了这个：
+&amp;lt;!-- &amp;lt;-- zip --&amp;gt; 于是将&#39;.html&amp;rsquo;替换成&#39;.zip&#39;，居然下载下来了一个压缩包，点开之后会发现有一个readme.txt，再继续点开，内容如下：
+welcome to my zipped list. hint1: start from 90052 hint2: answer is inside the zip 很明显，和前几题一样，就是按照90052这个数字找下去了，不过这次找的不是网页，而是文件。这里我们用zipfile这个模块来完成我们的需求
+#! /usr/bin/env python3 # -*- coding: utf-8 -*- __author__ = &amp;#39;Yuuki_Dach&amp;#39; import zipfile import re zipFileName= &amp;#39;channel.zip&amp;#39; zipBag = zipfile.ZipFile(zipFileName) num = &amp;#39;90052&amp;#39; while True: zipContent = zipBag.read(num+&amp;#34;.txt&amp;#34;).decode(&amp;#34;utf-8&amp;#34;) print(zipContent) content = re.search(&amp;#34;(\d+)&amp;#34;, zipContent) if content == None: break num = content.group() 运行代码，会发现有以下信息：
+Collect the comments.</description>
+    </item>
+    
+  </channel>
+</rss>

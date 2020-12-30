@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='这些天在鼓捣博客，对界面所做的改动，也都是landscape这个主题的框架下所进行的。虽然说自由度相对于别的博客站点的自由度要高很多，但是自己没有一点网页编程知识的话，也是不能够讲网页完全设计成自己所喜欢的样子。因此在这里开一个类似于笔记本性质的文章吧，也方便我以后进行回忆。
+Introduction  HTML指的是超文本标记语言 (Hyper Text Markup Language) HTML不是一种编程语言，而是一种标记语言 (markup language) 标记语言是一套标记标签 (markup tag) HTML使用标记标签来描述网页  Basic   HTML的链接通过&amp;lt;a&amp;gt;来进行定义
+&amp;lt;a href=&amp;ldquo;url&amp;rdquo;&amp;gt;link text&amp;lt;/a&amp;gt;
+  图像通过&amp;lt;img&amp;gt; &amp;lt;img src=&amp;ldquo;link&amp;rdquo; settings/&amp;gt;
+在src的后面还能加上alt 表示在图片加载不出来时显示的文字信息，如：&amp;lt;img src=&amp;ldquo;link&amp;rdquo; alt=&amp;ldquo;text&amp;rdquo; settings/&amp;gt;
+  Conditional comments defines some HTML tags to be executed by Internet Explorer only.
+  &amp;lt;!--[if IE 8]&amp;gt; .... some HTML here .... &amp;lt;![endif]--&amp;gt; The &amp;lt;title&amp;gt; element defines the title of the document, and is required in all HTML/XHTML documents.'><title>Get Start With HTML</title>
+
+<link rel='canonical' href='https://yuukidach.github.io/p/get-start-with-html/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Get Start With HTML'>
+<meta property='og:description' content='这些天在鼓捣博客，对界面所做的改动，也都是landscape这个主题的框架下所进行的。虽然说自由度相对于别的博客站点的自由度要高很多，但是自己没有一点网页编程知识的话，也是不能够讲网页完全设计成自己所喜欢的样子。因此在这里开一个类似于笔记本性质的文章吧，也方便我以后进行回忆。
+Introduction  HTML指的是超文本标记语言 (Hyper Text Markup Language) HTML不是一种编程语言，而是一种标记语言 (markup language) 标记语言是一套标记标签 (markup tag) HTML使用标记标签来描述网页  Basic   HTML的链接通过&amp;lt;a&amp;gt;来进行定义
+&amp;lt;a href=&amp;ldquo;url&amp;rdquo;&amp;gt;link text&amp;lt;/a&amp;gt;
+  图像通过&amp;lt;img&amp;gt; &amp;lt;img src=&amp;ldquo;link&amp;rdquo; settings/&amp;gt;
+在src的后面还能加上alt 表示在图片加载不出来时显示的文字信息，如：&amp;lt;img src=&amp;ldquo;link&amp;rdquo; alt=&amp;ldquo;text&amp;rdquo; settings/&amp;gt;
+  Conditional comments defines some HTML tags to be executed by Internet Explorer only.
+  &amp;lt;!--[if IE 8]&amp;gt; .... some HTML here .... &amp;lt;![endif]--&amp;gt; The &amp;lt;title&amp;gt; element defines the title of the document, and is required in all HTML/XHTML documents.'>
+<meta property='og:url' content='https://yuukidach.github.io/p/get-start-with-html/'>
+<meta property='og:site_name' content='Dash&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2016-08-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2016-08-14T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Get Start With HTML">
+<meta name="twitter:description" content="这些天在鼓捣博客，对界面所做的改动，也都是landscape这个主题的框架下所进行的。虽然说自由度相对于别的博客站点的自由度要高很多，但是自己没有一点网页编程知识的话，也是不能够讲网页完全设计成自己所喜欢的样子。因此在这里开一个类似于笔记本性质的文章吧，也方便我以后进行回忆。
+Introduction  HTML指的是超文本标记语言 (Hyper Text Markup Language) HTML不是一种编程语言，而是一种标记语言 (markup language) 标记语言是一套标记标签 (markup tag) HTML使用标记标签来描述网页  Basic   HTML的链接通过&amp;lt;a&amp;gt;来进行定义
+&amp;lt;a href=&amp;ldquo;url&amp;rdquo;&amp;gt;link text&amp;lt;/a&amp;gt;
+  图像通过&amp;lt;img&amp;gt; &amp;lt;img src=&amp;ldquo;link&amp;rdquo; settings/&amp;gt;
+在src的后面还能加上alt 表示在图片加载不出来时显示的文字信息，如：&amp;lt;img src=&amp;ldquo;link&amp;rdquo; alt=&amp;ldquo;text&amp;rdquo; settings/&amp;gt;
+  Conditional comments defines some HTML tags to be executed by Internet Explorer only.
+  &amp;lt;!--[if IE 8]&amp;gt; .... some HTML here .... &amp;lt;![endif]--&amp;gt; The &amp;lt;title&amp;gt; element defines the title of the document, and is required in all HTML/XHTML documents.">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub6321020dedfcea2dceafae09ca2caaa_21891_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://yuukidach.github.io/">Dash&#39;s Blog</a></h1>
+        <h2 class="site-description">A long long way to find myself.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://yuukidach.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/learning/" >
+                Learning
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/get-start-with-html/">Get Start With HTML</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Aug 14, 2016</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>  这些天在鼓捣博客，对界面所做的改动，也都是landscape这个主题的框架下所进行的。虽然说自由度相对于别的博客站点的自由度要高很多，但是自己没有一点网页编程知识的话，也是不能够讲网页完全设计成自己所喜欢的样子。因此在这里开一个类似于笔记本性质的文章吧，也方便我以后进行回忆。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h1 id="introduction"><strong>Introduction</strong></h1>
+<ul>
+<li>HTML指的是超文本标记语言 (Hyper Text Markup Language)</li>
+<li>HTML不是一种编程语言，而是一种标记语言 (markup language)</li>
+<li>标记语言是一套标记标签 (markup tag)</li>
+<li>HTML使用标记标签来描述网页</li>
+</ul>
+<h1 id="basic"><strong>Basic</strong></h1>
+<!-- raw HTML omitted -->
+<ol>
+<li>
+<p>HTML的链接通过&lt;a&gt;来进行定义<br>
+&lt;a href=&ldquo;url&rdquo;&gt;link text&lt;/a&gt;</p>
+</li>
+<li>
+<p>图像通过&lt;img&gt;
+&lt;img src=&ldquo;link&rdquo; settings/&gt;<br>
+在src的后面还能加上alt 表示在图片加载不出来时显示的文字信息，如：&lt;img src=&ldquo;link&rdquo; alt=&ldquo;text&rdquo; settings/&gt;</p>
+</li>
+<li>
+<p>Conditional comments defines some HTML tags to be executed by Internet Explorer only.</p>
+</li>
+</ol>
+<pre><code>&lt;!--[if IE 8]&gt; 
+  .... some HTML here .... 
+&lt;![endif]--&gt;
+</code></pre><ol start="4">
+<li>The &lt;title&gt; element defines the title of the document, and is required in all HTML/XHTML documents.</li>
+</ol>
+<ul>
+<li>defines a title in the browser tab</li>
+<li>provides a title for the page when it is added to favorites</li>
+<li>displays a title for the page in search engine results</li>
+</ul>
+<ol start="5">
+<li>页面布局不要用<!-- raw HTML omitted -->来进行，不然会引起不必要的麻烦，也不便于后续的工作</li>
+</ol>
+<h1 id="elements"><strong>Elements</strong></h1>
+<p><strong>——from start tag to end tag</strong></p>
+<ol>
+<li>
+<p>HTML元素就是开始标签和结束标签之间的东西,大多数可嵌套，推荐使用小写</p>
+</li>
+<li>
+<p>HTML标签可以拥有属性，属性总是以名称/值对的形式出现，并且在HTML元素的开始标签中规定</p>
+</li>
+<li>
+<p>属性值应该始终被包括在引号内。双引号是最常用的，不过使用单引号也没有问题。在某些个别的情况下，比如属性值本身就含有双引号，那么您必须使用单引号~~（和汉语写别人说的话一样）~~</p>
+</li>
+</ol>
+<h1 id="css"><strong>CSS</strong></h1>
+<p><strong>CSS</strong> stands for <strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets.</p>
+<p>CSS describes <strong>how HTML elements are to be displayed on screen, paper, or in other media</strong>.</p>
+<p>CSS can be added to HTML elements in 3 ways:</p>
+<ul>
+<li><strong>Inline</strong> - by using the style attribute in HTML elements</li>
+<li><strong>Internal</strong> - by using a &lt;style&gt; element in the <!-- raw HTML omitted --> section</li>
+<li><strong>External</strong> - by using an external CSS file</li>
+</ul>
+<p>其中最常使用分离的CSS文件</p>
+<p>An <strong>internal</strong> CSS is defined in the <!-- raw HTML omitted --> section of an HTML page, within a &lt;style&gt; element:</p>
+<pre><code>&lt;head&gt; 
+&lt;style&gt;
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+&lt;/style&gt;
+&lt;/head&gt;
+</code></pre><h1 id="javascript"><strong>JavaScript</strong></h1>
+<p>JavaScript makes HTML pages more dynamic and interactive.</p>
+<p>The <strong>&lt;script&gt;</strong> tag is used to define a client-side script (JavaScript).<br>
+<!-- raw HTML omitted --></p>
+<hr>
+<p>写了这么几十行，其实并没有记录下什么内容，因为感觉和markdown实在是太像了，所以大部分都没有写下来。大家如果也是初学的话可以去w3school看看，有英文版和中文版两种，英文版的界面特别舒服。网址就不贴了，大家Google或者百度一下都能找到的。</p>
+<p>之前看到了一句话，感觉特别好，大概就是说，想要知道一只青蛙的构造，最好的方式不是去解剖青蛙，而是去构造一只青蛙。学习一门新的编程语言也确实是如此。要自己定下一个目标，去实现它，而不是漫无目的地去学。</p>
+<p>另外，右键查看网页源码还是非常有必要的，之前用这个方法把文章封面问题给解决了，还是蛮高兴的。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/shuffling-bits/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Shuffling Bits</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/makefile-for-projects-with-subdirectories/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Makefile for Projects with Subdirectories</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/stdios_basesync_with_stdio/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">std::ios_base::sync_with_stdio()</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8python3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ubuntu下使用Python3</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2016 - 
+        
+        2020 Dash&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

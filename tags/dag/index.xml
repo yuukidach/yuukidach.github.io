@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DAG on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/dag/</link>
+    <description>Recent content in DAG on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Sep 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/dag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa OJ 437 - The Tower of Babylon</title>
+      <link>https://yuukidach.github.io/p/uva-oj-437-the-tower-of-babylon/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/uva-oj-437-the-tower-of-babylon/</guid>
+      <description>Problem The babylonians had n types of blocks, and an unlimited supply of blocks of each type. Each type-i block was a rectangular solid with linear dimensions (xi, yi, zi). A block could be reoriented so that any two of its three dimensions determined the dimensions of the base and the other dimension was the height.
+They wanted to construct the tallest tower possible by stacking blocks. The problem was that, in building a tower, one block could only be placed on top of another block as long as the two base dimensions of the upper block were both strictly smaller than the corresponding base dimensions of the lower block.</description>
+    </item>
+    
+  </channel>
+</rss>

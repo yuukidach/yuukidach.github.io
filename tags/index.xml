@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/tags/</link>
+    <description>Recent content in Tags on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Dec 2020 17:32:31 +0800</lastBuildDate><atom:link href="https://yuukidach.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chitchat</title>
+      <link>https://yuukidach.github.io/tags/chitchat/</link>
+      <pubDate>Wed, 30 Dec 2020 17:32:31 +0800</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/chitchat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://yuukidach.github.io/tags/algorithm/</link>
+      <pubDate>Mon, 12 Aug 2019 09:44:44 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>https://yuukidach.github.io/tags/c/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Makefile</title>
+      <link>https://yuukidach.github.io/tags/makefile/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/makefile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://yuukidach.github.io/tags/linux/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>https://yuukidach.github.io/tags/shell/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://yuukidach.github.io/tags/ubuntu/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>STM32</title>
+      <link>https://yuukidach.github.io/tags/stm32/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/stm32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://yuukidach.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DP</title>
+      <link>https://yuukidach.github.io/tags/dp/</link>
+      <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/dp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DAG</title>
+      <link>https://yuukidach.github.io/tags/dag/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/dag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Greedy Algorithm</title>
+      <link>https://yuukidach.github.io/tags/greedy-algorithm/</link>
+      <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/greedy-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Divide and conquer</title>
+      <link>https://yuukidach.github.io/tags/divide-and-conquer/</link>
+      <pubDate>Sat, 10 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/divide-and-conquer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binary Search</title>
+      <link>https://yuukidach.github.io/tags/binary-search/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/binary-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>List</title>
+      <link>https://yuukidach.github.io/tags/list/</link>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Priority Queue</title>
+      <link>https://yuukidach.github.io/tags/priority-queue/</link>
+      <pubDate>Sat, 03 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/priority-queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>单调队列</title>
+      <link>https://yuukidach.github.io/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</link>
+      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hash</title>
+      <link>https://yuukidach.github.io/tags/hash/</link>
+      <pubDate>Mon, 08 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/hash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IDA*</title>
+      <link>https://yuukidach.github.io/tags/ida/</link>
+      <pubDate>Fri, 05 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/tags/ida/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

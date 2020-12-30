@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/page/</link>
+    <description>Recent content in Pages on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://yuukidach.github.io/about-me/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/about-me/</guid>
+      <description>Me Nothing special. I am just a person who loves programming and animation, trying to figure out what I really want to do.
+Contact Information You can find my code repositories in GitHub.
+Mail: chendamailbox@foxmail.com
+End Hope we all have bright future.</description>
+    </item>
+    
+    <item>
+      <title>Archives</title>
+      <link>https://yuukidach.github.io/archives/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://yuukidach.github.io/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MCU on Dash&#39;s Blog</title>
+    <link>https://yuukidach.github.io/categories/mcu/</link>
+    <description>Recent content in MCU on Dash&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/categories/mcu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LPC55S69 USB 高速模式测试（一）</title>
+      <link>https://yuukidach.github.io/p/lpc55s69-usb-%E9%AB%98%E9%80%9F%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95%E4%B8%80/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/lpc55s69-usb-%E9%AB%98%E9%80%9F%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95%E4%B8%80/</guid>
+      <description>测试目标 配置LPC55S69 EVK所带的高速USB作为功能设备，测试其最快速率能达到多少，用于验证后续的开发。
+LPC55S69配置 LPC55S69是一款基于ARM内核的双核MCU， 由两个Cortex-M33构成。其最高运行频率为100MHz。
+ LPC55S69 EVK 
+整个工程的准备工作如下：
+ 选用CPU0作为默认的控制核心 配置MAIN_CLK为96MHz（为了使用高速USB口，CPU时钟频率不得低于60MHz） 给USB HS PHY上电 USB功能设备配置  配置功能设备，需要先使能host controller的时钟，以便进行USB配置 DEV_ENABLE置1，让一个端口表现为USB设备 清除USB1_HOST位，关闭host controller，降低能耗   USB时钟配置  USB PHY配置48MHz时钟 USB PHY以及对应SRAM时钟使能    传输测试 连接方式：LPC55S69 EVK &amp;lt;&amp;mdash;&amp;mdash;-USB 2.0 HS &amp;mdash;&amp;mdash;&amp;ndash;&amp;gt; MacBook
+Corex-M33 freq: 100MHz
+使用官方提供的SKD（v2.5.1），利用块传输（bulk transfer）。循环发送
+while (1) { USB_DeviceCdcAcmSend(s_cdcVcom.cdcAcmHandle, USB_CDC_VCOM_BULK_IN_ENDPOINT, tmp_buf, buf_len); } tmp_buf为buffer地址，buf_len是需要传送的数据长度
+使用上述方式发送数据，buf_len越长，发送USB发送速率越快，最快能到8MB/s左右，无传输错误发生。
+8MB/s的速率对于HS USB来说是明显偏低的。通过调整整个工程的优化等级，可以提高速率。将优化等级调整至-O1或者以上，USB的速率可以达到21MB/s，无传输错误发生。
+ 测试结果 
+此外，如果MCU的时钟频率降低，USB的传输速率也会相应降低，通过USB分析仪观察后，可以发现是NAK的数量变多。
+结果分析 虽然最后通过增长buf_len，以及调整优化等级，可以使得高速USB口的速率在21MB/s左右。但是对于最高速率480Mbps的Hi-Speed USB来说，速率上还是有所欠缺。
+采用USB分析仪进行抓包分析  抓包分析</description>
+    </item>
+    
+  </channel>
+</rss>
