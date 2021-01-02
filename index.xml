@@ -471,6 +471,7 @@ strict 2PL &amp;mdash;&amp;gt; Release at the same time&lt;/p&gt;
     &gt;vimplus&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;flameshot (screen capture tool)&lt;/li&gt;
 &lt;li&gt;nerd-fonts-jetbrains-mono (font for vscode)&lt;/li&gt;
+&lt;li&gt;ncdu (Simple ncurses disk usage analyzer)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;multiple-monitors&#34;&gt;Multiple Monitors&lt;/h2&gt;
 &lt;p&gt;When we plug a HDMI/VGA cable into the computer, Manjaro i3 will not automatically display content in the external monitor. We need to use &lt;code&gt;xrandr&lt;/code&gt; to set the display mode.&lt;/p&gt;

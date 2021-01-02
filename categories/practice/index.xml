@@ -15,7 +15,7 @@
       <guid>https://yuukidach.github.io/p/my-manjaro-i3-configurations/</guid>
       <description>Manjaro edition: Manjaro-i3
 This post is about how I configure my Manjaro i3
-Softwares to Install  fcitx5 (no need to install sogou pinyin for linux anymore) deepin-wine-wechat deepin-wine-tim wps-office (together with ttf-wps-fonts) ttf-menlo-powerline-git (font for terminal) mpv (vedio player) netease-cloud-music Insync (sync a certain folder with google driver) variety (wallpaper software) picom albert (a fast launcher) vim (with vimplus) flameshot (screen capture tool) nerd-fonts-jetbrains-mono (font for vscode)  Multiple Monitors When we plug a HDMI/VGA cable into the computer, Manjaro i3 will not automatically display content in the external monitor.</description>
+Softwares to Install  fcitx5 (no need to install sogou pinyin for linux anymore) deepin-wine-wechat deepin-wine-tim wps-office (together with ttf-wps-fonts) ttf-menlo-powerline-git (font for terminal) mpv (vedio player) netease-cloud-music Insync (sync a certain folder with google driver) variety (wallpaper software) picom albert (a fast launcher) vim (with vimplus) flameshot (screen capture tool) nerd-fonts-jetbrains-mono (font for vscode) ncdu (Simple ncurses disk usage analyzer)  Multiple Monitors When we plug a HDMI/VGA cable into the computer, Manjaro i3 will not automatically display content in the external monitor.</description>
     </item>
     
     <item>
