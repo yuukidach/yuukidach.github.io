@@ -359,6 +359,15 @@ layout模板  Every templates apply to layout template by default.
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 

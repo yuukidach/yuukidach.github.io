@@ -422,6 +422,15 @@ Solution 这道题目要先处理好每个颜色的起止位置，不然会很�
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 

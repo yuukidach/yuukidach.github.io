@@ -361,6 +361,15 @@ This is beacause the proxy software conflicts with the sock port of WSL2.">
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 

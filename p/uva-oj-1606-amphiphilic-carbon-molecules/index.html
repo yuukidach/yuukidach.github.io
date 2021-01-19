@@ -468,6 +468,15 @@ Sample Input 3 0 0 0 0 1 0 2 2 1 4 0 0 0 0 4 0 4 0 0 1 2 1 7 -1 0 0 1 2 1 2 3 0 
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 

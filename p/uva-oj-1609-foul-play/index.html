@@ -477,6 +477,15 @@ The k-th digit on the j-th line is ‘1’ if team j would certainly win from te
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 

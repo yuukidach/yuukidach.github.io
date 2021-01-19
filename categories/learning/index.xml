@@ -6,7 +6,21 @@
     <description>Recent content in Learning on Dash&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Aug 2019 09:44:44 +0000</lastBuildDate><atom:link href="https://yuukidach.github.io/categories/learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jan 2021 20:44:45 +0800</lastBuildDate><atom:link href="https://yuukidach.github.io/categories/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Floyd-Warshall 算法</title>
+      <link>https://yuukidach.github.io/p/floyd-warshall-%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 07 Jan 2021 20:44:45 +0800</pubDate>
+      
+      <guid>https://yuukidach.github.io/p/floyd-warshall-%E7%AE%97%E6%B3%95/</guid>
+      <description>弗洛伊德算法（Floyd-Warshall algorithm) 是解决两点间最短路径的一种算法。时间复杂度$O(N^{3})$，空间复杂度$O(N^{2})$。
+其算法原理为动态规划：
+设$D_{i,j,k}$为从i到j的只以 (1&amp;hellip;k) 集合中的节点为中间节点的最短路径长
+ 若最短路径经过k,则$D_{i,j,k}=D_{i,k,k-1}+D_{j,k,k-1}$ 若不经过k,则$D_{i,j,k}=D_{i,j,k-1}$  因而，$D_{i,j,k}=min(D_{i,k,k-1}+D_{j,k,k-1}, D_{i,j,k-1})$
+伪代码：
+1 let dist be a |V| × |V| array of minimum distances initialized to ∞ (infinity) 2 for each vertex v 3 dist[v][v] ← 0 4 for each edge (u,v) 5 dist[u][v] ← w(u,v) // the weight of the edge (u,v) 6 for k from 1 to |V| 7 for i from 1 to |V| 8 for j from 1 to |V| 9 if dist[i][j] &amp;gt; dist[i][k] + dist[k][j] 10 dist[i][j] ← dist[i][k] + dist[k][j] 11 end if 例题可参照Leecode 399。</description>
+    </item>
+    
     <item>
       <title>Shuffling Bits</title>
       <link>https://yuukidach.github.io/p/shuffling-bits/</link>

@@ -473,6 +473,15 @@ The outputs of two consecutive cases will be separated by a blank line.</p>
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 

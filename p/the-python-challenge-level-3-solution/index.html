@@ -390,6 +390,15 @@ linkedlist.php 把&#39;.html&amp;rsquo;的后缀改成&#39;.php&amp;rsquo;就通
     }
 </style>
 
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
 
     
 
