@@ -6,7 +6,45 @@
         <description>Recent content on Dash&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 07 Jan 2021 20:44:45 +0800</lastBuildDate><atom:link href="https://yuukidach.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 20 Jan 2021 16:08:26 +0800</lastBuildDate><atom:link href="https://yuukidach.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>最小生成树算法</title>
+        <link>https://yuukidach.github.io/p/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95/</link>
+        <pubDate>Wed, 20 Jan 2021 16:08:26 +0800</pubDate>
+        
+        <guid>https://yuukidach.github.io/p/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95/</guid>
+        <description>&lt;h2 id=&#34;kruskal-算法&#34;&gt;Kruskal 算法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;新建图$G$，$G$中拥有原图中相同的节点，但没有边&lt;/li&gt;
+&lt;li&gt;将原图中所有的边按权值从小到大排序&lt;/li&gt;
+&lt;li&gt;从权值最小的边开始，如果这条边连接的两个节点于图$G$中不在同一个连通分量中，则添加这条边到图$G$中&lt;/li&gt;
+&lt;li&gt;重复3，直至图$G$中所有的节点都在同一个连通分量中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;伪代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;algorithm Kruskal&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;G&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; is
+    F:&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; ∅
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; each v ∈ G.V &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+        MAKE-SET&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;v&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; each &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;u, v&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; in G.E ordered by weight&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;u, v&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, increasing &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; FIND-SET&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;u&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; ≠ FIND-SET&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;v&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+            F:&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; F ∪ &lt;span class=&#34;o&#34;&gt;{(&lt;/span&gt;u, v&lt;span class=&#34;o&#34;&gt;)}&lt;/span&gt;
+            UNION&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;FIND-SET&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;u&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, FIND-SET&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;v&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; F
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;prim-算法&#34;&gt;Prim 算法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;输入：一个加权连通图，其中顶点集合为$V$，边集合为$V$；&lt;/li&gt;
+&lt;li&gt;初始化：$V_{new} = {x}$，其中$x$为集合$V$中的任一节点（起始点），$E_{new}={}$&lt;/li&gt;
+&lt;li&gt;重复下列操作，直到$V_{new} = V$：
+a. 在集合$E$中选取权值最小的边$(u, v)$，其中$u$为集合$V_{new}$中的元素，而$v$则是$V$中没有加入$V_{new}$的顶点（如果存在有多条满足前述条件即具有相同权值的边，则可任意选取其中之一）；
+b. 将$v$加入集合$V_{new}$中，将$(u,v)$加入集合$E_{new}$中；&lt;/li&gt;
+&lt;li&gt;输出：使用集合$V_{new}$和$E_{new}$来描述所得到的最小生成树。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Leetcode例题：&lt;a class=&#34;link&#34; href=&#34;https://leetcode-cn.com/problems/min-cost-to-connect-all-points/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1584. Min Cost to Connect All Points&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考: &lt;a class=&#34;link&#34; href=&#34;https://oi-wiki.org/graph/mst/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;最小生成树&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Floyd-Warshall 算法</title>
         <link>https://yuukidach.github.io/p/floyd-warshall-%E7%AE%97%E6%B3%95/</link>
         <pubDate>Thu, 07 Jan 2021 20:44:45 +0800</pubDate>
