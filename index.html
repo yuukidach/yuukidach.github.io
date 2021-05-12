@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
     <body>
-        再等等我8！求求你啦！/(ㄒoㄒ)/~~<br/>
-        <br/>
-        冲冲冲！进度条已经到：
-        <script type="text/javascript">
-        var curTime = new Date();
-        var startTime = new Date("2021/05/10 12:00:00")
-        var endTime = new Date("2021/05/15 16:00:00");
-        var timeDiff = endTime.getTime() - curTime.getTime()
-        if (timeDiff <= 0) {
-            document.write("啊哈！我已经到啦！！！")
-        } else {
-            var percent = 100 - timeDiff / (endTime.getTime() - startTime.getTime()) * 100;
-            document.write(percent.toFixed(2) + "%")
-        }
-        </script>
+        <h2>
+            再等等我8！求求你啦！/(ㄒoㄒ)/~~<br/>
+            <br/>
+            冲冲冲！进度条已经到：
+            <script type="text/javascript">
+            var curTime = new Date();
+            var startTime = new Date("2021-05-10 12:00:00")
+            var endTime = new Date("2021-05-15 16:00:00");
+            var timeDiff = endTime.getTime() - curTime.getTime()
+            if (timeDiff <= 0) {
+                document.write("啊哈！我已经到啦！！！")
+            } else {
+                var percent = 100 - timeDiff / (endTime.getTime() - startTime.getTime()) * 100;
+                document.write(percent.toFixed(2) + "%")
+            }
+            </script>
+        </h2>
     </body>
 </html>
