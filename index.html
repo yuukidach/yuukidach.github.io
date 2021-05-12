@@ -3,6 +3,7 @@
     <head>
         <title>冲刺进度</title>
         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
@@ -28,9 +29,34 @@
                 </div>
             </div>
 
+            <br/><br/>
+            <span>等待的无聊时光，你也想想有什么事情要做</span>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card px-3">
+                    <div class="card-body">
+                        <h4 class="card-title">这段时间内完成的事情</h4>
+                        <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input" placeholder="有什么想做的事情吗？"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
+                        <div class="list-wrapper">
+                            <ul class="d-flex flex-column-reverse todo-list">
+                                <li>
+                                    <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> 等下课，已经11点30了 <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                                <li class="completed">
+                                    <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox" checked=""> 测试 <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <br/><br/><br/><br/>
-            <span>等待的无聊时光，或许你可以看看这个</span>
+            <span>或许你也可以看看这个</span>
             <br/><br/>
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="//player.bilibili.com/player.html?aid=34525507&bvid=BV1ut411d7rq&cid=60483524&page=1" allowfullscreen="true"></iframe>
@@ -38,7 +64,6 @@
 
             <script src="./scripts/main.js"></script>
         </div>
-
 
     </body>
     <footer class="footer navbar-fixed-bottom bg-secondary text-white">
