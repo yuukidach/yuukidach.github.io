@@ -31,31 +31,19 @@
 
             <br/><br/>
             <span>等待的无聊时光，你也想想有什么事情要做</span>
-<div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-            <div class="col-md-12">
-                <div class="card px-3">
-                    <div class="card-body">
-                        <h4 class="card-title">这段时间内完成的事情</h4>
-                        <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input" placeholder="有什么想做的事情吗？"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
-                        <div class="list-wrapper">
-                            <ul class="d-flex flex-column-reverse todo-list">
-                                <li>
-                                    <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> 等下课，已经11点30了 <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
-                                </li>
-                                <li class="completed">
-                                    <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox" checked=""> 测试 <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            <br/><br/>
 
+            <div id="myDIV" class="header">
+                <h2>待做清单</h2>
+                <input type="text" id="myInput" placeholder="做点什么呢...">
+                <span onclick="newElement()" class="addBtn">添加</span>
+            </div>
+
+<ul id="myUL">
+  <li>等下课</li>
+</ul>
+
+            <br/><br/>
             <span>或许你也可以看看这个</span>
             <br/><br/>
             <div class="embed-responsive embed-responsive-16by9">

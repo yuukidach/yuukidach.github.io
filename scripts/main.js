@@ -12,40 +12,58 @@ document.getElementsByClassName('progress-bar').item(0).setAttribute('aria-value
 document.getElementsByClassName('progress-bar').item(0).setAttribute('style', 'width: '+percent.toFixed(2)+'%');
 document.getElementById("prog_num").textContent = percent.toFixed(2)+"%"
 
-window.onload = function () {
-    bootlint.showLintReportForCurrentDocument([], {
-        hasProblems: false,
-        problemFree: false
-    });
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
 
-    $('[data-toggle="tooltip"]').tooltip();
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
 
-    function formatDate(date) {
-        return (
-            date.getDate() +
-            "/" +
-            (date.getMonth() + 1) +
-            "/" +
-            date.getFullYear()
-        );
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
     }
-
-    var currentDate = formatDate(new Date());
-
-    $(".due-date-button").datepicker({
-        format: "dd/mm/yyyy",
-        autoclose: true,
-        todayHighlight: true,
-        startDate: currentDate,
-        orientation: "bottom right"
-    });
-
-    $(".due-date-button").on("click", function (event) {
-        $(".due-date-button")
-            .datepicker("show")
-            .on("changeDate", function (dateChangeEvent) {
-                $(".due-date-button").datepicker("hide");
-                $(".due-date-label").text(formatDate(dateChangeEvent.date));
-            });
-    });
-};
+  }
+}
