@@ -3,6 +3,7 @@
     <head>
         <title>冲刺进度</title>
         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
         <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
         <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -19,11 +20,14 @@
             <br/><br/>
             <span id="prog">冲冲冲！进度条已经到：</span> <br/><br/>
 
-            <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 22.868%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
-                    <span id="prog_num"></span>
+            <div class="progress-outer">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info" role="progressbar" style="width: 22%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-value"><span id="prog_num"></span></div>
+                    </div>
                 </div>
             </div>
+
 
             <br/><br/><br/><br/>
             <span>等待的无聊时光，或许你可以看看这个</span>
@@ -31,8 +35,9 @@
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="//player.bilibili.com/player.html?aid=34525507&bvid=BV1ut411d7rq&cid=60483524&page=1" allowfullscreen="true"></iframe>
             </div>
+
+            <script src="./scripts/main.js"></script>
         </div>
-        <script src="./scripts/main.js"></script>
 
 
     </body>
