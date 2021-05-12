@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>冲刺进度</title>
+        <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
     <body>
-        <h2>
+        <div class="jumbotron text-center">
+            <h1>冲 刺 进 度</h1>
+            <p>这个男人在<kbd>默默前行</kbd>!!!</p>
+        </div>
+
+        <div class="container h4">
             再等等我8！求求你啦！
-            <img src="./assets/cry.jpg" width="100">
+            <img src="./assets/cry.jpg" width="100"/>
             <br/>
             <br/>
-            冲冲冲！进度条已经到：
-            <script type="text/javascript">
-            var curTime = new Date();
-            var startTime = new Date("2021/05/10 12:00:00")
-            var endTime = new Date("2021/05/15 16:00:00");
-            var timeDiff = endTime.getTime() - curTime.getTime()
-            if (timeDiff <= 0) {
-                document.write("啊哈！我已经到啦！！！")
-            } else {
-                var percent = 100 - timeDiff / (endTime.getTime() - startTime.getTime()) * 100;
-                document.write(percent.toFixed(2) + "%")
-            }
-            </script>
-        </h2>
+            <span id="prog">冲冲冲！进度条已经到：</span> <br/><br/>
+
+            <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 22.868%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                    <span id="prog_num"></span>
+                </div>
+            </div>
+
+        </div>
+        <script src="./scripts/main.js"></script>
     </body>
+    <footer class="footer navbar-fixed-bottom bg-primary text-white">
+        <br/>
+        <div class="container text-center">
+            想要加速？请联系管理员进行相关交易
+            <img src="./assets/zhuai.png"/>
+            <br/><br/>
+        </div>
+    </footer>
 </html>
