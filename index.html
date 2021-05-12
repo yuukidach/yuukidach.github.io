@@ -12,7 +12,7 @@
         if (timeDiff <= 0) {
             document.write("啊哈！我已经到啦！！！")
         } else {
-            var percent = timeDiff / (endTime.getTime() - startTime.getTime()) * 100;
+            var percent = 100 - timeDiff / (endTime.getTime() - startTime.getTime()) * 100;
             document.write(percent.toFixed(2) + "%")
         }
         </script>
