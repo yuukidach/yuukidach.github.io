@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Dash's Blog</title><meta name="author" content="Dash"><meta name="copyright" content="Dash"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Dash&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="Dash&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:author" content="Dash">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Dash\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-20 22:50:07'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">76</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">38</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/banner.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Dash's Blog"><span class="site-name">Dash's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Dash's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/17/learning/py_challenge/The%20Python%20Challenge%200-1/" title="The Python Challenge Level 0-1 Solutions">The Python Challenge Level 0-1 Solutions</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-16T16:00:00.000Z" title="发表于 2016-09-17 00:00:00">2016-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/">Python</a></span></div><div class="content">前两天听说了有The Python Chanllenge这么一个游戏，于是自己也想来尝试一下。感觉还是一个挺有意思的。
+附上我在Github上存放的代码仓库: The Python Challenge
+Challenge 0第0关只是一个让你大概清楚怎么玩的一个关卡，只要按照图片上的意思，计算2的38次方即可。这个就无所谓是用Python还是别的什么方式来计算了，能够得到结果就行，所以代码就不贴出来了。
+算出结果之后，将结果复制到网页的url栏,将.html前面的单词替换掉就好
+Challenge 1根据图片给的提示我们可以发现，从K到M，O到Q，以及E到G，都是把单词给推后了两个。所以，我们只需要把他底下给我们的一大串字符串给统一推后两个字母就行了。另外要注意y要对应a,z则对应b。下面是我的初版代码:1234567891011121314151617181920#! /usr/bin/env python3# -*- coding: utf-8 -*-code = (&quot;g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr am ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/17/learning/py_challenge/The%20Python%20Challenge%204/" title="The Python Challenge Level-4 Solution">The Python Challenge Level-4 Solution</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-16T16:00:00.000Z" title="发表于 2016-09-17 00:00:00">2016-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/">Python</a></span></div><div class="content">先附上我在Github上存放的代码仓库: The Python Challenge
+依然是先查看网页源代码。发现有个链接’…nothing=12345’
+点进去之后发现又给我们一个数字，引导我们去下一个链接，于是可以知道，只要链接爬到了终点，那么就会出现别的提示信息
+果然，爬到终点之后，提示我们除以二，继续爬，所以只要把代码改个数字就好，我的代码如下：12345678910111213141516171819202122#!/usr/bin/env python3# -*- coding: utf-8 -*-__author__ = &#x27;Yuuki_Dach&#x27;from urllib import requestimport remainUrl = &#x27;http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=&#x27;subUrl = &#x27;8022&#x27; # first try is &#x27;12345&#x27;subUrl2 = &#x27;&#x27;i = 400whi ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/17/learning/py_challenge/The%20Python%20Challenge%202/" title="The Python Challenge Level-2 Solution">The Python Challenge Level-2 Solution</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-16T16:00:00.000Z" title="发表于 2016-09-17 00:00:00">2016-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/">Python</a></span></div><div class="content">先附上我在Github上存放的代码仓库: The Python Challenge
+The Python Challenge第二关给了我们一张书的图片，但是十分模糊的，什么都看不清，这个时候，我们看看它给我们的文字提示是
+
+MAYBE they are in the page source.
+
+这个时候我们点击鼠标右键，查看网页的源代码，会发现，果然有一大长条乱七八糟的符号。不难猜到，我们所需要的下一关的url就藏在这堆符号里。于是我们用简单的爬虫爬取网页代码，然后利用正则表达式来捕捉我们需要的字母。1234567891011121314151617181920#! /usr/bin/env python3# -*- coding: utf-8 -*-__author__ = &#x27;Yuuki_Dach&#x27;from urllib import requestimport repyUrl = &quot;http://www.pythonchallenge.com/pc/def/ocr.html&quot;req = request.Request(pyUrl)resq = ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/17/learning/py_challenge/The%20Python%20Challenge%203/" title="The Python Challenge Level-3 Solution">The Python Challenge Level-3 Solution</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-16T16:00:00.000Z" title="发表于 2016-09-17 00:00:00">2016-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/">Python</a></span></div><div class="content">先附上我在Github上存放的代码仓库: The Python Challenge
+这里按照题目意思，利用正则匹配，找到恰好分别被三个大写字母包在左右的小写字母就好1234567891011121314151617#! /usr/bin/env python3# -*- coding: utf-8 -*-__author__ = &#x27;Yuuki_Dach&#x27;from urllib import requestimport repyUrl = &#x27;http://www.pythonchallenge.com/pc/def/equality.html&#x27;req = request.Request(pyUrl)resp = request.urlopen(req)urlContent = resp.read()pattern = re.compile(b&#x27;[^A-Z][A-Z]&#123;3&#125;([a-z])[A-Z]&#123;3&#125;[^A-Z]&#x27;, re.S)contents = re.findall(pattern,  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/17/learning/py_challenge/The%20Python%20Challenge%206/" title="The Python Challenge Level-6 Solution">The Python Challenge Level-6 Solution</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-16T16:00:00.000Z" title="发表于 2016-09-17 00:00:00">2016-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/">Python</a></span></div><div class="content">先附上我在Github上存放的代码仓库: The Python Challenge
+这道题目开始让人很迷茫了（至少我是这样），先点开网页源码，没发现什么有价值等东西，然后又看看图片，发现右上角有个箭头，指着几个数字3，于是照着填进去了，发现没有链接，于是又跑去看源码，终于在开头发现了这个：1&lt;!-- &lt;-- zip --&gt;于是将’.html’替换成’.zip’，居然下载下来了一个压缩包，点开之后会发现有一个readme.txt，再继续点开，内容如下：1234welcome to my zipped list.hint1: start from 90052hint2: answer is inside the zip很明显，和前几题一样，就是按照90052这个数字找下去了，不过这次找的不是网页，而是文件。这里我们用zipfile这个模块来完成我们的需求1234567891011121314151617#! /usr/bin/env python3# -*- coding: utf-8 -*-__author__ = &#x27;Yuuki_Dach&#x27;impor ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/17/learning/py_challenge/The%20Python%20Challenge%205/" title="The Python Challenge Level-5 Solution">The Python Challenge Level-5 Solution</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-16T16:00:00.000Z" title="发表于 2016-09-17 00:00:00">2016-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/">Python</a></span></div><div class="content">先附上我在Github上存放的代码仓库: The Python Challenge
+先看提示:1pronounce it再看看网页源码，’peak hell’能代表什么？
+我一开始以为是’pick’什么东西，点开’banner.p’之后没发现什么规律，于是先google了一下’peak hell’，发现了Python有pickle这么一个模块，那么就必然和这个有关系了。
+pickle这个模块是python用来保存数据的，主要是loads和dumps方法的运用（这两个是对内存进行操作，如果要对硬盘进行操作，形成文件等形式，就是用load和dump），一个是读，一个是写，这里因为是直接从网页中获取数据，所以只要读就行了。
+读完能发现这实际上是一个list组，再仔细点观察的话，就会注意到每一个[]中，把’ ‘和’#’后跟着的数字加起来，恰好是95。于是可以估计，这应该是利用点阵的方式来进行显示，而点阵的一行，有95个字符。这样就有了如下代码：123456789101112131415161718#! /usr/bin/env python3# -*- coding: utf-8 -*-__a ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/15/learning/oj/--UVa%20OJ%201609%20-%20Foul%20Play--/" title="UVa OJ 1609 - Foul Play">UVa OJ 1609 - Foul Play</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-14T16:00:00.000Z" title="发表于 2016-09-15 00:00:00">2016-09-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/">编程练习</a></span></div><div class="content">Problemn支队伍(2≤n≤1024,且n是2的整数幂)打淘汰赛,每轮都是两两配对,胜者进入下一轮。每支队伍的实力固定,并且已知每两支队伍之间的一场比赛结果。你喜欢1号队。虽然它不一定是最强的,但是它可以直接打败其他队伍中的至少一半,并且对于每支1号队不能直接打败的队伍t,总是存在一支1号队能直接打败的队伍t’使得t’能直接打败t。问:是否存在一种比赛安排,使得1号队夺冠?
+InputFor each test case, the input is as follows:
+
+One line containing the number of teams n, where n is a power of two and 2 ≤ n ≤ 1024. Teams are numbered from 1 to n, where team 1 is your favourite team.
+
+n lines, each containing a string of n binary digits.The k-th digit on the j-th line is ‘1’ if team j ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/14/linux/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8Python3/" title="Ubuntu下使用Python3">Ubuntu下使用Python3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-13T16:00:00.000Z" title="发表于 2016-09-14 00:00:00">2016-09-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">这篇文章算是给初次在Ubuntu上使用Python编程的人一个提醒吧。
+使用方法首先我们要知道Ubuntu自带的是Python2，然而有很多人(比如我)在学习Python的时候希望使用Python3
+我们先使用1sudo apt install python3老版本Ubuntu请将 ‘apt’ 改为 ‘apt-get’
+安装好了Python3之后，我们想在终端中直接使用Python3，可是当我们输入 ‘python’之后，却发现还是Python2。这个时候其实很简单，只要在 ‘python’后面加个 ‘3’ 就好，具体如下:1python3 cmdcmd 是你自己的指令。这个时候我们就是使用Python3了
+Warning！！！不过我要说的不只是这些，而是这篇文章：在Ubuntu中安装Python3
+不推荐大家采用文章里的方式
+这篇文章开头写的很好，告诉我们Ubuntu很多底层采用的是Python2，当时后面居然让我们把link文件改掉。这样会导致Ubuntu的系统出现一些错误，比如安装软件失败。所以大家还是直接使用 ‘python3’ 这个命令就好，不要自找麻烦。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/10/linux/Ubuntu%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%85%8D%E7%BD%AE/" title="Ubuntu以太网已断开的解决办法">Ubuntu以太网已断开的解决办法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-09T16:00:00.000Z" title="发表于 2016-09-10 00:00:00">2016-09-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">有部分人在使用Ubuntu的时候可能会遇到和我一样的问题，就是以太网显示已断开，这面原因有很多，但是大多都是驱动问题。网上也有教程，亲测以后发现有些地方并不适用，这里我们就来谈谈这个问题。
+我的Ubuntu版本是16.04 LTS， 有线网卡是Realtek的装完系统以后以太网显示已断开，但是如果编辑连接的话，可以发现，其实是一直在使用的。真正原因，是网卡驱动不兼容的问题。Ubuntu自带的是r8169，而我需要的是r8168。因此，我们只需要安装上r8168就好了。
+但是网上虽然有比较好的教程，但是有一些瑕疵，不通用，有人会说自己找不到r8169.ko这个文件并删除。实际上，我们应该用find指令去找我们所需要的文件的位置，而不是完全照搬那些解决方法。
+下面开始谈谈解决方式：
+
+下载驱动并解压好
+ 去Realtek官网下载好r8168的驱动: 下载连接
+
+获取root权限
+1sudo su
+
+删除r8169模块
+12rmmod r8169mv /&#x27;-yourFile&#x27;/r8169.ko ~/r8169.ko.backup
+ 将’-yourFile’替换成具体的文件 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2016/09/10/learning/oj/--UVa%20OJ%201608%20-%20Non-boring%20sequences--/" title="UVa OJ 1608 - Non-boring sequences">UVa OJ 1608 - Non-boring sequences</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-09T16:00:00.000Z" title="发表于 2016-09-10 00:00:00">2016-09-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/">编程练习</a></span></div><div class="content">ProblemA sequence is called non-boring if its every connected subsequence contains a unique element, i.e. an element such that no other element of that subsequence has the same value.&emsp;&emsp;Given a sequence of integers, decide whether it is non-boring.
+InputThe first line of the input contains the number of test cases T. The descriptions of the test cases follow:&emsp;&emsp;Each test case starts with an integer n (1 ≤ n ≤ 200000) denoting the length of the sequence. In the next line the n e ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dash</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">76</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">38</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yuukidach"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">你好，我是 Dash，欢迎来到我的博客，希望你能在这里找到你想要的东西。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/10/10/config/easyconnect/" title="安全地使用Easy Connect">安全地使用Easy Connect</a><time datetime="2021-10-09T21:09:17.000Z" title="发表于 2021-10-10 05:09:17">2021-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/10/10/linux/unmute_problem/" title="Cannot Unmute With Keyboard">Cannot Unmute With Keyboard</a><time datetime="2021-10-09T20:40:37.000Z" title="发表于 2021-10-10 04:40:37">2021-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/20/learning/algorithm/mst/" title="最小生成树算法">最小生成树算法</a><time datetime="2021-01-20T00:08:26.000Z" title="发表于 2021-01-20 08:08:26">2021-01-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/07/learning/algorithm/floyd/" title="Floyd-Warshall 算法">Floyd-Warshall 算法</a><time datetime="2021-01-07T04:44:45.000Z" title="发表于 2021-01-07 12:44:45">2021-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/30/essay/migrate_to_hugo/" title="从HEXO迁移到HUGO"><img src="/2020/12/30/essay/migrate_to_hugo/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从HEXO迁移到HUGO"/></a><div class="content"><a class="title" href="/2020/12/30/essay/migrate_to_hugo/" title="从HEXO迁移到HUGO">从HEXO迁移到HUGO</a><time datetime="2020-12-30T01:32:31.000Z" title="发表于 2020-12-30 09:32:31">2020-12-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list expandBtn" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%AA%E6%80%A7%E5%8C%96/"><span class="card-category-list-name">个性化</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><span class="card-category-list-name">学习记录</span><span class="card-category-list-count">55</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/C-C/"><span class="card-category-list-name">C/C++</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Web/"><span class="card-category-list-name">Web</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><span class="card-category-list-name">嵌入式</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">机器学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">系统</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"><span class="card-category-list-name">编程练习</span><span class="card-category-list-count">34</span></a></li></ul></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">开发</span><span class="card-category-list-count">3</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91/Blog/"><span class="card-category-list-name">Blog</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">10</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/re/" style="font-size: 1.1em; color: #999">re</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/List/" style="font-size: 1.1em; color: #999">List</a> <a href="/tags/Algorithm/" style="font-size: 1.1em; color: #999">Algorithm</a> <a href="/tags/USB/" style="font-size: 1.1em; color: #999">USB</a> <a href="/tags/C/" style="font-size: 1.17em; color: #999c9f">C</a> <a href="/tags/Image-Processing/" style="font-size: 1.1em; color: #999">Image Processing</a> <a href="/tags/BFS/" style="font-size: 1.17em; color: #999c9f">BFS</a> <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" style="font-size: 1.1em; color: #999">单调队列</a> <a href="/tags/bz2/" style="font-size: 1.1em; color: #999">bz2</a> <a href="/tags/DAG/" style="font-size: 1.1em; color: #999">DAG</a> <a href="/tags/urllib/" style="font-size: 1.23em; color: #999ea6">urllib</a> <a href="/tags/Priority-Queue/" style="font-size: 1.1em; color: #999">Priority Queue</a> <a href="/tags/requests/" style="font-size: 1.1em; color: #999">requests</a> <a href="/tags/Shell/" style="font-size: 1.17em; color: #999c9f">Shell</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 1.1em; color: #999">迭代</a> <a href="/tags/Linux/" style="font-size: 1.17em; color: #999c9f">Linux</a> <a href="/tags/jQuery/" style="font-size: 1.1em; color: #999">jQuery</a> <a href="/tags/OJ/" style="font-size: 1.1em; color: #999">OJ</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.23em; color: #999ea6">正则表达式</a> <a href="/tags/PIL/" style="font-size: 1.23em; color: #999ea6">PIL</a> <a href="/tags/Binary-Search/" style="font-size: 1.17em; color: #999c9f">Binary Search</a> <a href="/tags/C/" style="font-size: 1.5em; color: #99a9bf">C++</a> <a href="/tags/STM32/" style="font-size: 1.1em; color: #999">STM32</a> <a href="/tags/IDA/" style="font-size: 1.1em; color: #999">IDA*</a> <a href="/tags/Divide-and-conquer/" style="font-size: 1.1em; color: #999">Divide and conquer</a> <a href="/tags/Oracle/" style="font-size: 1.1em; color: #999">Oracle</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/Makefile/" style="font-size: 1.1em; color: #999">Makefile</a> <a href="/tags/Python/" style="font-size: 1.37em; color: #99a4b2">Python</a> <a href="/tags/BytesIO/" style="font-size: 1.1em; color: #999">BytesIO</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 1.23em; color: #999ea6">Greedy Algorithm</a> <a href="/tags/Ubuntu/" style="font-size: 1.3em; color: #99a1ac">Ubuntu</a> <a href="/tags/DP/" style="font-size: 1.43em; color: #99a6b9">DP</a> <a href="/tags/C-C/" style="font-size: 1.1em; color: #999">C/C++</a> <a href="/tags/Hash/" style="font-size: 1.1em; color: #999">Hash</a> <a href="/tags/zipfile/" style="font-size: 1.1em; color: #999">zipfile</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">四月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/02/"><span class="card-archive-list-date">二月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">76</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-20T14:50:07.606Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/banner.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2024 By Dash</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
